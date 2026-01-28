@@ -55,7 +55,7 @@ export function Hero() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex flex-col sm:flex-row gap-4 mb-10"
             >
-              <Link href="/signup" className="btn btn-primary btn-lg group">
+              <Link href="https://apps.shopify.com/glimpse-app?search_id=0a3368ea-475d-43f7-9c29-34c4325d4bd7&surface_detail=gleame&surface_inter_position=1&surface_intra_position=5&surface_type=search" className="btn btn-primary btn-lg group">
                 Start free trial
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
@@ -99,101 +99,49 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right Visual - Browser Mockup with Product Page Widget */}
+          {/* Right Visual - Laptop with Pureskin Screenshot */}
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             className="relative"
           >
-            {/* Browser Frame */}
-            <div className="relative mx-auto max-w-[580px] rounded-xl shadow-2xl shadow-gray-900/10 overflow-hidden border border-gray-200">
-              {/* Browser Header */}
-              <div className="flex items-center gap-2 px-4 py-3 bg-gray-100 border-b border-gray-200">
-                <div className="flex items-center gap-1.5">
-                  <div className="w-3 h-3 rounded-full bg-red-400" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                  <div className="w-3 h-3 rounded-full bg-green-400" />
-                </div>
-                <div className="flex-1 mx-4">
-                  <div className="bg-white rounded-md px-3 py-1.5 text-xs text-gray-400 font-light text-center">
-                    yourstore.com/products/glow-serum
+            {/* Laptop Frame */}
+            <div className="relative mx-auto max-w-[600px]">
+              {/* Screen */}
+              <div className="relative rounded-t-xl bg-gray-800 p-2">
+                {/* Browser Chrome */}
+                <div className="rounded-lg overflow-hidden bg-white">
+                  {/* Browser Header */}
+                  <div className="flex items-center gap-2 px-3 py-2 bg-gray-100 border-b border-gray-200">
+                    <div className="flex items-center gap-1.5">
+                      <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
+                    </div>
+                    <div className="flex-1 mx-3">
+                      <div className="bg-white rounded px-3 py-1 text-[10px] text-gray-400 font-light text-center">
+                        pureskin.com/products
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Screenshot Content */}
+                  <div className="relative">
+                    <img 
+                      src="/pureskin.png" 
+                      alt="Gleame widget demo on product page" 
+                      className="w-full h-auto"
+                    />
                   </div>
                 </div>
               </div>
               
-              {/* Product Page Content */}
-              <div className="bg-white p-5">
-                {/* Product Info Header */}
-                <div className="mb-4">
-                  <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">Skincare</p>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-1">Radiance Glow Serum</h3>
-                  <div className="flex items-center gap-2">
-                    <div className="flex items-center gap-0.5">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />
-                      ))}
-                    </div>
-                    <span className="text-xs text-gray-500">248 Reviews</span>
-                  </div>
-                </div>
-
-                {/* Price */}
-                <div className="flex items-baseline gap-2 mb-5">
-                  <span className="text-2xl font-semibold text-gray-900">$49</span>
-                  <span className="text-sm text-gray-400 line-through">$65</span>
-                  <span className="text-xs font-medium text-green-600 bg-green-50 px-2 py-0.5 rounded">25% OFF</span>
-                </div>
-
-                {/* Gleame Widget */}
-                <div className="border border-gray-200 rounded-xl p-4 bg-gray-50/50">
-                  <div className="flex items-center justify-between mb-3">
-                    <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wide">Try It Virtually</h4>
-                    <span className="text-[10px] text-primary font-medium">Powered by Gleame</span>
-                  </div>
-                  
-                  <p className="text-xs text-gray-500 mb-4">
-                    Upload an image of yourself and see your transformation with the Radiance Glow Serum!
-                  </p>
-
-                  {/* Before/After Preview */}
-                  <div className="flex gap-3 mb-4">
-                    <div className="flex-1 relative">
-                      <div className="aspect-square rounded-lg bg-gradient-to-br from-rose-100 to-rose-200 overflow-hidden">
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="w-16 h-20 rounded-full bg-gradient-to-b from-amber-200 to-amber-300" />
-                        </div>
-                      </div>
-                      <span className="absolute bottom-2 left-2 text-[10px] font-medium text-gray-600 bg-white/80 px-2 py-0.5 rounded">Before</span>
-                    </div>
-                    <div className="flex-1 relative">
-                      <div className="aspect-square rounded-lg bg-gradient-to-br from-pink-100 to-purple-100 overflow-hidden">
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="w-16 h-20 rounded-full bg-gradient-to-b from-amber-100 to-amber-200 shadow-lg shadow-pink-200/50" />
-                        </div>
-                      </div>
-                      <span className="absolute bottom-2 left-2 text-[10px] font-medium text-white bg-primary/80 px-2 py-0.5 rounded">After</span>
-                    </div>
-                  </div>
-
-                  {/* Upload Button */}
-                  <button className="w-full py-3 border-2 border-dashed border-gray-300 rounded-lg text-sm font-medium text-gray-600 hover:border-primary hover:text-primary transition-colors flex items-center justify-center gap-2">
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                    Upload a Photo
-                  </button>
-                  
-                  <p className="text-[10px] text-gray-400 text-center mt-2">
-                    Results are AI-generated. Images are never saved.
-                  </p>
-                </div>
-
-                {/* Add to Cart Button */}
-                <button className="w-full mt-4 py-3 bg-gray-900 text-white rounded-lg text-sm font-medium">
-                  Add to Cart — $49
-                </button>
+              {/* Laptop Base */}
+              <div className="relative h-4 bg-gradient-to-b from-gray-700 to-gray-800 rounded-b-lg">
+                <div className="absolute left-1/2 -translate-x-1/2 top-0 w-16 h-1 bg-gray-600 rounded-b" />
               </div>
+              <div className="relative h-2 bg-gray-800 rounded-b-xl mx-8 shadow-xl" />
             </div>
           </motion.div>
         </div>

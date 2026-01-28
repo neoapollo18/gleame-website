@@ -119,8 +119,8 @@ export function PricingCards() {
             ))}
           </ul>
 
-          <Link
-            href={plan.price !== null ? "/signup" : "/contact"}
+<Link
+            href={plan.price !== null ? "https://apps.shopify.com/glimpse-app?search_id=0a3368ea-475d-43f7-9c29-34c4325d4bd7&surface_detail=gleame&surface_inter_position=1&surface_intra_position=5&surface_type=search" : "/contact"}
             className={cn(
               "btn btn-lg w-full",
               plan.popular ? "btn-primary" : "btn-secondary"
