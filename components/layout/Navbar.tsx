@@ -28,7 +28,7 @@ export function Navbar() {
   return (
     <>
       {/* Announcement Bar */}
-      <div className="bg-primary text-white text-[13px] py-2.5 px-4 text-center font-light">
+      <div className="bg-primary text-white text-[13px] py-2.5 px-5 text-center font-light">
         <p className="flex items-center justify-center gap-2">
           <span className="hidden sm:inline">Now available on the Shopify App Store</span>
           <span className="sm:hidden">Now on Shopify</span>
@@ -56,7 +56,7 @@ export function Navbar() {
               </div>
               <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary to-primary-light blur-lg opacity-40 group-hover:opacity-60 transition-opacity" />
             </div>
-            <span className="text-xl font-semibold text-gray-900 tracking-tight">Gleame</span>
+        
           </Link>
 
           {/* Desktop Navigation */}
@@ -65,7 +65,7 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-gray-500 hover:text-gray-900 font-normal text-[15px] transition-colors"
+                className="text-gray-500 hover:text-gray-900 font-normal text-[14px] transition-colors"
               >
                 {link.label}
               </Link>
@@ -76,13 +76,13 @@ export function Navbar() {
           <div className="hidden lg:flex items-center gap-4">
             <Link
               href="/login"
-              className="text-gray-500 hover:text-gray-900 font-normal text-[15px] transition-colors"
+              className="text-gray-500 hover:text-gray-900 font-normal text-[14px] transition-colors"
             >
               Log in
             </Link>
 <Link
               href="https://apps.shopify.com/glimpse-app?search_id=0a3368ea-475d-43f7-9c29-34c4325d4bd7&surface_detail=gleame&surface_inter_position=1&surface_intra_position=5&surface_type=search"
-              className="btn btn-primary btn-md text-[15px] font-medium"
+              className="btn btn-primary btn-md text-[14px] font-medium"
             >
               Start free trial
             </Link>

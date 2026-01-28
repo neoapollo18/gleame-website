@@ -80,21 +80,13 @@ export function Hero() {
                   />
                 ))}
                 <span className="ml-2 text-sm font-medium text-gray-600">
-                  4.9/5
+                  5.0/5
                 </span>
               </div>
               <span className="text-sm text-gray-400 font-light">
-                500+ brands trust Gleame
+                Dozens of brands trust Gleame
               </span>
               <div className="flex items-center gap-2">
-                <svg
-                  viewBox="0 0 24 24"
-                  className="w-5 h-5 text-[#96BF47]"
-                  fill="currentColor"
-                >
-                  <path d="M15.337 3.415c-.193-.016-.389.024-.553.128-.163.104-.282.261-.337.449l-1.13 3.882-3.964.011c-.2 0-.391.085-.527.233-.136.148-.203.347-.183.545.02.199.119.383.273.508l3.203 2.593-1.143 3.879c-.058.198-.03.41.078.585.107.175.28.298.475.34.195.041.398-.002.559-.12l3.255-2.39 3.254 2.39c.161.118.364.161.559.12.195-.042.368-.165.475-.34.108-.175.136-.387.078-.585l-1.143-3.879 3.203-2.593c.154-.125.253-.309.273-.508.02-.198-.047-.397-.183-.545-.136-.148-.327-.233-.527-.233l-3.964-.011-1.13-3.882c-.055-.188-.174-.345-.337-.449-.163-.104-.36-.144-.553-.128z" />
-                </svg>
-                <span className="text-sm text-gray-400 font-light">Shopify Partner</span>
               </div>
             </motion.div>
           </div>
