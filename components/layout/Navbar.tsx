@@ -73,7 +73,7 @@ export function Navbar() {
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-4">
             <Link
-              href="/login"
+              href="https://admin.shopify.com"
               className="text-gray-500 hover:text-gray-900 font-normal text-[14px] transition-colors"
             >
               Log in
@@ -123,7 +123,7 @@ export function Navbar() {
                 ))}
                 <div className="pt-4 border-t border-gray-100 space-y-3">
                   <Link
-                    href="/login"
+                    href="https://admin.shopify.com"
                     className="block text-center text-gray-600 hover:text-gray-900 font-medium py-2"
                   >
                     Log in

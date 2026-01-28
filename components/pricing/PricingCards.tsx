@@ -10,11 +10,11 @@ const plans = [
   { name: "Growth", minSessions: 25000, maxSessions: 75000, price: 399 },
   { name: "Scale", minSessions: 75000, maxSessions: 200000, price: 799 },
   { name: "Premium", minSessions: 200000, maxSessions: 500000, price: 1499 },
-  { name: "Enterprise", minSessions: 500000, maxSessions: 1000000, price: null },
+  { name: "Enterprise", minSessions: 500000, maxSessions: 500001, price: null },
 ];
 
 function formatSessions(num: number): string {
-  if (num >= 1000000) return "1M+";
+  if (num >= 500000) return "500k+";
   if (num >= 1000) return `${num / 1000}k`;
   return num.toString();
 }
@@ -32,12 +32,16 @@ export function PricingCards() {
   const [sessions, setSessions] = useState(25000);
   const currentPlan = getPlanForSessions(sessions);
 
-  const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSessions(parseInt(e.target.value));
+  // Calculate slider position percentage for the gradient (non-linear to match tier markers)
+  const getSliderPercentage = (value: number): number => {
+    // Markers: 0 (0%), 5k (20%), 25k (40%), 75k (60%), 200k (80%), 500k (100%)
+    if (value <= 5000) return (value / 5000) * 20;
+    if (value <= 25000) return 20 + ((value - 5000) / 20000) * 20;
+    if (value <= 75000) return 40 + ((value - 25000) / 50000) * 20;
+    if (value <= 200000) return 60 + ((value - 75000) / 125000) * 20;
+    return 80 + ((value - 200000) / 300000) * 20;
   };
-
-  // Calculate slider position percentage for the gradient
-  const sliderPercentage = (sessions / 1000000) * 100;
+  const sliderPercentage = getSliderPercentage(sessions);
 
   return (
     <div className="max-w-3xl mx-auto">
@@ -58,10 +62,20 @@ export function PricingCards() {
           <input
             type="range"
             min="0"
-            max="1000000"
-            step="1000"
-            value={sessions}
-            onChange={handleSliderChange}
+            max="100"
+            step="1"
+            value={sliderPercentage}
+            onChange={(e) => {
+              // Convert slider percentage back to sessions (inverse of getSliderPercentage)
+              const pct = parseFloat(e.target.value);
+              let newSessions: number;
+              if (pct <= 20) newSessions = (pct / 20) * 5000;
+              else if (pct <= 40) newSessions = 5000 + ((pct - 20) / 20) * 20000;
+              else if (pct <= 60) newSessions = 25000 + ((pct - 40) / 20) * 50000;
+              else if (pct <= 80) newSessions = 75000 + ((pct - 60) / 20) * 125000;
+              else newSessions = 200000 + ((pct - 80) / 20) * 300000;
+              setSessions(Math.round(newSessions / 1000) * 1000);
+            }}
             className="w-full h-3 bg-gray-200 rounded-full appearance-none cursor-pointer slider-thumb"
             style={{
               background: `linear-gradient(to right, #7c3aed 0%, #7c3aed ${sliderPercentage}%, #e5e7eb ${sliderPercentage}%, #e5e7eb 100%)`
