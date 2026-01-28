@@ -11,16 +11,16 @@ const steps = [
     description:
       "Add Gleame to your Shopify store with one click. No coding or technical setup required.",
     visual: (
-      <div className="bg-gray-900 rounded-xl p-4 w-full max-w-xs">
+      <div className="bg-gray-900 rounded-xl p-4 w-full max-w-[240px] h-[140px] flex flex-col">
         <div className="flex items-center gap-2 mb-4">
-          <div className="w-3 h-3 rounded-full bg-red-500" />
-          <div className="w-3 h-3 rounded-full bg-yellow-500" />
-          <div className="w-3 h-3 rounded-full bg-green-500" />
+          <div className="w-2.5 h-2.5 rounded-full bg-red-500" />
+          <div className="w-2.5 h-2.5 rounded-full bg-yellow-500" />
+          <div className="w-2.5 h-2.5 rounded-full bg-green-500" />
         </div>
-        <div className="space-y-3">
-          <div className="flex items-center justify-center gap-3 text-white py-4">
-            <span className="text-2xl">📦</span>
-            <span className="font-medium">Installing Gleame...</span>
+        <div className="flex-1 flex flex-col justify-center space-y-3">
+          <div className="flex items-center justify-center gap-3 text-white">
+            <img src="/Gleame.jpg" alt="Gleame" className="w-6 h-6 rounded" />
+            <span className="font-medium text-sm">Installing Gleame...</span>
           </div>
           <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
             <motion.div
@@ -40,25 +40,23 @@ const steps = [
     icon: Sliders,
     title: "Customize & configure",
     description:
-      "Match your brand with custom colors, fonts, and layouts. Set AI parameters for perfect results.",
+      "Match your brand with custom colors, fonts, and layouts. Configure your product to our widget.",
     visual: (
-      <div className="bg-white rounded-xl border border-gray-200 p-4 w-full max-w-xs shadow-lg">
-        <div className="space-y-4">
+      <div className="bg-white rounded-xl border border-gray-200 p-4 w-full max-w-[240px] h-[140px] shadow-lg flex flex-col justify-center">
+        <div className="space-y-3">
           <div className="flex items-center justify-between">
             <span className="text-sm text-gray-600">Primary Color</span>
-            <div className="w-8 h-8 rounded-lg bg-primary shadow-inner" />
+            <div className="w-7 h-7 rounded-lg bg-primary shadow-inner" />
           </div>
-          <div className="flex items-center justify-between">
-            <span className="text-sm text-gray-600">Button Style</span>
-            <span className="text-sm font-medium text-gray-900 bg-gray-100 px-3 py-1 rounded-md">
-              Rounded
+          <div className="flex items-center justify-between gap-4">
+            <span className="text-[14px] text-gray-600">Button Style</span>
+            <span className="text-[10px] font-medium text-gray-700 border border-gray-300 px-2 py-0.5 rounded">
+              Outlined
             </span>
           </div>
-          <div className="space-y-2">
-            <span className="text-sm text-gray-600">AI Intensity</span>
-            <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
-              <div className="h-full w-3/4 bg-gradient-to-r from-primary to-primary-light rounded-full" />
-            </div>
+          <div className="flex items-center justify-between gap-4">
+            <span className="text-[14px] text-gray-600">Corner Radius</span>
+            <span className="text-[13px] font-medium text-gray-500">12px</span>
           </div>
         </div>
       </div>
@@ -71,8 +69,8 @@ const steps = [
     description:
       "See immediate results as shoppers gain confidence and complete their purchases.",
     visual: (
-      <div className="bg-white rounded-xl border border-gray-200 p-4 w-full max-w-xs shadow-lg">
-        <div className="flex items-end justify-between gap-2 h-32">
+      <div className="bg-white rounded-xl border border-gray-200 p-4 w-full max-w-[240px] h-[140px] shadow-lg flex flex-col">
+        <div className="flex-1 flex items-end justify-between gap-2">
           {[40, 55, 45, 70, 85, 95].map((height, i) => (
             <motion.div
               key={i}

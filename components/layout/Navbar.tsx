@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -28,7 +28,7 @@ export function Navbar() {
   return (
     <>
       {/* Announcement Bar */}
-      <div className="bg-primary text-white text-[13px] py-2.5 px-5 text-center font-light">
+      <div className="bg-primary text-white text-[12.5px] py-2 px-5 text-center font-light">
         <p className="flex items-center justify-center gap-2">
           <span className="hidden sm:inline">Now available on the Shopify App Store</span>
           <span className="sm:hidden">Now on Shopify</span>
@@ -49,14 +49,12 @@ export function Navbar() {
       >
         <nav className="container flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="relative">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary to-primary-light flex items-center justify-center">
-                <Sparkles className="w-5 h-5 text-white" />
-              </div>
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary to-primary-light blur-lg opacity-40 group-hover:opacity-60 transition-opacity" />
-            </div>
-        
+          <Link href="/" className="flex items-center">
+            <img 
+              src="/Gleame.jpg" 
+              alt="Gleame" 
+              className="h-8 w-auto rounded-md"
+            />
           </Link>
 
           {/* Desktop Navigation */}
