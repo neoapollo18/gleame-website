@@ -51,7 +51,7 @@ export function CTA() {
             transition={{ delay: 0.1 }}
             className="text-lg lg:text-xl text-white/70 mb-10 font-light"
           >
-            Join 500+ beauty brands using Gleame to boost confidence and
+            Join dozens of beauty brands using Gleame to boost confidence and
             conversions.
           </motion.p>
 
@@ -84,7 +84,7 @@ export function CTA() {
             transition={{ delay: 0.3 }}
             className="text-white/60 text-sm"
           >
-            14-day free trial • No credit card required • Setup in minutes
+            14-day free trial • Setup in minutes
           </motion.p>
         </div>
       </div>

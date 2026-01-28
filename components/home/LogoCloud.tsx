@@ -3,12 +3,12 @@
 import { motion } from "framer-motion";
 
 const brands = [
-  "Glossier",
-  "Fenty Beauty",
-  "The Ordinary",
-  "Charlotte Tilbury",
-  "Drunk Elephant",
-  "Tatcha",
+  "BioTech Beauty",
+  "Men Pens",
+  "Haven",
+  "Wett Skincare",
+  "Holicow",
+  "Pureskin",
 ];
 
 export function LogoCloud() {

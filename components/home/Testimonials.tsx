@@ -3,11 +3,6 @@
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 
-const metrics = [
-  { value: "2M+", label: "Try-ons generated" },
-  { value: "500+", label: "Brands trust us" },
-  { value: "32%", label: "Avg. CVR increase" },
-];
 
 export function Testimonials() {
   return (
@@ -19,7 +14,7 @@ export function Testimonials() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative bg-gradient-to-br from-primary-50 to-white rounded-3xl p-8 lg:p-12 border border-primary-100 mb-16"
+            className="relative bg-gradient-to-br from-primary-50 to-white rounded-3xl p-8 lg:p-12 border border-primary-100 mb-8"
           >
             {/* Quote icon */}
             <div className="absolute -top-6 left-8 w-12 h-12 rounded-xl bg-primary flex items-center justify-center shadow-lg">
@@ -27,22 +22,18 @@ export function Testimonials() {
             </div>
 
             <blockquote className="text-xl lg:text-2xl text-gray-600 leading-relaxed mb-8 pt-4 font-light">
-              &ldquo;Gleame transformed our online experience. Customers love being
-              able to see how products will look on them before buying.{" "}
+              &ldquo;Such a helpful tool for showcasing before/afters on potential customers! We&apos;ve implemented both skincare results and makeup try-ons for a wide variety of shades, and{" "}
               <span className="text-primary font-medium">
-                Our conversion rate increased by 41% in the first month.
-              </span>
-              &rdquo;
+                the technology demonstrates perfectly what our products will look like on our customers—both immediately and over time.
+              </span>{" "}
+              The app is incredibly easy to implement and the developers are super helpful and responsive. Highly recommend!!&rdquo;
             </blockquote>
 
             <div className="flex items-center gap-4">
-              <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-white font-bold text-lg">
-                SK
-              </div>
               <div>
-                <p className="font-semibold text-gray-900">Sarah Kim</p>
+                <p className="font-semibold text-gray-900">BiotechBeauty</p>
                 <p className="text-gray-500">
-                  Head of E-Commerce, Luminous Beauty
+                  United States • 3 months using the app
                 </p>
               </div>
               <div className="ml-auto flex items-center gap-1">
@@ -55,25 +46,6 @@ export function Testimonials() {
               </div>
             </div>
           </motion.div>
-
-          {/* Trust Metrics */}
-          <div className="grid sm:grid-cols-3 gap-8">
-            {metrics.map((metric, index) => (
-              <motion.div
-                key={metric.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="text-center"
-              >
-                <p className="text-4xl lg:text-5xl font-semibold gradient-text mb-2">
-                  {metric.value}
-                </p>
-                <p className="text-gray-500 font-light">{metric.label}</p>
-              </motion.div>
-            ))}
-          </div>
 
           {/* Trust badges */}
           <motion.div
@@ -93,7 +65,7 @@ export function Testimonials() {
                 ))}
               </div>
               <span className="text-sm font-medium text-gray-700">
-                4.9 on Shopify
+                5.0 on Shopify
               </span>
             </div>
             <div className="w-px h-6 bg-gray-200" />
@@ -109,12 +81,7 @@ export function Testimonials() {
                 Shopify Partner
               </span>
             </div>
-            <div className="w-px h-6 bg-gray-200" />
             <div className="flex items-center gap-2">
-              <span className="text-lg">🏆</span>
-              <span className="text-sm font-medium text-gray-700">
-                Top Rated Beauty App 2026
-              </span>
             </div>
           </motion.div>
         </div>

@@ -7,10 +7,10 @@ import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { href: "#features", label: "Features" },
-  { href: "#how-it-works", label: "How it works" },
+  { href: "/#features", label: "Features" },
+  { href: "/#how-it-works", label: "How it works" },
   { href: "/pricing", label: "Pricing" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/#faq", label: "FAQ" },
 ];
 
 export function Navbar() {

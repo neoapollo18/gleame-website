@@ -2,15 +2,39 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MessageSquare, Building2, Send, CheckCircle } from "lucide-react";
+import { Mail, MessageSquare, Building2, Send, CheckCircle, Loader2 } from "lucide-react";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // In a real app, this would submit to an API
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+
+    const formData = new FormData(e.currentTarget);
+    
+    try {
+      const response = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        setError("Something went wrong. Please try again.");
+      }
+    } catch {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -25,13 +49,6 @@ export default function ContactPage() {
 
         <div className="container relative">
           <div className="max-w-3xl mx-auto text-center">
-            <motion.span
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="inline-block px-4 py-1.5 bg-primary-100 text-primary-600 rounded-full text-sm font-medium mb-4"
-            >
-              Contact
-            </motion.span>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -105,7 +122,7 @@ export default function ContactPage() {
                         General inquiries
                       </h3>
                       <p className="text-gray-600 text-sm">
-                        hello@gleame.io
+                        aaron@gleame.ai
                         <br />
                         We respond within 24 hours.
                       </p>
@@ -246,9 +263,26 @@ export default function ContactPage() {
                       />
                     </div>
 
-                    <button type="submit" className="btn btn-primary btn-lg w-full">
-                      Send message
-                      <Send className="w-5 h-5" />
+                    {error && (
+                      <p className="text-red-600 text-sm mb-4 text-center">{error}</p>
+                    )}
+
+                    <button 
+                      type="submit" 
+                      className="btn btn-primary btn-lg w-full"
+                      disabled={loading}
+                    >
+                      {loading ? (
+                        <>
+                          <Loader2 className="w-5 h-5 animate-spin" />
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          Send message
+                          <Send className="w-5 h-5" />
+                        </>
+                      )}
                     </button>
 
                     <p className="text-sm text-gray-500 text-center mt-4">
