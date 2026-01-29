@@ -34,8 +34,8 @@ export function Hero() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-4xl sm:text-5xl lg:text-display-lg font-semibold text-gray-900 mb-6 tracking-tight"
             >
-              Turn browsers into buyers with{" "}
-              <span className="gradient-text">AI previews</span>
+              Before & After    <br /> {" "}
+              <span className="gradient-text"> AI previews</span>
             </motion.h1>
 
             <motion.p
@@ -44,9 +44,7 @@ export function Hero() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-lg sm:text-xl text-gray-500 mb-8 leading-relaxed font-light"
             >
-              Eliminate purchase anxiety and increase conversions with realistic
-              before-and-after visualizations for beauty products. Let shoppers
-              see their transformation instantly.
+              Increase conversions with realistic before-and-after visualizations for Shopify-native beauty & cosmetics products.
             </motion.p>
 
             <motion.div
@@ -83,9 +81,6 @@ export function Hero() {
                   5.0/5
                 </span>
               </div>
-              <span className="text-sm text-gray-400 font-light">
-                Dozens of brands trust Gleame
-              </span>
               <div className="flex items-center gap-2">
               </div>
             </motion.div>

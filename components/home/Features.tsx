@@ -34,7 +34,7 @@ export function Features() {
             transition={{ delay: 0.1 }}
             className="text-3xl sm:text-4xl lg:text-display-sm font-semibold text-gray-900 mb-4 tracking-tight"
           >
-            Everything you need to boost confidence & conversions
+            Everything you need to increase your conversions
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
