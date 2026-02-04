@@ -3,28 +3,11 @@ import Image from "next/image";
 
 const footerLinks = {
   product: [
-    { href: "#features", label: "Features" },
+    { href: "/features", label: "Features" },
     { href: "/pricing", label: "Pricing" },
-    { href: "#", label: "Integrations" },
-    { href: "#", label: "Changelog" },
-  ],
-  resources: [
-    { href: "#", label: "Documentation" },
-    { href: "#", label: "Help Center" },
-    { href: "#", label: "Blog" },
-    { href: "#", label: "Case Studies" },
   ],
   company: [
-    { href: "#", label: "About" },
-    { href: "#", label: "Careers" },
     { href: "/contact", label: "Contact" },
-    { href: "#", label: "Partners" },
-  ],
-  legal: [
-    { href: "#", label: "Privacy Policy" },
-    { href: "#", label: "Terms of Service" },
-    { href: "#", label: "Cookie Policy" },
-    { href: "#", label: "GDPR" },
   ],
 };
 
@@ -53,7 +36,7 @@ export function Footer() {
   return (
     <footer className="bg-gray-50 border-t border-gray-100">
       <div className="container py-16 lg:py-20">
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-8 lg:gap-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand Column */}
           <div className="col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-4">
@@ -75,6 +58,8 @@ export function Footer() {
                 <a
                   key={social.name}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-gray-400 hover:text-gray-600 transition-colors"
                   aria-label={social.name}
                 >
@@ -89,23 +74,6 @@ export function Footer() {
             <h4 className="font-medium text-gray-900 mb-4 text-sm">Product</h4>
             <ul className="space-y-3">
               {footerLinks.product.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-400 hover:text-gray-600 text-sm font-light transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Resources */}
-          <div>
-            <h4 className="font-medium text-gray-900 mb-4 text-sm">Resources</h4>
-            <ul className="space-y-3">
-              {footerLinks.resources.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
@@ -134,38 +102,13 @@ export function Footer() {
               ))}
             </ul>
           </div>
-
-          {/* Legal */}
-          <div>
-            <h4 className="font-medium text-gray-900 mb-4 text-sm">Legal</h4>
-            <ul className="space-y-3">
-              {footerLinks.legal.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-400 hover:text-gray-600 text-sm font-light transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-gray-500 text-sm">
+        <div className="mt-12 pt-8 border-t border-gray-200">
+          <p className="text-gray-500 text-sm text-center">
             © {new Date().getFullYear()} Gleame. All rights reserved.
           </p>
-          <div className="flex items-center gap-4">
-            <span className="inline-flex items-center gap-1.5 text-xs text-gray-500 bg-gray-100 px-3 py-1.5 rounded-full">
-              <span>🔒</span> SOC 2 Compliant
-            </span>
-            <span className="inline-flex items-center gap-1.5 text-xs text-gray-500 bg-gray-100 px-3 py-1.5 rounded-full">
-              <span>🇪🇺</span> GDPR Ready
-            </span>
-          </div>
         </div>
       </div>
     </footer>
