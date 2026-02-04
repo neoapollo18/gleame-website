@@ -73,12 +73,6 @@ export function Navbar() {
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-4">
             <Link
-              href="https://admin.shopify.com"
-              className="text-gray-500 hover:text-gray-900 font-normal text-[14px] transition-colors"
-            >
-              Log in
-            </Link>
-<Link
               href="https://apps.shopify.com/glimpse-app?search_id=0a3368ea-475d-43f7-9c29-34c4325d4bd7&surface_detail=gleame&surface_inter_position=1&surface_intra_position=5&surface_type=search"
               className="btn btn-primary btn-md text-[14px] font-medium"
             >
@@ -121,14 +115,8 @@ export function Navbar() {
                     {link.label}
                   </Link>
                 ))}
-                <div className="pt-4 border-t border-gray-100 space-y-3">
+                <div className="pt-4 border-t border-gray-100">
                   <Link
-                    href="https://admin.shopify.com"
-                    className="block text-center text-gray-600 hover:text-gray-900 font-medium py-2"
-                  >
-                    Log in
-                  </Link>
-<Link
                     href="https://apps.shopify.com/glimpse-app?search_id=0a3368ea-475d-43f7-9c29-34c4325d4bd7&surface_detail=gleame&surface_inter_position=1&surface_intra_position=5&surface_type=search"
                     className="btn btn-primary btn-md w-full"
                   >
