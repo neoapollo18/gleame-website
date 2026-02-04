@@ -43,7 +43,7 @@ export function Features() {
             transition={{ delay: 0.2 }}
             className="text-lg text-gray-500 font-light"
           >
-            Powerful AI visualization tools designed specifically for beauty and
+            AI visualization widgets designed specifically for beauty and
             cosmetics brands
           </motion.p>
         </div>
