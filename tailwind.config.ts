@@ -52,6 +52,7 @@ const config: Config = {
         "float-slow": "float 8s ease-in-out infinite",
         "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         "gradient": "gradient 8s ease infinite",
+        "scroll": "scroll 30s linear infinite",
       },
       keyframes: {
         float: {
@@ -61,6 +62,10 @@ const config: Config = {
         gradient: {
           "0%, 100%": { backgroundPosition: "0% 50%" },
           "50%": { backgroundPosition: "100% 50%" },
+        },
+        scroll: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
         },
       },
       backgroundImage: {
