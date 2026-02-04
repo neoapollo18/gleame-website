@@ -51,7 +51,7 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <img 
-              src="/Gleame.jpg" 
+              src="/gleame2.png" 
               alt="Gleame" 
               className="h-8 w-auto rounded-md"
             />
