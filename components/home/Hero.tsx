@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Play, Star } from "lucide-react";
+import { ArrowRight, Calendar, Star } from "lucide-react";
 
 export function Hero() {
   return (
@@ -57,10 +57,15 @@ export function Hero() {
                 Start free trial
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
-              <button className="btn btn-ghost btn-lg group">
-                <Play className="w-5 h-5 text-primary" />
-                Watch demo
-              </button>
+              <Link 
+                href="https://calendly.com/aaron-gleame/gleame-discovery-call"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-ghost btn-lg group"
+              >
+                <Calendar className="w-5 h-5 text-primary" />
+                Book Demo
+              </Link>
             </motion.div>
 
             {/* Trust indicators */}

@@ -11,7 +11,10 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Gleame - AI Virtual Try-On for Beauty & Cosmetics | Shopify App",
+  title: {
+    default: "Gleame - AI Virtual Try-On for Beauty & Cosmetics | Shopify App",
+    template: "%s | Gleame",
+  },
   description:
     "Increase CVR and confidence with realistic AI before-and-after previews. Let shoppers visualize their transformation and test shades instantly.",
   keywords: [
@@ -21,7 +24,50 @@ export const metadata: Metadata = {
     "shopify app",
     "before after",
     "shade matching",
+    "makeup try on",
+    "skincare visualization",
+    "beauty ecommerce",
+    "AR beauty",
   ],
+  authors: [{ name: "Gleame" }],
+  creator: "Gleame",
+  metadataBase: new URL("https://gleame.ai"), // Replace with your actual domain
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://gleame.ai",
+    siteName: "Gleame",
+    title: "Gleame - AI Virtual Try-On for Beauty & Cosmetics",
+    description:
+      "Increase CVR and confidence with realistic AI before-and-after previews. Let shoppers visualize their transformation and test shades instantly.",
+    images: [
+      {
+        url: "/Gleame.jpg",
+        alt: "Gleame - AI Virtual Try-On",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gleame - AI Virtual Try-On for Beauty & Cosmetics",
+    description:
+      "Increase CVR and confidence with realistic AI before-and-after previews.",
+    images: ["/gleamegradient.jpg"],
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({
