@@ -23,12 +23,12 @@ const caseStudies = [
     href: "/case-studies/holicow",
   },
   {
-    brand: "Coming Soon",
-    image: null,
-    stat: "",
-    description: "New case study dropping soon. Stay tuned.",
-    href: "#",
-    placeholder: true,
+    brand: "Haven",
+    image: "/havencasestudy.png",
+    stat: "+106% lift in CVR",
+    description:
+      "How Haven more than doubled their conversion rate with personalized skin transformation previews.",
+    href: "/case-studies/haven",
   },
 ];
 
