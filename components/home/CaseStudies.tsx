@@ -77,57 +77,41 @@ export function CaseStudies() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
             >
-              {study.placeholder ? (
-                <div className="relative group rounded-2xl border border-dashed border-gray-300 bg-white overflow-hidden h-full flex flex-col items-center justify-center min-h-[420px]">
-                  <div className="text-center p-8">
-                    <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center mx-auto mb-4">
-                      <span className="text-gray-400 text-lg">?</span>
-                    </div>
-                    <h3 className="text-lg font-semibold text-gray-400 mb-2">
+              <Link href={study.href} className="block h-full">
+                <div className="relative group rounded-2xl border border-gray-200 bg-white overflow-hidden hover:border-primary-200 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 h-full flex flex-col shadow-sm">
+                  {/* Image */}
+                  <div className="relative overflow-hidden aspect-[4/3]">
+                    <Image
+                      src={study.image}
+                      alt={`${study.brand} case study`}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    {/* Stat badge */}
+                    {study.stat && (
+                      <div className="absolute top-4 left-4">
+                        <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold bg-white/95 backdrop-blur-sm text-primary shadow-sm">
+                          {study.stat}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6 flex flex-col flex-1">
+                    <h3 className="text-xl font-semibold text-gray-900 mb-3">
                       {study.brand}
                     </h3>
-                    <p className="text-gray-400 font-light text-sm">
+                    <p className="text-gray-500 font-light text-[15px] leading-relaxed mb-5 flex-1">
                       {study.description}
                     </p>
+                    <span className="inline-flex items-center text-primary font-medium text-sm group-hover:gap-2 gap-1 transition-all">
+                      Read case study
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </span>
                   </div>
                 </div>
-              ) : (
-                <Link href={study.href} className="block h-full">
-                  <div className="relative group rounded-2xl border border-gray-200 bg-white overflow-hidden hover:border-primary-200 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 h-full flex flex-col shadow-sm">
-                    {/* Image */}
-                    <div className="relative overflow-hidden aspect-[4/3]">
-                      <Image
-                        src={study.image!}
-                        alt={`${study.brand} case study`}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      {/* Stat badge */}
-                      {study.stat && (
-                        <div className="absolute top-4 left-4">
-                          <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold bg-white/95 backdrop-blur-sm text-primary shadow-sm">
-                            {study.stat}
-                          </span>
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Content */}
-                    <div className="p-6 flex flex-col flex-1">
-                      <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                        {study.brand}
-                      </h3>
-                      <p className="text-gray-500 font-light text-[15px] leading-relaxed mb-5 flex-1">
-                        {study.description}
-                      </p>
-                      <span className="inline-flex items-center text-primary font-medium text-sm group-hover:gap-2 gap-1 transition-all">
-                        Read case study
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              )}
+              </Link>
             </motion.div>
           ))}
         </div>
