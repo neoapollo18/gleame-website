@@ -1,7 +1,7 @@
 import { Hero } from "@/components/home/Hero";
 import { LogoCloud } from "@/components/home/LogoCloud";
 import { Features } from "@/components/home/Features";
-import { HowItWorks } from "@/components/home/HowItWorks";
+import { CaseStudies } from "@/components/home/CaseStudies";
 import { Testimonials } from "@/components/home/Testimonials";
 import { UseCases } from "@/components/home/UseCases";
 import { CTA } from "@/components/home/CTA";
@@ -12,7 +12,7 @@ export default function Home() {
       <Hero />
       <LogoCloud />
       <Features />
-      <HowItWorks />
+      <CaseStudies />
       <UseCases />
       <Testimonials />
       <CTA />
