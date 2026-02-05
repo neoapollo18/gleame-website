@@ -63,7 +63,7 @@ export default function HavenCaseStudy() {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="text-4xl sm:text-5xl lg:text-display-lg font-semibold text-white mb-6 tracking-tight"
               >
-                Haven
+                <Link href="https://shophavenskin.com/" target="_blank" rel="noopener noreferrer" className="hover:underline decoration-white/30 underline-offset-4">Haven</Link>
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
