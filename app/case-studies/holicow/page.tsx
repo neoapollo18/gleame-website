@@ -7,19 +7,16 @@ import { ArrowLeft } from "lucide-react";
 
 const stats = [
   {
-    value: "+13%",
+    value: "3% → 6%",
     label: "Conversion Rate",
-    sublabel: "Validated across 8,343 visitors",
   },
   {
-    value: "+9%",
-    label: "Revenue Per Visitor",
-    sublabel: null,
+    value: "16%",
+    label: "Add-to-Cart Rate",
   },
   {
-    value: "+174",
-    label: "Orders/Month",
-    sublabel: null,
+    value: "8,000+",
+    label: "Visitors in Control Group",
   },
 ];
 
@@ -31,7 +28,7 @@ const sections = [
   { id: "takeaways", label: "Takeaways" },
 ];
 
-export default function MenPenCaseStudy() {
+export default function HoliCowCaseStudy() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
@@ -66,7 +63,7 @@ export default function MenPenCaseStudy() {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="text-4xl sm:text-5xl lg:text-display-lg font-semibold text-white mb-6 tracking-tight"
               >
-                Men Pen
+                HoliCow
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -74,10 +71,10 @@ export default function MenPenCaseStudy() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="text-lg text-gray-300 font-light leading-relaxed mb-10"
               >
-                MenPen achieved a 13% increase in conversion rate and a 9% lift
-                in revenue per visitor after implementing Gleame. The test ran
-                for 10 days across 8,343 visitors and 364 orders, confirming a
-                statistically meaningful performance lift.
+                HoliCow doubled their conversion rate from 3% to 6% after
+                implementing Gleame on their product page. With over 8,000
+                visitors in the control group, the results were validated
+                directly by the founder.
               </motion.p>
 
               {/* Stats row */}
@@ -115,8 +112,8 @@ export default function MenPenCaseStudy() {
             >
               <div className="rounded-2xl overflow-hidden">
                 <Image
-                  src="/menpencasestudy.png"
-                  alt="MenPen product lineup"
+                  src="/holicow-hero-ku12d_yK.png"
+                  alt="HoliCow Tallow Balm product"
                   width={600}
                   height={400}
                   className="w-full h-auto"
@@ -125,7 +122,6 @@ export default function MenPenCaseStudy() {
             </motion.div>
           </div>
         </div>
-
       </section>
 
       {/* Content Section */}
@@ -164,15 +160,21 @@ export default function MenPenCaseStudy() {
                 <h2 className="text-2xl font-semibold text-gray-900 mb-4 tracking-tight">
                   Overview
                 </h2>
-                <p className="text-gray-500 font-light leading-relaxed text-[16px]">
-                  MenPen is a fast-growing men&apos;s grooming brand known for its
-                  viral eyebrow-filler pen. With strong TikTok traffic and
-                  rapidly scaling DTC growth, MenPen needed a way to increase
-                  first-time buyer confidence and reduce hesitation on their PDP.
-                  Visitors liked the idea &mdash; but they couldn&apos;t visualize
-                  whether the shade, density, or finish would actually look
-                  natural on them.
-                </p>
+                <div className="space-y-4 text-gray-500 font-light leading-relaxed text-[16px]">
+                  <p>
+                    HoliCow is a beef-tallow-based skincare brand focused on
+                    restoring the skin&apos;s natural barrier using simple, ancestral
+                    ingredients. Their products have strong demand among customers
+                    dealing with redness, dryness, acne irritation, and sensitivity.
+                  </p>
+                  <p>
+                    But despite strong traffic and product-market fit, many shoppers
+                    still couldn&apos;t picture how tallow would actually improve their
+                    skin &mdash; <strong className="text-gray-700 font-medium">keeping conversion stuck near ~3%</strong>. With Gleame,
+                    HoliCow turned those abstract benefits into a personalized,
+                    visual &ldquo;future skin&rdquo; moment that doubled their conversion rate.
+                  </p>
+                </div>
               </motion.div>
 
               <hr className="border-gray-200 mb-14" />
@@ -191,16 +193,24 @@ export default function MenPenCaseStudy() {
                 </h2>
                 <div className="space-y-4 text-gray-500 font-light leading-relaxed text-[16px]">
                   <p>
-                    MenPen&apos;s product page had high traffic but conversion was
-                    bottlenecked by uncertainty. Shoppers were curious but
-                    hesitant &mdash; they didn&apos;t know how the pen would look on
-                    their specific brows. Would it look natural? Would the shade
-                    match? Would the result be too strong or too subtle?
+                    HoliCow had strong traffic, but shoppers hesitated at the final
+                    step because <strong className="text-gray-700 font-medium">they couldn&apos;t visualize their results</strong> &mdash;
+                    keeping PDP conversion stuck around ~3%.
                   </p>
+                  <p>Key hesitation patterns:</p>
+                  <ul className="space-y-2 pl-5 list-disc marker:text-gray-300">
+                    <li>
+                      <strong className="text-gray-600 font-normal">Moms:</strong> &ldquo;Will this actually soften my wrinkles?&rdquo;
+                    </li>
+                    <li>
+                      <strong className="text-gray-600 font-normal">Teens / acne-prone:</strong> &ldquo;Will this calm my acne or make it worse?&rdquo;
+                    </li>
+                    <li>
+                      <strong className="text-gray-600 font-normal">Everyone:</strong> &ldquo;Will this actually work for my skin?&rdquo;
+                    </li>
+                  </ul>
                   <p>
-                    This uncertainty created a bottleneck: shoppers believed the
-                    product worked, but <strong className="text-gray-700 font-medium">they couldn&apos;t trust it would work
-                    for their specific face</strong>.
+                    The problem wasn&apos;t traffic or product. <strong className="text-gray-700 font-medium">It was proof.</strong>
                   </p>
                 </div>
               </motion.div>
@@ -221,41 +231,37 @@ export default function MenPenCaseStudy() {
                 </h2>
                 <div className="space-y-4 text-gray-500 font-light leading-relaxed text-[16px]">
                   <p>
-                    MenPen implemented Gleame directly into their PDP, giving
-                    shoppers a fast, realistic, and shade-accurate preview of how
-                    the Men Pen would look on their own brows.
+                    HoliCow placed Gleame AI Preview directly on their PDP.
+                    Customers experienced:
                   </p>
-                  <p>This instantly removed hesitation:</p>
-                  <div className="flex gap-8 items-start">
-                    <div className="flex-1 space-y-4">
-                      <ul className="space-y-2 pl-5 list-disc marker:text-gray-300">
-                        <li>
-                          Visitors uploaded a selfie and saw fuller, cleaner brows
-                          in seconds
-                        </li>
-                        <li>
-                          They compared shades and visualized the finishing effect
-                        </li>
-                        <li>
-                          They gained confidence that the results would match their
-                          expectations
-                        </li>
-                      </ul>
-                      <p>
-                        No friction. No instructions. Just a native-feeling PDP
-                        enhancement that clarified the value instantly.
-                      </p>
-                    </div>
-                    <div className="hidden md:block flex-shrink-0 w-[280px] rounded-xl overflow-hidden shadow-lg ring-1 ring-gray-900/5">
-                      <Image
-                        src="/menpen-widget-BFOXhBJM.png"
-                        alt="MenPen Gleame widget showing before and after preview"
-                        width={280}
-                        height={360}
-                        className="w-full h-auto"
-                      />
-                    </div>
-                  </div>
+                  <ul className="space-y-2 pl-5 list-disc marker:text-gray-300">
+                    <li>
+                      Upload a selfie &rarr; instantly meet their &ldquo;future self&rdquo;
+                    </li>
+                    <li>Reduced redness</li>
+                    <li>Softer fine lines</li>
+                    <li>Hydrated, glassier skin</li>
+                    <li>Smoother texture / fewer blemishes</li>
+                  </ul>
+                  <p>
+                    Zero face reshaping or unrealistic filters. Results aligned
+                    with actual tallow benefits.
+                  </p>
+                  <motion.div
+                    className="mt-6 rounded-xl overflow-hidden shadow-lg ring-1 ring-gray-900/5 max-w-xl"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                  >
+                    <Image
+                      src="/holicow-widget-AtWj2XAU.png"
+                      alt="HoliCow Gleame widget showing before/after tallow transformation"
+                      width={576}
+                      height={384}
+                      className="w-full h-auto"
+                    />
+                  </motion.div>
                 </div>
               </motion.div>
 
@@ -273,21 +279,19 @@ export default function MenPenCaseStudy() {
                 <h2 className="text-2xl font-semibold text-gray-900 mb-4 tracking-tight">
                   Results
                 </h2>
-                <p className="text-gray-500 font-light leading-relaxed text-[16px] mb-6">
-                  Over a 10-day controlled test (8,343 visitors, 364 orders),
-                  Gleame delivered a <strong className="text-gray-700 font-medium">13.22% lift in conversion rate</strong> and a <strong className="text-gray-700 font-medium">9.17%
-                  lift in revenue per visitor</strong>. These improvements were validated
-                  using Intelligems and project meaningful monthly incremental
-                  revenue for MenPen.
-                </p>
-                <div className="rounded-xl overflow-hidden shadow-lg ring-1 ring-gray-900/5 max-w-xl">
-                  <Image
-                    src="/menpen-intelligems-Dod4iKZE.png"
-                    alt="Intelligems results showing CVR, RPV, and AOV metrics for MenPen"
-                    width={576}
-                    height={384}
-                    className="w-full h-auto"
-                  />
+                <div className="space-y-4 text-gray-500 font-light leading-relaxed text-[16px]">
+                  <ul className="space-y-2 pl-5 list-disc marker:text-gray-300">
+                    <li>
+                      <strong className="text-gray-700 font-medium">Conversion rate doubled</strong> from 3% to 6%
+                    </li>
+                    <li>
+                      Add-to-cart engagement was strong, with a <strong className="text-gray-700 font-medium">16% ATC rate</strong> among
+                      shoppers interacting with the PDP
+                    </li>
+                    <li>Increased PDP engagement time</li>
+                    <li>Fewer education-related support questions</li>
+                    <li>Impact validated directly by the founder</li>
+                  </ul>
                 </div>
               </motion.div>
 
@@ -307,24 +311,20 @@ export default function MenPenCaseStudy() {
                 </h2>
                 <div className="space-y-4 text-gray-500 font-light leading-relaxed text-[16px]">
                   <p>
-                    MenPen shoppers weren&apos;t skeptical of the product &mdash; they
-                    were skeptical of how the results would look on{" "}
-                    <em>them</em>. That uncertainty suppressed conversion,
-                    especially from cold traffic and first-time buyers.
+                    Barrier-repair skincare sells transformation, but shoppers
+                    often struggle to visualize results &mdash; especially when
+                    benefits develop gradually. Gleame solved this instantly.
                   </p>
                   <p>
-                    Gleame eliminated this friction in less than a second.
-                    Shoppers uploaded a selfie and immediately understood the
-                    value: cleaner, sharper brows that still looked natural. The
-                    transformation didn&apos;t feel exaggerated &mdash; it felt
-                    believable.
+                    By showing each shopper a believable, non-exaggerated version
+                    of healthier skin &mdash; softer lines, reduced redness, smoother
+                    texture &mdash; Gleame eliminated uncertainty at the exact point
+                    of hesitation. The preview looked real, aligned with tallow&apos;s
+                    actual outcomes, and set the right expectation.
                   </p>
                   <p>
-                    That <strong className="text-gray-700 font-medium">&ldquo;Oh &mdash; this actually looks good on me&rdquo;</strong> moment was
-                    the unlock. With hesitation removed, Gleame helped unlock a
-                    <strong className="text-gray-700 font-medium"> 13% conversion lift</strong> validated by testing, RPV increased, and
-                    MenPen generated <strong className="text-gray-700 font-medium">hundreds of incremental orders each month</strong>{" "}
-                    from the same traffic.
+                    That clarity is what drove a <strong className="text-gray-700 font-medium">sustained 2&times; lift in
+                    conversion</strong>.
                   </p>
                 </div>
               </motion.div>
@@ -343,7 +343,7 @@ export default function MenPenCaseStudy() {
                   Ready to see similar results?
                 </h3>
                 <p className="text-gray-500 font-light mb-6 max-w-md mx-auto">
-                  Join brands like MenPen and start converting more shoppers
+                  Join brands like HoliCow and start converting more shoppers
                   with AI-powered try-on.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">

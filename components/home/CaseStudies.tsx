@@ -15,12 +15,12 @@ const caseStudies = [
     href: "/case-studies/menpen",
   },
   {
-    brand: "Coming Soon",
-    image: null,
-    stat: "",
-    description: "New case study dropping soon. Stay tuned.",
-    href: "#",
-    placeholder: true,
+    brand: "HoliCow",
+    image: "/holicow-hero-ku12d_yK.png",
+    stat: "3% → 6% CVR",
+    description:
+      "How HoliCow doubled their conversion rate with AI-powered skin transformation previews for their tallow skincare line.",
+    href: "/case-studies/holicow",
   },
   {
     brand: "Coming Soon",
