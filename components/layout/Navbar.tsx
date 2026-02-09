@@ -73,10 +73,12 @@ export function Navbar() {
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-4">
             <Link
-              href="https://apps.shopify.com/glimpse-app?search_id=0a3368ea-475d-43f7-9c29-34c4325d4bd7&surface_detail=gleame&surface_inter_position=1&surface_intra_position=5&surface_type=search"
+              href="https://calendly.com/aaron-gleame/gleame-discovery-call"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn btn-primary btn-md text-[14px] font-medium"
             >
-              Start free trial
+              Book Demo
             </Link>
           </div>
 
@@ -117,10 +119,12 @@ export function Navbar() {
                 ))}
                 <div className="pt-4 border-t border-gray-100">
                   <Link
-                    href="https://apps.shopify.com/glimpse-app?search_id=0a3368ea-475d-43f7-9c29-34c4325d4bd7&surface_detail=gleame&surface_inter_position=1&surface_intra_position=5&surface_type=search"
+                    href="https://calendly.com/aaron-gleame/gleame-discovery-call"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="btn btn-primary btn-md w-full"
                   >
-                    Start free trial
+                    Book Demo
                   </Link>
                 </div>
               </div>

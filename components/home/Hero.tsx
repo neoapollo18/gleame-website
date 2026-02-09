@@ -53,18 +53,17 @@ export function Hero() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex flex-col sm:flex-row gap-4 mb-10"
             >
-              <Link href="https://apps.shopify.com/glimpse-app?search_id=0a3368ea-475d-43f7-9c29-34c4325d4bd7&surface_detail=gleame&surface_inter_position=1&surface_intra_position=5&surface_type=search" className="btn btn-primary btn-lg group">
-                Start free trial
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
               <Link 
                 href="https://calendly.com/aaron-gleame/gleame-discovery-call"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-ghost btn-lg group"
+                className="btn btn-primary btn-lg group"
               >
-                <Calendar className="w-5 h-5 text-primary" />
                 Book Demo
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link href="https://apps.shopify.com/glimpse-app?search_id=0a3368ea-475d-43f7-9c29-34c4325d4bd7&surface_detail=gleame&surface_inter_position=1&surface_intra_position=5&surface_type=search" className="btn btn-ghost btn-lg group">
+                Start free trial
               </Link>
             </motion.div>
 
