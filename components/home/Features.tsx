@@ -25,7 +25,7 @@ const features = [
   {
     id: "configure",
     label: "Configure Style",
-    tag: "Match Your Brand",
+    tag: "Brand it Your Way",
     title: "Match it to your brand",
     description:
       "Customize colors, copy, layout, and behavior to fit your store perfectly. Gleame adapts to your brand — not the other way around.",
