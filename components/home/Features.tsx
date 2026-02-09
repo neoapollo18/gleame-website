@@ -94,7 +94,7 @@ export function Features() {
         >
           <div className="grid lg:grid-cols-[1fr_300px] gap-10 lg:gap-14 items-center">
             {/* Video */}
-            <div className="relative rounded-2xl overflow-hidden bg-gray-100 shadow-xl ring-1 ring-gray-900/5">
+            <div className="relative rounded-2xl overflow-hidden bg-gray-100 shadow-xl ring-1 ring-gray-900/5 aspect-video">
               <video
                 key={features[active].video}
                 src={features[active].video}
@@ -102,7 +102,8 @@ export function Features() {
                 loop
                 muted
                 playsInline
-                className="w-full h-auto"
+                preload="metadata"
+                className="w-full h-full object-cover"
               />
             </div>
 
