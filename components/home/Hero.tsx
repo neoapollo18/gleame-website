@@ -120,7 +120,7 @@ export function Hero() {
                   {/* Screenshot Content */}
                   <div className="relative">
                     <img 
-                      src="/biotechbeautyhero.png" 
+                      src="/pureskin.png" 
                       alt="Gleame widget demo on product page" 
                       className="w-full h-auto"
                     />

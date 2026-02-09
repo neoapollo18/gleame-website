@@ -52,7 +52,7 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <img 
-              src="/gleamegradient.jpg" 
+              src="/gleamelogo.svg" 
               alt="Gleame" 
               className="h-8 w-auto rounded-md"
             />
