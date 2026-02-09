@@ -11,6 +11,7 @@ const navLinks = [
   { href: "/#case-studies", label: "Case Studies" },
   { href: "/pricing", label: "Pricing" },
   { href: "/pricing#faq", label: "FAQ" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function Navbar() {

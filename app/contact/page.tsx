@@ -1,42 +1,10 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MessageSquare, Building2, Send, CheckCircle, Loader2 } from "lucide-react";
+import Link from "next/link";
+import { Mail, MessageSquare, Building2, Calendar, ArrowRight } from "lucide-react";
 
 export default function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setLoading(true);
-    setError("");
-
-    const formData = new FormData(e.currentTarget);
-    
-    try {
-      const response = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
-        method: "POST",
-        body: formData,
-        headers: {
-          Accept: "application/json",
-        },
-      });
-
-      if (response.ok) {
-        setSubmitted(true);
-      } else {
-        setError("Something went wrong. Please try again.");
-      }
-    } catch {
-      setError("Something went wrong. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
     <>
       {/* Hero Section */}
@@ -69,230 +37,93 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Contact Form Section */}
+      {/* Contact Options Section */}
       <section className="py-8 lg:py-16">
         <div className="container">
-          <div className="max-w-5xl mx-auto">
-            <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
-              {/* Contact Info */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2 }}
-                className="lg:col-span-2"
+          <div className="max-w-3xl mx-auto">
+            {/* Book Demo - Primary CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.25 }}
+              className="mb-10"
+            >
+              <Link
+                href="https://calendly.com/aaron-gleame/gleame-discovery-call"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block bg-white rounded-2xl border border-gray-200 p-8 hover:border-primary-200 hover:shadow-lg transition-all group"
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                  Get in touch
-                </h2>
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center flex-shrink-0">
-                      <MessageSquare className="w-6 h-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">
-                        Request a demo
-                      </h3>
-                      <p className="text-gray-600 text-sm">
-                        See Gleame in action with a personalized walkthrough
-                        from our team.
-                      </p>
-                    </div>
+                <div className="flex items-center gap-5">
+                  <div className="w-14 h-14 rounded-xl bg-primary-50 flex items-center justify-center flex-shrink-0">
+                    <Calendar className="w-7 h-7 text-primary" />
                   </div>
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center flex-shrink-0">
-                      <Building2 className="w-6 h-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">
-                        Enterprise sales
-                      </h3>
-                      <p className="text-gray-600 text-sm">
-                        Custom solutions for large brands with dedicated
-                        support.
-                      </p>
-                    </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                      Book a demo
+                    </h3>
+                    <p className="text-gray-500 text-sm font-light">
+                      See Gleame in action with a personalized walkthrough from our team.
+                    </p>
                   </div>
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center flex-shrink-0">
-                      <Mail className="w-6 h-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">
-                        General inquiries
-                      </h3>
-                      <p className="text-gray-600 text-sm">
-                        aaron@gleame.ai
-                        <br />
-                        We respond within 24 hours.
-                      </p>
-                    </div>
-                  </div>
+                  <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
                 </div>
+              </Link>
+            </motion.div>
+
+            {/* Other contact options */}
+            <div className="grid sm:grid-cols-2 gap-6">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="bg-white rounded-2xl border border-gray-200 p-6"
+              >
+                <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center mb-4">
+                  <Building2 className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-1">
+                  Enterprise sales
+                </h3>
+                <p className="text-gray-500 text-sm font-light">
+                  Custom solutions for large brands with dedicated support.
+                </p>
               </motion.div>
 
-              {/* Form */}
               <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.3 }}
-                className="lg:col-span-3"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.35 }}
+                className="bg-white rounded-2xl border border-gray-200 p-6"
               >
-                {submitted ? (
-                  <div className="bg-green-50 rounded-2xl border border-green-200 p-8 text-center">
-                    <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
-                      <CheckCircle className="w-8 h-8 text-green-600" />
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">
-                      Thank you!
-                    </h3>
-                    <p className="text-gray-600">
-                      We&apos;ve received your message and will get back to you
-                      within 24 hours.
-                    </p>
-                  </div>
-                ) : (
-                  <form
-                    onSubmit={handleSubmit}
-                    className="bg-white rounded-2xl border border-gray-200 p-6 lg:p-8 shadow-sm"
-                  >
-                    <div className="grid sm:grid-cols-2 gap-6 mb-6">
-                      <div>
-                        <label
-                          htmlFor="firstName"
-                          className="block text-sm font-medium text-gray-700 mb-2"
-                        >
-                          First name
-                        </label>
-                        <input
-                          type="text"
-                          id="firstName"
-                          name="firstName"
-                          required
-                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                          placeholder="Jane"
-                        />
-                      </div>
-                      <div>
-                        <label
-                          htmlFor="lastName"
-                          className="block text-sm font-medium text-gray-700 mb-2"
-                        >
-                          Last name
-                        </label>
-                        <input
-                          type="text"
-                          id="lastName"
-                          name="lastName"
-                          required
-                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                          placeholder="Doe"
-                        />
-                      </div>
-                    </div>
+                <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center mb-4">
+                  <Mail className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-1">
+                  General inquiries
+                </h3>
+                <p className="text-gray-500 text-sm font-light">
+                  aaron@gleame.ai
+                  <br />
+                  We respond within 24 hours.
+                </p>
+              </motion.div>
 
-                    <div className="mb-6">
-                      <label
-                        htmlFor="email"
-                        className="block text-sm font-medium text-gray-700 mb-2"
-                      >
-                        Work email
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        required
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                        placeholder="jane@company.com"
-                      />
-                    </div>
-
-                    <div className="mb-6">
-                      <label
-                        htmlFor="company"
-                        className="block text-sm font-medium text-gray-700 mb-2"
-                      >
-                        Company name
-                      </label>
-                      <input
-                        type="text"
-                        id="company"
-                        name="company"
-                        required
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                        placeholder="Acme Beauty Co."
-                      />
-                    </div>
-
-                    <div className="mb-6">
-                      <label
-                        htmlFor="interest"
-                        className="block text-sm font-medium text-gray-700 mb-2"
-                      >
-                        What are you interested in?
-                      </label>
-                      <select
-                        id="interest"
-                        name="interest"
-                        required
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all bg-white"
-                      >
-                        <option value="">Select an option</option>
-                        <option value="demo">Product demo</option>
-                        <option value="enterprise">Enterprise pricing</option>
-                        <option value="partnership">Partnership</option>
-                        <option value="support">Technical support</option>
-                        <option value="other">Other</option>
-                      </select>
-                    </div>
-
-                    <div className="mb-8">
-                      <label
-                        htmlFor="message"
-                        className="block text-sm font-medium text-gray-700 mb-2"
-                      >
-                        Message
-                      </label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        rows={4}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none"
-                        placeholder="Tell us about your needs..."
-                      />
-                    </div>
-
-                    {error && (
-                      <p className="text-red-600 text-sm mb-4 text-center">{error}</p>
-                    )}
-
-                    <button 
-                      type="submit" 
-                      className="btn btn-primary btn-lg w-full"
-                      disabled={loading}
-                    >
-                      {loading ? (
-                        <>
-                          <Loader2 className="w-5 h-5 animate-spin" />
-                          Sending...
-                        </>
-                      ) : (
-                        <>
-                          Send message
-                          <Send className="w-5 h-5" />
-                        </>
-                      )}
-                    </button>
-
-                    <p className="text-sm text-gray-500 text-center mt-4">
-                      By submitting, you agree to our{" "}
-                      <a href="#" className="text-primary hover:underline">
-                        Privacy Policy
-                      </a>
-                    </p>
-                  </form>
-                )}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="bg-white rounded-2xl border border-gray-200 p-6"
+              >
+                <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center mb-4">
+                  <MessageSquare className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-1">
+                  Technical support
+                </h3>
+                <p className="text-gray-500 text-sm font-light">
+                  Need help with setup or integration? We&apos;re here to help.
+                </p>
               </motion.div>
             </div>
           </div>
