@@ -1,51 +1,127 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Star, Quote } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 
+const testimonials = [
+  {
+    quote:
+      "Such a helpful tool for showcasing before/afters on potential customers! We've implemented both skincare results and makeup try-ons for a wide variety of shades, and the technology demonstrates perfectly what our products will look like on our customers—both immediately and over time. The app is incredibly easy to implement and the developers are super helpful and responsive. Highly recommend!!",
+    highlight:
+      "the technology demonstrates perfectly what our products will look like on our customers—both immediately and over time.",
+    brand: "BiotechBeauty",
+    detail: "United States \u2022 3 months using the app",
+  },
+  {
+    quote:
+      "Amazing add-on feature. This has helped increase sales revenue for our brand by using the \u201Cart of the possible\u201D. Seamlessly installed and developed by and amazing team that wants to help make sure everything is working efficiently to help scale your business. Definitely have our buy-in!",
+    highlight:
+      "This has helped increase sales revenue for our brand",
+    brand: "Wett Skincare",
+    detail: "United States \u2022 4 months using the app",
+  },
+  {
+    quote:
+      "Great app. Made a huge difference in our conversion rates. Amazing support as well. Worth every penny for our store.",
+    highlight:
+      "Made a huge difference in our conversion rates.",
+    brand: "Haven",
+    detail: "United States \u2022 3 months using the app",
+  },
+];
 
 export function Testimonials() {
+  const [current, setCurrent] = useState(0);
+
+  const prev = () =>
+    setCurrent((c) => (c === 0 ? testimonials.length - 1 : c - 1));
+  const next = () =>
+    setCurrent((c) => (c === testimonials.length - 1 ? 0 : c + 1));
+
+  const renderQuote = (t: typeof testimonials[number]) => {
+    const highlightIndex = t.quote.indexOf(t.highlight);
+    const before = highlightIndex >= 0 ? t.quote.slice(0, highlightIndex) : t.quote;
+    const after =
+      highlightIndex >= 0 ? t.quote.slice(highlightIndex + t.highlight.length) : "";
+    return (
+      <>
+        &ldquo;{before}
+        {highlightIndex >= 0 && (
+          <span className="text-primary font-medium">{t.highlight}</span>
+        )}
+        {after}&rdquo;
+      </>
+    );
+  };
+
   return (
     <section className="section-padding bg-white">
       <div className="container">
         <div className="max-w-4xl mx-auto">
-          {/* Main Testimonial */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="relative bg-gradient-to-br from-primary-50 to-white rounded-3xl p-8 lg:p-12 border border-primary-100 mb-8"
-          >
-            {/* Quote icon */}
-            <div className="absolute -top-6 left-8 w-12 h-12 rounded-xl bg-primary flex items-center justify-center shadow-lg">
-              <Quote className="w-6 h-6 text-white" />
-            </div>
+          {/* Main Testimonial with side arrows */}
+          <div className="relative flex items-center gap-4">
+            {/* Left arrow */}
+            <button
+              onClick={prev}
+              className="flex-shrink-0 w-10 h-10 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-400 hover:text-gray-700 hover:border-gray-300 transition-colors shadow-sm"
+              aria-label="Previous testimonial"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
 
-            <blockquote className="text-xl lg:text-2xl text-gray-600 leading-relaxed mb-8 pt-4 font-light">
-              &ldquo;Such a helpful tool for showcasing before/afters on potential customers! We&apos;ve implemented both skincare results and makeup try-ons for a wide variety of shades, and{" "}
-              <span className="text-primary font-medium">
-                the technology demonstrates perfectly what our products will look like on our customers—both immediately and over time.
-              </span>{" "}
-              The app is incredibly easy to implement and the developers are super helpful and responsive. Highly recommend!!&rdquo;
-            </blockquote>
-
-            <div className="flex items-center gap-4">
-              <div>
-                <p className="font-semibold text-gray-900">BiotechBeauty</p>
-                <p className="text-gray-500">
-                  United States • 3 months using the app
-                </p>
+            {/* Card */}
+            <div className="relative flex-1 bg-gradient-to-br from-primary-50 to-white rounded-3xl p-8 lg:p-12 border border-primary-100">
+              {/* Quote icon */}
+              <div className="absolute -top-6 left-8 w-12 h-12 rounded-xl bg-primary flex items-center justify-center shadow-lg">
+                <Quote className="w-6 h-6 text-white" />
               </div>
-              <div className="ml-auto flex items-center gap-1">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-5 h-5 fill-amber-400 text-amber-400"
-                  />
+
+              {/* Render all testimonials stacked; only active is visible. Tallest sets height. */}
+              <div className="relative">
+                {testimonials.map((t, index) => (
+                  <div
+                    key={t.brand}
+                    className={index === current ? "relative" : "invisible absolute inset-0"}
+                    aria-hidden={index !== current}
+                  >
+                    <motion.div
+                      initial={false}
+                      animate={{ opacity: index === current ? 1 : 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <blockquote className="text-xl lg:text-2xl text-gray-600 leading-relaxed mb-8 pt-4 font-light">
+                        {renderQuote(t)}
+                      </blockquote>
+                      <div className="flex items-center gap-4">
+                        <div>
+                          <p className="font-semibold text-gray-900">{t.brand}</p>
+                          <p className="text-gray-500 text-sm">{t.detail}</p>
+                        </div>
+                        <div className="ml-auto flex items-center gap-1">
+                          {[...Array(5)].map((_, i) => (
+                            <Star
+                              key={i}
+                              className="w-5 h-5 fill-amber-400 text-amber-400"
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    </motion.div>
+                  </div>
                 ))}
               </div>
             </div>
-          </motion.div>
+
+            {/* Right arrow */}
+            <button
+              onClick={next}
+              className="flex-shrink-0 w-10 h-10 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-400 hover:text-gray-700 hover:border-gray-300 transition-colors shadow-sm"
+              aria-label="Next testimonial"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
 
           {/* Trust badges */}
           <motion.div
@@ -80,8 +156,6 @@ export function Testimonials() {
               <span className="text-sm font-medium text-gray-700">
                 Shopify Partner
               </span>
-            </div>
-            <div className="flex items-center gap-2">
             </div>
           </motion.div>
         </div>
