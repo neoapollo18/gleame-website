@@ -62,18 +62,20 @@ export function CTA() {
             transition={{ delay: 0.2 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8"
           >
-<Link
-              href="https://apps.shopify.com/glimpse-app?search_id=0a3368ea-475d-43f7-9c29-34c4325d4bd7&surface_detail=gleame&surface_inter_position=1&surface_intra_position=5&surface_type=search"
+            <Link
+              href="https://calendly.com/aaron-gleame/gleame-discovery-call"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn bg-white text-primary hover:bg-gray-100 btn-lg group shadow-xl"
             >
-              Start free trial
+              Book Demo
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
-              href="/contact"
+              href="https://apps.shopify.com/glimpse-app?search_id=0a3368ea-475d-43f7-9c29-34c4325d4bd7&surface_detail=gleame&surface_inter_position=1&surface_intra_position=5&surface_type=search"
               className="btn border-2 border-white/30 text-white hover:bg-white/10 btn-lg"
             >
-              Talk to sales
+              Start free trial
             </Link>
           </motion.div>
 

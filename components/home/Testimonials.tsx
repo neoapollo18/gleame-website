@@ -88,7 +88,7 @@ export function Testimonials() {
                     <motion.div
                       initial={false}
                       animate={{ opacity: index === current ? 1 : 0 }}
-                      transition={{ duration: 0.3 }}
+                      transition={{ duration: 0.4 }}
                     >
                       <blockquote className="text-xl lg:text-2xl text-gray-600 leading-relaxed mb-8 pt-4 font-light">
                         {renderQuote(t)}
