@@ -9,7 +9,6 @@ const brands = [
   { name: "Haven", logo: "/haven.png" },
   { name: "Wett Skincare", logo: "/wett.png" },
   { name: "Holicow", logo: "/holicow.png" },
-  { name: "Pureskin", logo: "/pureskin1.png" },
 ];
 
 export function LogoCloud() {
