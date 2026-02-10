@@ -9,7 +9,7 @@ const brands = [
   { name: "Haven", logo: "/haven.png" },
   { name: "Wett Skincare", logo: "/wett.png" },
   { name: "Holicow", logo: "/holicow.png" },
-  { name: "Glossed by Nae", logo: "/glossedbynae.png" },
+  { name: "Glossed by Nae", logo: "/glossedbynae.png", light: true },
 ];
 
 export function LogoCloud() {
@@ -53,7 +53,9 @@ export function LogoCloud() {
                   alt={brand.name}
                   width={140}
                   height={48}
-                  className="max-h-12 w-auto max-w-[140px] object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                  className={`max-h-12 w-auto max-w-[140px] object-contain grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 ${
+                    "light" in brand && brand.light ? "opacity-90 contrast-[2] brightness-50" : "opacity-60"
+                  }`}
                 />
               </div>
             ))}
@@ -68,7 +70,9 @@ export function LogoCloud() {
                   alt={brand.name}
                   width={140}
                   height={48}
-                  className="max-h-12 w-auto max-w-[140px] object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                  className={`max-h-12 w-auto max-w-[140px] object-contain grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 ${
+                    "light" in brand && brand.light ? "opacity-90 contrast-[2] brightness-50" : "opacity-60"
+                  }`}
                 />
               </div>
             ))}
