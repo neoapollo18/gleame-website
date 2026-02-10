@@ -112,7 +112,7 @@ export function Hero() {
                     </div>
                     <div className="flex-1 mx-3">
                       <div className="bg-white rounded px-3 py-1 text-[10px] text-gray-400 font-light text-center">
-                        pureskin.com/products
+                        biotechbeauty.com/products
                       </div>
                     </div>
                   </div>
