@@ -2,14 +2,15 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 const brands = [
-  { name: "BioTech Beauty", logo: "/logo-biotechbeauty.svg" },
-  { name: "Men Pens", logo: "/menpen.png" },
-  { name: "Haven", logo: "/haven.png" },
-  { name: "Wett Skincare", logo: "/wett.png" },
-  { name: "Holicow", logo: "/holicow.png" },
-  { name: "Glossed by Nae", logo: "/glossedbynae.png", light: true },
+  { name: "BioTech Beauty", logo: "/logo-biotechbeauty.svg", href: "https://biotechbeauty.com/" },
+  { name: "Men Pens", logo: "/menpen.png", href: "/case-studies/menpen" },
+  { name: "Haven", logo: "/haven.png", href: "/case-studies/haven" },
+  { name: "Wett Skincare", logo: "/wett.png", href: "https://wettskin.com/" },
+  { name: "Holicow", logo: "/holicow.png", href: "/case-studies/holicow" },
+  { name: "Glossed by Nae", logo: "/glossedbynae.png", light: true, href: "https://glossedbynae.com/" },
 ];
 
 export function LogoCloud() {
@@ -43,11 +44,8 @@ export function LogoCloud() {
         >
           <div className="flex animate-scroll">
             {/* First set of logos */}
-            {brands.map((brand) => (
-              <div
-                key={brand.name}
-                className="flex-shrink-0 mx-10 flex items-center justify-center w-[140px] h-12"
-              >
+            {brands.map((brand) => {
+              const img = (
                 <Image
                   src={brand.logo}
                   alt={brand.name}
@@ -57,14 +55,21 @@ export function LogoCloud() {
                     "light" in brand && brand.light ? "opacity-90 contrast-[2] brightness-50" : "opacity-60"
                   }`}
                 />
-              </div>
-            ))}
+              );
+              return (
+                <div
+                  key={brand.name}
+                  className="flex-shrink-0 mx-10 flex items-center justify-center w-[140px] h-12"
+                >
+                  {"href" in brand && brand.href ? (
+                    <Link href={brand.href}>{img}</Link>
+                  ) : img}
+                </div>
+              );
+            })}
             {/* Duplicate set for seamless loop */}
-            {brands.map((brand) => (
-              <div
-                key={`${brand.name}-duplicate`}
-                className="flex-shrink-0 mx-10 flex items-center justify-center w-[140px] h-12"
-              >
+            {brands.map((brand) => {
+              const img = (
                 <Image
                   src={brand.logo}
                   alt={brand.name}
@@ -74,8 +79,18 @@ export function LogoCloud() {
                     "light" in brand && brand.light ? "opacity-90 contrast-[2] brightness-50" : "opacity-60"
                   }`}
                 />
-              </div>
-            ))}
+              );
+              return (
+                <div
+                  key={`${brand.name}-duplicate`}
+                  className="flex-shrink-0 mx-10 flex items-center justify-center w-[140px] h-12"
+                >
+                  {"href" in brand && brand.href ? (
+                    <Link href={brand.href}>{img}</Link>
+                  ) : img}
+                </div>
+              );
+            })}
           </div>
         </motion.div>
       </div>
