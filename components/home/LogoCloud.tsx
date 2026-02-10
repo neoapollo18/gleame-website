@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const brands = [
-  { name: "BioTech Beauty", logo: "/logo-biotechbeauty.svg", href: "https://biotechbeauty.com/" },
+  { name: "BioTech Beauty", logo: "/logo-biotechbeauty.svg" },
   { name: "Men Pens", logo: "/menpen.png", href: "/case-studies/menpen" },
   { name: "Haven", logo: "/haven.png", href: "/case-studies/haven" },
   { name: "Wett Skincare", logo: "/wett.png", href: "https://wettskin.com/" },
@@ -62,7 +62,7 @@ export function LogoCloud() {
                   className="flex-shrink-0 mx-10 flex items-center justify-center w-[140px] h-12"
                 >
                   {"href" in brand && brand.href ? (
-                    <Link href={brand.href}>{img}</Link>
+                    <Link href={brand.href} className="flex items-center justify-center w-full h-full">{img}</Link>
                   ) : img}
                 </div>
               );
@@ -86,7 +86,7 @@ export function LogoCloud() {
                   className="flex-shrink-0 mx-10 flex items-center justify-center w-[140px] h-12"
                 >
                   {"href" in brand && brand.href ? (
-                    <Link href={brand.href}>{img}</Link>
+                    <Link href={brand.href} className="flex items-center justify-center w-full h-full">{img}</Link>
                   ) : img}
                 </div>
               );
