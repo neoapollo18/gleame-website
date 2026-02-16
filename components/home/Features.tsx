@@ -11,7 +11,7 @@ const features = [
     title: "Photorealistic before & after previews",
     description:
       "Shoppers upload a selfie and instantly see how your product transforms their look. Powered by AI trained on real beauty outcomes — no filters, no exaggeration.",
-    video: "/gleameb4after.mp4",
+    video: "/BiotechBeautyDemo.mov",
   },
   {
     id: "install",
