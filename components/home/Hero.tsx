@@ -34,8 +34,8 @@ export function Hero() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-4xl sm:text-5xl lg:text-display-lg font-semibold text-gray-900 mb-6 tracking-tight"
             >
-              Before & After    <br /> {" "}
-              <span className="gradient-text"> AI previews</span>
+              Show Every Shopper <br />  their   {" "}
+              <span className="gradient-text">  Future Self</span>
             </motion.h1>
 
             <motion.p
