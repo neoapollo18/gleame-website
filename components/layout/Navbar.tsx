@@ -33,7 +33,7 @@ export function Navbar() {
         <p className="flex items-center justify-center gap-2">
           <span className="hidden sm:inline">Now available on the Shopify App Store</span>
           <span className="sm:hidden">Now on Shopify</span>
-<Link href="https://apps.shopify.com/glimpse-app?search_id=0a3368ea-475d-43f7-9c29-34c4325d4bd7&surface_detail=gleame&surface_inter_position=1&surface_intra_position=5&surface_type=search" className="inline-flex items-center gap-1 font-medium hover:underline">
+<Link href="https://apps.shopify.com/gleame" className="inline-flex items-center gap-1 font-medium hover:underline">
             Get started <span aria-hidden="true">→</span>
           </Link>
         </p>
