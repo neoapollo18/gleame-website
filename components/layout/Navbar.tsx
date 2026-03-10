@@ -74,9 +74,7 @@ export function Navbar() {
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-4">
             <Link
-              href="https://calendly.com/aaron-gleame/gleame-discovery-call"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/contact"
               className="btn btn-primary btn-md text-[14px] font-medium"
             >
               Book Demo
@@ -120,9 +118,7 @@ export function Navbar() {
                 ))}
                 <div className="pt-4 border-t border-gray-100">
                   <Link
-                    href="https://calendly.com/aaron-gleame/gleame-discovery-call"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="/contact"
                     className="btn btn-primary btn-md w-full"
                   >
                     Book Demo

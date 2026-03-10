@@ -54,9 +54,7 @@ export function Hero() {
               className="flex flex-col sm:flex-row gap-4 mb-10"
             >
               <Link 
-                href="https://calendly.com/aaron-gleame/gleame-discovery-call"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/contact"
                 className="btn btn-primary btn-lg group"
               >
                 Book Demo

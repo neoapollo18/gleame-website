@@ -354,9 +354,7 @@ export default function HoliCowCaseStudy() {
                     Start free trial
                   </Link>
                   <Link
-                    href="https://calendly.com/aaron-gleame/gleame-discovery-call"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="/contact"
                     className="btn btn-secondary btn-lg"
                   >
                     Book Demo

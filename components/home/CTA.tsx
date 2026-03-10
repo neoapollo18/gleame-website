@@ -63,9 +63,7 @@ export function CTA() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8"
           >
             <Link
-              href="https://calendly.com/aaron-gleame/gleame-discovery-call"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/contact"
               className="btn bg-white text-primary hover:bg-gray-100 btn-lg group shadow-xl"
             >
               Book Demo
