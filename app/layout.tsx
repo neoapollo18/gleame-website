@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     template: "%s | Gleame",
   },
   description:
-    "Increase CVR and confidence with realistic AI before-and-after previews. Let shoppers visualize their transformation and test shades instantly.",
+    "Boost Shopify conversions with Gleame's AI before-and-after previews. Shoppers upload a selfie and instantly see how your beauty products transform their look. Proven 13-106% CVR lifts.",
   keywords: [
     "virtual try-on",
     "AI beauty",
@@ -28,10 +28,21 @@ export const metadata: Metadata = {
     "skincare visualization",
     "beauty ecommerce",
     "AR beauty",
+    "shopify conversion rate optimization",
+    "beauty product visualization",
+    "AI skincare preview",
+    "product page widget",
+    "DTC beauty tools",
+    "increase shopify conversions",
+    "beauty brand CRO",
   ],
   authors: [{ name: "Gleame" }],
   creator: "Gleame",
-  metadataBase: new URL("https://gleame.ai"), // Replace with your actual domain
+  publisher: "Gleame",
+  metadataBase: new URL("https://gleame.ai"),
+  alternates: {
+    canonical: "https://gleame.ai",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -39,11 +50,11 @@ export const metadata: Metadata = {
     siteName: "Gleame",
     title: "Gleame - AI Virtual Try-On for Beauty & Cosmetics",
     description:
-      "Increase CVR and confidence with realistic AI before-and-after previews. Let shoppers visualize their transformation and test shades instantly.",
+      "Boost Shopify conversions with AI before-and-after previews. Proven 13-106% CVR lifts for beauty brands.",
     images: [
       {
         url: "/Gleame.jpg",
-        alt: "Gleame - AI Virtual Try-On",
+        alt: "Gleame - AI Virtual Try-On for Beauty & Cosmetics",
       },
     ],
   },
@@ -51,7 +62,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Gleame - AI Virtual Try-On for Beauty & Cosmetics",
     description:
-      "Increase CVR and confidence with realistic AI before-and-after previews.",
+      "Boost Shopify conversions with AI before-and-after previews. Proven 13-106% CVR lifts.",
     images: ["/gleamegradient.jpg"],
   },
   icons: {
@@ -75,8 +86,37 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Gleame",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    description:
+      "AI-powered virtual try-on widget for Shopify beauty and cosmetics brands. Increase conversions with realistic before-and-after previews.",
+    url: "https://gleame.ai",
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "5.0",
+      ratingCount: "7",
+      bestRating: "5",
+    },
+    offers: {
+      "@type": "AggregateOffer",
+      priceCurrency: "USD",
+      lowPrice: "0",
+      offerCount: "3",
+    },
+  };
+
   return (
     <html lang="en" className={plusJakarta.variable}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="font-sans antialiased">
         <Navbar />
         <main>{children}</main>
