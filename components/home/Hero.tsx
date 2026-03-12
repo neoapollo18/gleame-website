@@ -60,7 +60,7 @@ export function Hero() {
                 Book Demo
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
-              <Link href="https://apps.shopify.com/glimpse-app?search_id=0a3368ea-475d-43f7-9c29-34c4325d4bd7&surface_detail=gleame&surface_inter_position=1&surface_intra_position=5&surface_type=search" className="btn btn-ghost btn-lg group">
+              <Link href="https://apps.shopify.com/gleame">
                 Start free trial
               </Link>
             </motion.div>

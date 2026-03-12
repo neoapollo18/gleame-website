@@ -162,7 +162,7 @@ export function PricingCards() {
       >
         <Link
           href={currentPlan.price !== null 
-            ? "https://apps.shopify.com/glimpse-app?search_id=0a3368ea-475d-43f7-9c29-34c4325d4bd7&surface_detail=gleame&surface_inter_position=1&surface_intra_position=5&surface_type=search" 
+            ? "https://apps.shopify.com/gleame" 
             : "/contact"
           }
           className="btn btn-primary btn-lg"

@@ -400,7 +400,7 @@ export default function HavenCaseStudy() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
                   <Link
-                    href="https://apps.shopify.com/glimpse-app?search_id=0a3368ea-475d-43f7-9c29-34c4325d4bd7&surface_detail=gleame&surface_inter_position=1&surface_intra_position=5&surface_type=search"
+                    href="https://apps.shopify.com/gleame"
                     className="btn btn-primary btn-lg"
                   >
                     Start free trial

@@ -83,7 +83,7 @@ export default function FeaturesPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
             >
-              <Link href="https://apps.shopify.com/glimpse-app?search_id=0a3368ea-475d-43f7-9c29-34c4325d4bd7&surface_detail=gleame&surface_inter_position=1&surface_intra_position=5&surface_type=search" className="btn btn-primary btn-lg">
+              <Link href="https://apps.shopify.com/gleame" className="btn btn-primary btn-lg">
                 Start free trial
                 <ArrowRight className="w-5 h-5" />
               </Link>

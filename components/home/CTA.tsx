@@ -70,7 +70,7 @@ export function CTA() {
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
-              href="https://apps.shopify.com/glimpse-app?search_id=0a3368ea-475d-43f7-9c29-34c4325d4bd7&surface_detail=gleame&surface_inter_position=1&surface_intra_position=5&surface_type=search"
+              href="https://apps.shopify.com/gleame"
               className="btn border-2 border-white/30 text-white hover:bg-white/10 btn-lg"
             >
               Start free trial
