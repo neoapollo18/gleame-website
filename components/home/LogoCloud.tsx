@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const brands = [
-  { name: "BioTech Beauty", logo: "/logo-biotechbeauty.svg" },
+  { name: "BioTech Beauty", logo: "/logo-biotechbeauty.svg", href: "/case-studies/biotechbeauty" },
   { name: "Men Pens", logo: "/menpen.png", href: "/case-studies/menpen" },
   { name: "Haven", logo: "/haven.png", href: "/case-studies/haven" },
   { name: "Wett Skincare", logo: "/wett.png", href: "https://wettskin.com/" },

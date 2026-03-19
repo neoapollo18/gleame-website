@@ -30,6 +30,14 @@ const caseStudies = [
       "How Haven more than doubled their conversion rate with personalized skin transformation previews.",
     href: "/case-studies/haven",
   },
+  {
+    brand: "BioTech Beauty",
+    image: "/biotechbeautycasetstudyhero.png",
+    stat: "+20% lift in CVR",
+    description:
+      "How BioTech Beauty lifted conversion 20% and revenue per visitor 22% across skincare and makeup.",
+    href: "/case-studies/biotechbeauty",
+  },
 ];
 
 export function CaseStudies() {
@@ -68,7 +76,7 @@ export function CaseStudies() {
         </div>
 
         {/* Case Study Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
           {caseStudies.map((study, index) => (
             <motion.div
               key={`${study.brand}-${index}`}
