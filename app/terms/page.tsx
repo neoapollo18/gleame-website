@@ -177,11 +177,43 @@ export default function TermsPage() {
 
           <hr />
 
-          <h2>10. Data Processing</h2>
+          <h2>10. Data Processing Agreement</h2>
 
           <p>The collection, use, and protection of personal data in connection with the Service is described in our <a href="/privacy">Privacy Policy</a>, which is incorporated by reference.</p>
 
-          <p>Where Gleame processes personal data on behalf of a merchant (for example, when operating the widget), Gleame acts as a <strong>data processor</strong> and the merchant is the <strong>data controller</strong>. Merchants requiring a Data Processing Addendum (DPA) compliant with the GDPR, UK GDPR, or similar laws may request one at <strong>aaron@gleame.ai</strong>, and the signed DPA will form part of these Terms.</p>
+          <p>Where Gleame processes personal data on behalf of a merchant (for example, when operating the widget), Gleame acts as a <strong>data processor</strong> and the merchant is the <strong>data controller</strong>. By installing and using the Service, you enter into the following Data Processing Agreement with Gleame:</p>
+
+          <h3>10.1 Scope and Roles</h3>
+          <p>The merchant (&quot;Controller&quot;) appoints Gleame (&quot;Processor&quot;) to process personal data on the Controller&apos;s behalf solely to provide the Service. &quot;Personal data,&quot; &quot;processing,&quot; &quot;data subject,&quot; and related terms have the meanings given in the GDPR, UK GDPR, or equivalent applicable law.</p>
+
+          <h3>10.2 Processing Instructions</h3>
+          <p>Gleame will process personal data only in accordance with the Controller&apos;s documented instructions, which are deemed to be the functionality described in these Terms and the Privacy Policy. Gleame will inform the Controller if, in its opinion, an instruction infringes applicable data protection law.</p>
+
+          <h3>10.3 Confidentiality</h3>
+          <p>Gleame ensures that personnel authorized to process personal data are bound by confidentiality obligations.</p>
+
+          <h3>10.4 Security Measures</h3>
+          <p>Gleame implements appropriate technical and organizational measures as described in Section 9 of the Privacy Policy, including encryption in transit (TLS 1.2+), encryption at rest, access controls, and regular security reviews.</p>
+
+          <h3>10.5 Sub-processors</h3>
+          <p>The Controller authorizes Gleame to engage the sub-processors listed in Section 4 of the Privacy Policy. Gleame will notify the Controller of changes to sub-processors via updates to the Privacy Policy. If the Controller objects to a new sub-processor within 14 days, the Controller may terminate the Service.</p>
+
+          <h3>10.6 Data Subject Rights</h3>
+          <p>Gleame will assist the Controller in responding to data subject requests (access, rectification, erasure, portability, objection) by providing relevant information and technical measures, taking into account the nature of the processing.</p>
+
+          <h3>10.7 Data Breach Notification</h3>
+          <p>Gleame will notify the Controller without undue delay (and in any event within 72 hours) after becoming aware of a personal data breach affecting Controller data, and will provide information necessary for the Controller to meet its breach notification obligations.</p>
+
+          <h3>10.8 Audit Rights</h3>
+          <p>Upon reasonable written request (no more than once per year), Gleame will make available information necessary to demonstrate compliance with this Section 10, including summaries of third-party security audits or certifications where available.</p>
+
+          <h3>10.9 International Transfers</h3>
+          <p>Where personal data is transferred outside the EEA, UK, or Switzerland, Gleame relies on the safeguards described in Section 6 of the Privacy Policy (Standard Contractual Clauses or equivalent mechanisms).</p>
+
+          <h3>10.10 Deletion and Return</h3>
+          <p>Upon termination of the Service or upon Controller&apos;s request, Gleame will delete or return all personal data processed on behalf of the Controller, except where retention is required by law. Deletion timelines are described in Section 7 of the Privacy Policy.</p>
+
+          <p>This Data Processing Agreement is effective upon your installation of the Service and remains in effect for the duration of data processing activities.</p>
 
           <hr />
 
