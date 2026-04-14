@@ -9,6 +9,10 @@ const footerLinks = {
   company: [
     { href: "/contact", label: "Contact" },
   ],
+  legal: [
+    { href: "/privacy", label: "Privacy Policy" },
+    { href: "/terms", label: "Terms of Service" },
+  ],
 };
 
 const socialLinks = [
@@ -36,7 +40,7 @@ export function Footer() {
   return (
     <footer className="bg-gray-50 border-t border-gray-100">
       <div className="container py-16 lg:py-20">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 lg:gap-12">
           {/* Brand Column */}
           <div className="col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-4">
@@ -91,6 +95,23 @@ export function Footer() {
             <h4 className="font-medium text-gray-900 mb-4 text-sm">Company</h4>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-400 hover:text-gray-600 text-sm font-light transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <h4 className="font-medium text-gray-900 mb-4 text-sm">Legal</h4>
+            <ul className="space-y-3">
+              {footerLinks.legal.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
