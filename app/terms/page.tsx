@@ -13,7 +13,7 @@ export default function TermsPage() {
           <h1>Terms of Service</h1>
           
           <p><strong>Effective Date:</strong> April 5, 2026<br />
-          <strong>Last Updated:</strong> April 5, 2026</p>
+          <strong>Last Updated:</strong> April 17, 2026</p>
 
           <p>These Terms of Service (&quot;<strong>Terms</strong>&quot;) form a binding legal agreement between you and Gleame Inc. (&quot;<strong>Gleame</strong>,&quot; &quot;<strong>we</strong>,&quot; &quot;<strong>us</strong>,&quot; or &quot;<strong>our</strong>&quot;) and govern your access to and use of the Gleame Shopify application, the <code>widget-embed.js</code> storefront widget, the Gleame website, APIs, and any related services (collectively, the &quot;<strong>Service</strong>&quot;).</p>
 
@@ -32,7 +32,11 @@ export default function TermsPage() {
 
           <h2>1. The Service</h2>
 
-          <p>Gleame provides AI-powered virtual beauty try-on technology. Merchants configure products and AI prompts in the Gleame Shopify app; shoppers upload a photo through a merchant-hosted widget; the Service returns an AI-generated preview of how the selected product may appear. The Service is provided &quot;as a service&quot; and may be updated from time to time.</p>
+          <p>Gleame provides AI-powered virtual beauty try-on technology. Merchants configure products and AI prompts in the Gleame Shopify app; shoppers may upload a photo through a merchant-hosted try-on widget or, if enabled by the merchant, through the Gleame AI Chat Assistant; the Service returns AI-generated previews of how selected or recommended products may appear. The Service is provided &quot;as a service&quot; and may be updated from time to time.</p>
+
+          <h3>1.1 AI Chat Assistant</h3>
+
+          <p>If enabled by a merchant, the Gleame AI Chat Assistant is a conversational interface that helps shoppers discover products through a guided flow (for example, a style preference selection, an optional photo upload, and multiple recommended virtual try-on previews). The Chat Assistant is part of the Service and is subject to these Terms and the Privacy Policy.</p>
 
           <hr />
 
@@ -103,7 +107,7 @@ export default function TermsPage() {
 
           <h2>5. Shopper Content and Consent</h2>
 
-          <p>Shoppers upload images voluntarily through the widget. By uploading, a shopper represents that:</p>
+          <p>Shoppers may upload images voluntarily through the try-on widget or the AI Chat Assistant (if enabled). By uploading, a shopper represents that:</p>
 
           <ul>
             <li>They are the person depicted in the image (or have the legal right to upload the image);</li>
@@ -111,7 +115,9 @@ export default function TermsPage() {
             <li>The image does not contain unlawful, obscene, defamatory, or infringing content.</li>
           </ul>
 
-          <p>Gleame disclaims any responsibility for the content of shopper uploads. Shoppers retain ownership of their original images. By uploading, shoppers grant Gleame and the merchant a limited, non-exclusive, worldwide, royalty-free license to process, transmit, and transform the image <strong>solely</strong> to deliver the requested virtual try-on preview, subject to our Privacy Policy.</p>
+          <p>Gleame disclaims any responsibility for the content of shopper uploads. Shoppers retain ownership of their original images. By uploading, shoppers grant Gleame and the merchant a limited, non-exclusive, worldwide, royalty-free license to process, transmit, and transform the image <strong>solely</strong> to deliver the requested virtual try-on preview(s) (including previews generated as part of a Chat Assistant recommendation flow), subject to our <a href="/privacy">Privacy Policy</a>.</p>
+
+          <p>When the Chat Assistant is enabled, it may store a small amount of conversation-state data in the shopper&apos;s browser <code>sessionStorage</code> to preserve the guided flow during navigation. Details are described in the Privacy Policy.</p>
 
           <hr />
 
