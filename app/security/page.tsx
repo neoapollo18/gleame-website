@@ -18,7 +18,7 @@ export default function SecurityPage() {
             If you believe you have found a security vulnerability in Gleame (the
             Shopify app, the storefront widget, or the public APIs at{" "}
             <code>gleame.ai</code>), please report it by emailing{" "}
-            <strong>security@gleame.ai</strong>.
+            <strong>aaron@gleame.ai</strong>.
           </p>
 
           <p>Please include:</p>
