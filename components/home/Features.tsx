@@ -11,7 +11,7 @@ const features = [
     title: "Photorealistic before & after previews",
     description:
       "Shoppers upload a selfie and instantly see how your product transforms their look. Powered by AI trained on real beauty outcomes — no filters, no exaggeration.",
-    video: "/New Lander Demo.mov",
+    video: "/new-lander-demo.mp4",
   },
   {
     id: "assistant",
@@ -19,7 +19,8 @@ const features = [
     tag: "Personalized Guidance",
     title: "An AI shopping assistant for every shopper",
     description:
-      "Gleame recommends the right shade or formula, and guides shoppers from browse to buy."
+      "Gleame recommends the right shade or formula, and guides shoppers from browse to buy.",
+    video: "/gleameb4after.mp4",
   },
   {
     id: "configure",
@@ -94,16 +95,18 @@ export function Features() {
           <div className="grid lg:grid-cols-[1fr_300px] gap-10 lg:gap-14 items-center">
             {/* Video */}
             <div className="relative rounded-2xl overflow-hidden bg-gray-100 shadow-xl ring-1 ring-gray-900/5 aspect-video">
-              <video
-                key={features[active].video}
-                src={features[active].video}
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="metadata"
-                className="w-full h-full object-cover"
-              />
+              {features[active].video ? (
+                <video
+                  key={features[active].video}
+                  src={features[active].video}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="metadata"
+                  className="w-full h-full object-cover"
+                />
+              ) : null}
             </div>
 
             {/* Text */}
