@@ -14,13 +14,12 @@ const features = [
     video: "/New Lander Demo.mov",
   },
   {
-    id: "install",
+    id: "assistant",
     label: "Shopping Assistant",
-    tag: "Easy Integration",
-    title: "Add the widget to your product page",
+    tag: "Personalized Guidance",
+    title: "An AI shopping assistant for every shopper",
     description:
-      "Drop Gleame into any Shopify product page in minutes. No code, no dev cycles. It sits natively on your PDP and starts converting immediately.",
-    video: "/0422.mov",
+      "Gleame recommends the right shade or formula, and guides shoppers from browse to buy."
   },
   {
     id: "configure",
