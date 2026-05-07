@@ -11,7 +11,7 @@ const features = [
     title: "Photorealistic before & after previews",
     description:
       "Shoppers upload a selfie and instantly see how your product transforms their look. Powered by AI trained on real beauty outcomes — no filters, no exaggeration.",
-    video: "/new-lander-demo.mp4",
+    video: "/New Lander Demo.mov",
   },
   {
     id: "assistant",
@@ -20,7 +20,7 @@ const features = [
     title: "An AI shopping assistant for every shopper",
     description:
       "Gleame recommends the right shade or formula, and guides shoppers from browse to buy.",
-    video: "/gleameb4after.mp4",
+    video: "/0422.mov",
   },
   {
     id: "configure",
