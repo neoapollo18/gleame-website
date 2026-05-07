@@ -15,12 +15,12 @@ const features = [
   },
   {
     id: "install",
-    label: "Add to Store",
+    label: "Shopping Assistant",
     tag: "Easy Integration",
     title: "Add the widget to your product page",
     description:
       "Drop Gleame into any Shopify product page in minutes. No code, no dev cycles. It sits natively on your PDP and starts converting immediately.",
-    video: "/Cursorful Add Widget (2).mp4",
+    video: "/0422.mov",
   },
   {
     id: "configure",
