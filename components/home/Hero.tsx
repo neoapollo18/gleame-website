@@ -44,7 +44,8 @@ export function Hero() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-lg sm:text-xl text-gray-500 mb-8 leading-relaxed font-light"
             >
-              Increase conversions with realistic before-and-after visualizations for Shopify-native beauty & cosmetics products.
+              Your shoppers want to buy. They just don’t know what. <br /> 
+              We guide every visitor to the right match, lifting your AOV while making shopping feel personal.   
             </motion.p>
 
             <motion.div
