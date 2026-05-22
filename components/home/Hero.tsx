@@ -24,7 +24,7 @@ export function Hero() {
               transition={{ duration: 0.5 }}
             >
               <span className="inline-block text-coral font-medium italic tracking-widest uppercase text-xs mb-4">
-                AI Virtual Try-On
+                AI Beauty Assistant
               </span>
             </motion.div>
 
@@ -34,8 +34,8 @@ export function Hero() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-4xl sm:text-5xl lg:text-display-lg font-semibold text-gray-900 mb-6 tracking-tight"
             >
-              A Beauty Advisor your  <br />   {" "}
-              <span className="gradient-text">  Shoppers Deserve</span>
+            Beauty Consultations <br />   {" "}
+              <span className="gradient-text">  For Every Shopper</span>
             </motion.h1>
 
             <motion.p
