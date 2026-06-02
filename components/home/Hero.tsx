@@ -44,8 +44,8 @@ export function Hero() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-lg sm:text-xl text-gray-500 mb-8 leading-relaxed font-light"
             >
-              We guide every visitor to their right match. <br /> 
-              Lift conversion with AOV while shopping personal. 
+              We guide every visitor to their right match,
+              lifting  <br />  CVR & AOV while making shopping feel personal. 
             </motion.p>
 
             <motion.div
