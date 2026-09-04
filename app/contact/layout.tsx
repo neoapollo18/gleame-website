@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with the Gleame team. Book a demo, ask about enterprise pricing, or get technical support for your AI virtual try-on widget.",
+    "Get in touch with the Gleame team. Book a demo of the Find My Fit quiz, ask about pricing, or get technical support.",
   openGraph: {
     title: "Contact | Gleame",
     description:

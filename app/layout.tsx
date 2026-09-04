@@ -13,26 +13,26 @@ const plusJakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "Gleame - AI Virtual Try-On for Beauty & Cosmetics | Shopify App",
+    default: "Gleame - AI Find My Fit Quiz for Shopify Beauty Brands",
     template: "%s | Gleame",
   },
   description:
-    "Boost Shopify conversions with Gleame's AI before-and-after previews. Shoppers upload a selfie and instantly see how your beauty products transform their look. Proven 13-106% CVR lifts.",
+    "Gleame builds your product-matching quiz from your real catalog in about a minute — and it only ever recommends products you actually sell. Turn browsers into confident buyers, lift conversion, and cut returns.",
   keywords: [
-    "virtual try-on",
-    "AI beauty",
-    "cosmetics",
-    "shopify app",
-    "before after",
-    "shade matching",
-    "makeup try on",
-    "skincare visualization",
-    "beauty ecommerce",
-    "AR beauty",
+    "product quiz",
+    "shopify quiz app",
+    "product recommendation quiz",
+    "guided selling",
+    "find my fit quiz",
+    "shade finder quiz",
+    "quiz builder shopify",
+    "beauty quiz",
+    "skincare quiz",
+    "nail care quiz",
+    "hair extensions quiz",
+    "AI product recommendations",
     "shopify conversion rate optimization",
-    "beauty product visualization",
-    "AI skincare preview",
-    "product page widget",
+    "reduce returns ecommerce",
     "DTC beauty tools",
     "increase shopify conversions",
     "beauty brand CRO",
@@ -49,21 +49,21 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://gleame.ai",
     siteName: "Gleame",
-    title: "Gleame - AI Virtual Try-On for Beauty & Cosmetics",
+    title: "Gleame - AI Find My Fit Quiz for Shopify Beauty Brands",
     description:
-      "Boost Shopify conversions with AI before-and-after previews. Proven 13-106% CVR lifts for beauty brands.",
+      "Your product-matching quiz, built from your real catalog in about a minute. Turn browsers into confident buyers and cut returns.",
     images: [
       {
         url: "/Gleame.jpg",
-        alt: "Gleame - AI Virtual Try-On for Beauty & Cosmetics",
+        alt: "Gleame - AI Find My Fit Quiz for Shopify Beauty Brands",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gleame - AI Virtual Try-On for Beauty & Cosmetics",
+    title: "Gleame - AI Find My Fit Quiz for Shopify Beauty Brands",
     description:
-      "Boost Shopify conversions with AI before-and-after previews. Proven 13-106% CVR lifts.",
+      "Your product-matching quiz, built from your real catalog in about a minute. Turn browsers into confident buyers and cut returns.",
     images: ["/gleamegradient.jpg"],
   },
   icons: {
@@ -94,7 +94,7 @@ export default function RootLayout({
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
     description:
-      "AI-powered virtual try-on widget for Shopify beauty and cosmetics brands. Increase conversions with realistic before-and-after previews.",
+      "AI-built Find My Fit quiz for Shopify beauty and wellness brands. Matches shoppers to the right products from the store's real catalog to lift conversion and cut returns.",
     url: "https://gleame.ai",
     aggregateRating: {
       "@type": "AggregateRating",

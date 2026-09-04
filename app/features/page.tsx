@@ -7,42 +7,78 @@ import { CTA } from "@/components/home/CTA";
 
 const features = [
   {
-    id: "ai-previews",
-    title: "AI Before & After Previews",
+    id: "quiz",
+    title: "The Find My Fit Quiz",
     description:
-      "Generate photorealistic visualizations showing customers exactly how they'll look after using your products.",
+      "A full-page quiz on your storefront — your domain, your theme, no iframe. Mobile-first, fast, and animated, with questions written in your brand's voice.",
     details: [
-      "Advanced AI trained on millions of beauty transformations",
-      "Instant preview generation in under 2 seconds",
-      "Support for skincare, makeup, and haircare products",
-      "Adjustable transformation intensity per product",
-      "Natural-looking results that build customer confidence",
+      "Playful answers as chips, image cards, and swatches",
+      "Multi-select questions and conditional branching",
+      "Optional, always-skippable selfie step for shade detection",
+      "Ranked matches with \"why this matched\" reasons and add to cart",
+      "Multi-product results — e.g. a 3-product routine with an accessory slot",
     ],
   },
   {
-    id: "templates",
-    title: "Customizable Templates",
+    id: "studio",
+    title: "Quiz Studio",
     description:
-      "Choose from high-converting templates and customize every aspect to match your brand perfectly.",
+      "A full-screen editor built for iterating fast. See your real storefront quiz update live as you edit — on mobile and desktop.",
     details: [
-      "Pre-built templates optimized for conversions",
-      "Full customization of colors, fonts, and layouts",
-      "Mobile-responsive designs out of the box",
-      "A/B testing support for optimization",
-      "No coding required for any customization",
+      "Slide tree with per-slide editors",
+      "Live preview of the actual storefront quiz",
+      "Theme editor: colors, radii, fonts, and weights",
+      "Visual flow map of your branching logic",
+      "AI chat copilot: \"make question 2 more playful\", \"add a budget question\"",
     ],
   },
   {
-    id: "privacy",
-    title: "Privacy-First Design",
+    id: "logic",
+    title: "Catalog-Grounded Recommendations",
     description:
-      "Customer photos are processed securely and never stored without consent. Enterprise-grade security built in.",
+      "Write your recommendation logic in plain language — a few words per answer — and Gleame compiles it into the ranking rulebook the AI recommender follows at runtime.",
     details: [
-      "Photos processed in real-time, not stored",
-      "Full GDPR and CCPA compliance",
-      "SOC 2 Type II certified infrastructure",
-      "Optional consent collection features",
-      "Complete data deletion on request",
+      "An LLM ranker scores your real products against shopper answers",
+      "Plain-language notes per answer, or AI-drafted from your catalog",
+      "Optional hard rules for guaranteed answer-to-product mappings",
+      "Only ever recommends products you actually sell",
+      "Catalog stays in sync automatically via Shopify webhooks",
+    ],
+  },
+  {
+    id: "analytics",
+    title: "Analytics & Revenue Attribution",
+    description:
+      "See exactly how the quiz performs — from first view to purchase — and the revenue it drives.",
+    details: [
+      "Full quiz funnel: views, starts, photo step, results, product clicks, add to cart",
+      "Mobile vs desktop split",
+      "Quiz sessions linked to actual orders via cart tracking",
+      "Revenue attribution you can put in front of your CFO",
+    ],
+  },
+  {
+    id: "tryon",
+    title: "\"See It On You\" Try-On Moments",
+    description:
+      "For beauty catalogs, AI selfie try-on lives inside the quiz results — shoppers don't just get told their match, they see it on themselves.",
+    details: [
+      "AI-generated try-on imagery in the results page",
+      "Selfie shade detection sharpens matches",
+      "Photo step is always skippable — answers alone still match well",
+      "Product-page try-on widgets available for select brands",
+    ],
+  },
+  {
+    id: "publish",
+    title: "Draft, Version, Publish",
+    description:
+      "Experiment freely. Everything edits a draft with version history, and nothing touches your live storefront until you hit Publish.",
+    details: [
+      "Draft workspace separate from the live quiz",
+      "Version history for every change",
+      "Pre-publish checklist catches broken branches and gaps",
+      "One-click publish to your storefront",
     ],
   },
 ];
@@ -66,8 +102,8 @@ export default function FeaturesPage() {
               transition={{ delay: 0.1 }}
               className="text-4xl sm:text-5xl lg:text-display-lg font-extrabold text-gray-900 mb-6"
             >
-              Powerful tools to{" "}
-              <span className="gradient-text">transform</span> your store
+              Guided selling that{" "}
+              <span className="gradient-text">knows your catalog</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -75,8 +111,9 @@ export default function FeaturesPage() {
               transition={{ delay: 0.2 }}
               className="text-lg lg:text-xl text-gray-600 mb-8"
             >
-              Everything you need to give customers confidence and boost
-              conversions with AI-powered virtual try-on.
+              Everything you need to build a Find My Fit quiz that turns
+              browsers into confident buyers — drafted by AI in about a minute,
+              fine-tuned by you.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}

@@ -42,7 +42,7 @@ export function CTA() {
             viewport={{ once: true }}
             className="text-3xl sm:text-4xl lg:text-display-md font-semibold text-white mb-6 tracking-tight"
           >
-            Ready to transform your customer experience?
+            Ready to turn browsers into buyers?
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -51,8 +51,8 @@ export function CTA() {
             transition={{ delay: 0.1 }}
             className="text-lg lg:text-xl text-white/70 mb-10 font-light"
           >
-            Join dozens of beauty brands using Gleame to boost confidence and
-            conversions.
+            Launch a Find My Fit quiz built from your real catalog — free under
+            2,500 sessions a month.
           </motion.p>
 
           <motion.div
@@ -84,7 +84,7 @@ export function CTA() {
             transition={{ delay: 0.3 }}
             className="text-white/60 text-sm"
           >
-            14-day free trial • Setup in minutes
+            14-day free trial • Quiz drafted in about a minute • Never more than $399/mo
           </motion.p>
         </div>
       </div>

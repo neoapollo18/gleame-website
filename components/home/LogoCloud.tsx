@@ -24,7 +24,7 @@ export function LogoCloud() {
           transition={{ duration: 0.5 }}
           className="text-center text-xs font-medium text-gray-400 mb-8 uppercase tracking-wider"
         >
-          Trusted by leading beauty brands
+          Trusted by beauty &amp; wellness brands on Shopify
         </motion.p>
       </div>
       

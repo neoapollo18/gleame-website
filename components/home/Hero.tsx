@@ -2,7 +2,14 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Calendar, Star } from "lucide-react";
+import { ArrowRight, Sparkles, Star } from "lucide-react";
+
+const chips = [
+  { label: "🎉 Party night", selected: true },
+  { label: "💼 Office polish", selected: false },
+  { label: "💍 Big event", selected: false },
+  { label: "🏖️ Vacation mode", selected: false },
+];
 
 export function Hero() {
   return (
@@ -24,7 +31,7 @@ export function Hero() {
               transition={{ duration: 0.5 }}
             >
               <span className="inline-block text-coral font-medium italic tracking-widest uppercase text-xs mb-4">
-                AI Beauty Assistant
+                Quiz-First Guided Selling for Shopify
               </span>
             </motion.div>
 
@@ -34,8 +41,9 @@ export function Hero() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-4xl sm:text-5xl lg:text-display-lg font-semibold text-gray-900 mb-6 tracking-tight"
             >
-            Beauty Consultations <br />   {" "}
-              <span className="gradient-text">  For Every Shopper</span>
+              A Find My Fit quiz,{" "}
+              <span className="gradient-text">built from your catalog</span> in
+              a minute
             </motion.h1>
 
             <motion.p
@@ -44,8 +52,10 @@ export function Hero() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-lg sm:text-xl text-gray-500 mb-8 leading-relaxed font-light"
             >
-              We guide every visitor to their right match,
-              lifting  <br />  CVR & AOV while making shopping feel personal. 
+              Shoppers answer a few fun, on-brand questions and get matched to
+              the right products from your actual catalog. Turn browsers into
+              confident buyers — and cut returns from wrong picks, shades, and
+              sizes.
             </motion.p>
 
             <motion.div
@@ -54,14 +64,14 @@ export function Hero() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex flex-col sm:flex-row gap-4 mb-10"
             >
-              <Link 
-                href="/contact"
-                className="btn btn-primary btn-lg group"
-              >
+              <Link href="/contact" className="btn btn-primary btn-lg group">
                 Book Demo
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
-              <Link href="https://apps.shopify.com/gleame" className="btn btn-ghost btn-lg group">
+              <Link
+                href="https://apps.shopify.com/gleame"
+                className="btn btn-ghost btn-lg group"
+              >
                 Start free trial
               </Link>
             </motion.div>
@@ -84,54 +94,124 @@ export function Hero() {
                   5.0/5
                 </span>
               </div>
-              <div className="flex items-center gap-2">
-              </div>
+              <div className="hidden sm:block w-px h-5 bg-gray-200" />
+              <p className="text-sm text-gray-500">
+                Powering quizzes for ORLY, Locks &amp; Mane, and more
+              </p>
             </motion.div>
           </div>
 
-          {/* Right Visual - Laptop with Pureskin Screenshot */}
-          <motion.div 
+          {/* Right Visual - Quiz phone mockup with floating results card */}
+          <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative"
+            className="relative flex justify-center lg:justify-end lg:pr-16"
           >
-            {/* Laptop Frame */}
-            <div className="relative mx-auto max-w-[600px]">
-              {/* Screen */}
-              <div className="relative rounded-t-xl bg-gray-800 p-2">
-                {/* Browser Chrome */}
-                <div className="rounded-lg overflow-hidden bg-white">
-                  {/* Browser Header */}
-                  <div className="flex items-center gap-2 px-3 py-2 bg-gray-100 border-b border-gray-200">
-                    <div className="flex items-center gap-1.5">
-                      <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
-                      <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
-                      <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
-                    </div>
-                    <div className="flex-1 mx-3">
-                      <div className="bg-white rounded px-3 py-1 text-[10px] text-gray-400 font-light text-center">
-                        biotechbeauty.com/products
-                      </div>
+            <div className="relative">
+              {/* Phone frame */}
+              <div className="relative w-[300px] sm:w-[330px] rounded-[2.5rem] bg-gray-900 p-2.5 shadow-2xl">
+                <div className="rounded-[2rem] bg-white overflow-hidden">
+                  {/* Storefront header */}
+                  <div className="px-5 pt-5 pb-3 border-b border-gray-100">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-gray-900">
+                        Your Store
+                      </span>
+                      <span className="text-[10px] text-gray-400">
+                        Find My Fit
+                      </span>
                     </div>
                   </div>
-                  
-                  {/* Screenshot Content */}
-                  <div className="relative">
-                    <img 
-                      src="/biotechbeautyhero1.png" 
-                      alt="Gleame widget demo on product page" 
-                      className="w-full h-auto"
-                    />
+
+                  {/* Quiz content */}
+                  <div className="px-5 py-6">
+                    {/* Progress */}
+                    <div className="flex items-center gap-1.5 mb-5">
+                      {[0, 1, 2, 3, 4].map((i) => (
+                        <div
+                          key={i}
+                          className={`h-1 flex-1 rounded-full ${
+                            i < 2 ? "bg-primary" : "bg-gray-100"
+                          }`}
+                        />
+                      ))}
+                    </div>
+
+                    <p className="text-[10px] font-medium uppercase tracking-widest text-primary mb-2">
+                      Question 2 of 5
+                    </p>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4 leading-snug">
+                      Where are your nails headed this week?
+                    </h3>
+
+                    <div className="grid grid-cols-2 gap-2.5 mb-5">
+                      {chips.map((chip) => (
+                        <div
+                          key={chip.label}
+                          className={`rounded-xl px-3 py-3 text-[13px] font-medium text-center border ${
+                            chip.selected
+                              ? "bg-primary-50 border-primary text-primary-700"
+                              : "bg-white border-gray-200 text-gray-600"
+                          }`}
+                        >
+                          {chip.label}
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="rounded-xl bg-primary text-white text-center text-sm font-medium py-3">
+                      Next
+                    </div>
+                    <p className="text-center text-[11px] text-gray-400 mt-3">
+                      Takes under a minute ✨
+                    </p>
                   </div>
                 </div>
               </div>
-              
-              {/* Laptop Base */}
-              <div className="relative h-4 bg-gradient-to-b from-gray-700 to-gray-800 rounded-b-lg">
-                <div className="absolute left-1/2 -translate-x-1/2 top-0 w-16 h-1 bg-gray-600 rounded-b" />
-              </div>
-              <div className="relative h-2 bg-gray-800 rounded-b-xl mx-8 shadow-xl" />
+
+              {/* Floating results card */}
+              <motion.div
+                animate={{ y: [-6, 6, -6] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                className="hidden sm:block absolute -left-36 bottom-16 w-[210px] rounded-2xl bg-white shadow-xl ring-1 ring-gray-900/5 p-4"
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-[10px] font-semibold uppercase tracking-wider text-primary">
+                    Your match
+                  </span>
+                  <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 rounded-full px-2 py-0.5">
+                    98% fit
+                  </span>
+                </div>
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-rose-300 via-fuchsia-300 to-primary-300" />
+                  <div>
+                    <p className="text-[13px] font-semibold text-gray-900 leading-tight">
+                      Chrome Party Gel
+                    </p>
+                    <p className="text-[11px] text-gray-400">Shade 014</p>
+                  </div>
+                </div>
+                <p className="text-[11px] text-gray-500 leading-snug mb-3">
+                  Matched because you picked party night and bold finishes.
+                </p>
+                <div className="rounded-lg bg-gray-900 text-white text-[11px] font-medium text-center py-2">
+                  Add to cart
+                </div>
+              </motion.div>
+
+              {/* Floating try-on chip */}
+              <motion.div
+                animate={{ y: [5, -5, 5] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="hidden sm:flex absolute -right-14 top-14 rounded-full bg-white shadow-lg ring-1 ring-gray-900/5 px-4 py-2.5 items-center gap-2"
+              >
+                <Sparkles className="w-3.5 h-3.5 text-primary" />
+                <span className="text-[12px] font-medium text-gray-700">
+                  See it on you
+                </span>
+              </motion.div>
             </div>
           </motion.div>
         </div>

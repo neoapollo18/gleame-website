@@ -70,8 +70,8 @@ export function CaseStudies() {
             transition={{ delay: 0.2 }}
             className="text-lg text-gray-500 font-light"
           >
-            See how beauty brands are increasing conversions and revenue with
-            Gleame.
+            What happens when shoppers get guided to the right product instead
+            of browsing alone.
           </motion.p>
         </div>
 

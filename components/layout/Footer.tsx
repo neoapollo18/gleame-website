@@ -55,8 +55,9 @@ export function Footer() {
               <span className="text-xl font-semibold text-gray-900 tracking-tight">Gleame</span>
             </Link>
             <p className="text-gray-400 text-sm mb-6 max-w-xs font-light leading-relaxed">
-              AI-powered virtual try-on for beauty brands. Increase conversions
-              and reduce returns with realistic before-and-after previews.
+              Gleame builds your Find My Fit quiz from your real catalog in
+              about a minute — and it only ever recommends products you
+              actually sell.
             </p>
             <div className="flex items-center gap-4">
               {socialLinks.map((social) => (

@@ -7,31 +7,35 @@ import { CTA } from "@/components/home/CTA";
 
 const faqs = [
   {
-    title: "How long does setup take?",
+    title: "How long does it take to launch a quiz?",
     content:
-      "Most stores are up and running within 15 minutes. Simply install the app from the Shopify App Store, configure your first product, add a widget to your product page, customize the widget to match your brand, and you're ready to go. No coding or technical expertise required. Our setup wizard guides you through every step.",
+      "About a minute for the first draft. The onboarding wizard syncs your Shopify catalog, asks for your category, brand voice, and accent color, and AI drafts the whole quiz — questions, answers, copy, styling, and recommendation logic. Most merchants fine-tune in Quiz Studio and publish the same day. No coding required.",
   },
   {
-    title: "Is customer photo data secure?",
+    title: "How does pricing work?",
     content:
-      "Absolutely. Photos are processed in real-time and automatically deleted after the preview is generated. We never store customer images without explicit consent and are fully GDPR and CCPA compliant. Your customers' privacy is our top priority.",
+      "Pricing follows your store's traffic with one approval. Free under 2,500 monthly store sessions, $30/mo from 2.5k to 5k, $149/mo from 5k to 25k, and $399/mo above 25k — never more than $399. The charge moves up when you grow and down when you slow, automatically. Everything is billed through Shopify.",
   },
   {
-    title: "Can I customize the widget appearance?",
+    title: "Will it ever recommend products I don't sell?",
     content:
-      "Yes! Every aspect of the widget is customizable—fonts, colors, button styles, layouts, and more. Match your brand perfectly without any coding.",
+      "No. Gleame is catalog-grounded: the AI recommender only ranks products from your synced Shopify catalog, following the recommendation logic you write in plain language (or let AI draft). You can add hard rules for guaranteed mappings, and your catalog stays in sync automatically via webhooks.",
   },
   {
-    title: "What products work best with Gleame?",
+    title: "Can I make the quiz match my brand?",
     content:
-      "Gleame works great for skincare (moisturizers, brightening serums), makeup (blush, bronzer, lipstick, mascara), and haircare products. Any beauty product where customers want to visualize the results before purchasing. Our AI adapts to different product categories automatically.",
+      "Yes. The quiz is a full-page section on your own domain and theme — no iframe. In Quiz Studio you control colors, radii, fonts, and weights, edit every slide, and shape the flow with conditional branching. Or ask the AI copilot to make the edits for you.",
+  },
+  {
+    title: "Is the shopper photo step required? Is it secure?",
+    content:
+      "The selfie step is optional and always skippable — shoppers who skip it still get great matches from their answers. Photos are processed securely for shade detection and try-on imagery, never stored without consent, and we're GDPR and CCPA compliant.",
   },
   {
     title: "Do you offer a free trial?",
     content:
-      "Yes! All plans include a 14-day free trial with full access to features. No credit card required to start. Experience the power of AI virtual try-on risk-free. If you're not seeing results, you can cancel anytime during the trial period.",
+      "Yes! Every plan includes a 14-day free trial with full access, and stores under 2,500 monthly sessions stay free after that. Nothing touches your live storefront until you hit Publish, so you can build and preview risk-free.",
   },
-
 ];
 
 export default function PricingPage() {
@@ -62,7 +66,8 @@ export default function PricingPage() {
               transition={{ delay: 0.2 }}
               className="text-lg lg:text-xl text-gray-600"
             >
-              Start free, scale as you grow. No hidden fees.
+              One approval, traffic-based tiers. Free under 2,500 sessions —
+              and never more than $399/mo.
             </motion.p>
           </div>
         </div>

@@ -205,7 +205,7 @@ export default function ContactPage() {
                   Technical support
                 </h3>
                 <p className="text-gray-500 text-sm font-light">
-                  Need help with setup, integration, or your widget? We&apos;re here to help.
+                  Need help with setup, your catalog sync, or your quiz? We&apos;re here to help.
                 </p>
               </motion.div>
             </div>
