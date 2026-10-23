@@ -52,8 +52,8 @@ export default function FeaturesPage() {
             <SplitHeading
               as="h1"
               className="text-[2.25rem] font-medium leading-[1.06] tracking-[-0.036em] sm:text-[3rem] lg:text-[3.5rem]"
-              lead="Everything a quiz needs to sell."
-              rest="AI that writes it from your catalog, a Studio for every detail, matching you can check, and analytics that tie answers to orders."
+              lead="From catalog to cart."
+              rest="AI writes the quiz. You perfect it. Analytics show what it sells."
             />
             <div className="mt-10 flex flex-wrap gap-3">
               <ButtonLink href={SHOPIFY_URL} external size="lg" arrow>
