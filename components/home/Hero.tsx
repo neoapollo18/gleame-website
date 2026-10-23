@@ -50,8 +50,7 @@ export function Hero() {
             <h1 className="load-rise text-balance text-[2.375rem] font-medium leading-[1.06] tracking-[-0.038em] sm:text-[3.125rem] lg:text-[3.375rem] lg:leading-[1.04]">
               <span className="text-ink">Help every shopper find their match.</span>{" "}
               <span className="load-fade text-brand-pop" style={{ ["--d" as string]: "160ms" }}>
-                Gleame turns your catalog into a product quiz, written by AI and
-                matched to what you sell.
+                A product quiz that asks what your best sales associate would.
               </span>
             </h1>
 
