@@ -66,7 +66,7 @@ export function Goals() {
         <SplitHeading
           className="h-section max-w-[820px]"
           lead="Pick what the quiz should do."
-          rest="Gleame shapes the quiz around it: an email step to grow your list, a fit question to cut returns, a bundle to lift order value."
+          rest="Gleame shapes it to fit."
         />
 
         <div className="mt-12 grid gap-3 md:grid-cols-2 lg:mt-16 lg:grid-cols-6 lg:gap-4">

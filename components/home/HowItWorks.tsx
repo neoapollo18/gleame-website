@@ -32,7 +32,7 @@ export function HowItWorks() {
         <SplitHeading
           className="h-section max-w-[800px]"
           lead="Live in minutes."
-          rest="Install from the Shopify App Store and Gleame writes the first draft. You decide every word and every match."
+          rest="Install from the Shopify App Store and Gleame writes the first draft."
         />
       </div>
 

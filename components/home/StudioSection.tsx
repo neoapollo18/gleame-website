@@ -26,7 +26,7 @@ export function StudioSection() {
           <SplitHeading
             className="h-section max-w-[780px]"
             lead="One Studio to build, check and launch."
-            rest="Change anything by hand or by asking. Every edit shows up in a live preview of your store, and every edit has an Undo."
+            rest="Edit by hand, or just ask."
           />
           <TextLink href="/features#studio" className="shrink-0 text-[15px]">
             Explore the Studio
