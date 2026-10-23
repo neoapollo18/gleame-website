@@ -1,133 +1,117 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { Logo } from "@/components/brand/Logo";
+import { ButtonLink } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
+import { SHOPIFY_URL } from "@/lib/site";
 
 const navLinks = [
-  { href: "/#features", label: "Features" },
+  { href: "/features", label: "Product" },
+  { href: "/#how-it-works", label: "How it works" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/pricing#faq", label: "FAQ" },
+  { href: "/#reviews", label: "Customers" },
   { href: "/contact", label: "Contact" },
 ];
 
 export function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => setOpen(false), [pathname]);
+
   return (
-    <>
-      {/* Announcement Bar */}
-      <div className="bg-primary text-white text-[12.5px] py-2 px-5 text-center font-light">
-        <p className="flex items-center justify-center gap-2">
-          <span className="hidden sm:inline">Now available on the Shopify App Store</span>
-          <span className="sm:hidden">Now on Shopify</span>
-<Link href="https://apps.shopify.com/gleame" className="inline-flex items-center gap-1 font-medium hover:underline">
-            Get started <span aria-hidden="true">→</span>
-          </Link>
-        </p>
-      </div>
+    <header
+      className={cn(
+        "sticky top-0 z-50 w-full border-b transition-colors duration-200",
+        scrolled || open
+          ? "border-line bg-white/85 backdrop-blur-md backdrop-saturate-150"
+          : "border-line/70 bg-transparent"
+      )}
+    >
+      <nav className="frame frame-pad flex h-16 items-center justify-between gap-6 sm:border-x-transparent">
+        <Link href="/" aria-label="Gleame home" className="flex shrink-0 items-center">
+          <Logo />
+        </Link>
 
-      {/* Main Navbar */}
-      <header
-        className={cn(
-          "sticky top-0 z-50 w-full transition-all duration-300",
-          isScrolled
-            ? "bg-white/80 backdrop-blur-lg shadow-sm"
-            : "bg-white"
-        )}
-      >
-        <nav className="container flex items-center justify-between h-16 lg:h-20">
-          {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <img 
-              src="/gleamelogo.svg" 
-              alt="Gleame" 
-              className="h-8 w-auto rounded-md"
-            />
-          </Link>
+        <div className="hidden flex-1 items-center gap-7 lg:flex lg:pl-6">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={cn(
+                "text-[14px] font-medium tracking-[-0.01em] transition-colors",
+                pathname === link.href ? "text-ink" : "text-ink-3 hover:text-ink"
+              )}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
+        <div className="hidden items-center gap-2 lg:flex">
+          <ButtonLink href="/contact" variant="secondary" size="sm" className="h-9 bg-white/70">
+            Book a demo
+          </ButtonLink>
+          <ButtonLink href={SHOPIFY_URL} external size="sm" arrow className="h-9">
+            Install on Shopify
+          </ButtonLink>
+        </div>
+
+        <button
+          type="button"
+          className="-mr-2 inline-flex h-10 w-10 items-center justify-center rounded-box text-ink lg:hidden"
+          onClick={() => setOpen((v) => !v)}
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+        >
+          <svg viewBox="0 0 20 20" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.5">
+            {open ? (
+              <path d="M4.5 4.5l11 11M15.5 4.5l-11 11" />
+            ) : (
+              <path d="M3 6.5h14M3 13.5h14" />
+            )}
+          </svg>
+        </button>
+      </nav>
+
+      {open && (
+        <div className="border-t border-line bg-white lg:hidden">
+          <div className="frame frame-pad py-3">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-gray-500 hover:text-gray-900 font-normal text-[14px] transition-colors"
+                onClick={() => setOpen(false)}
+                className="flex items-center justify-between border-b border-line py-3.5 text-[15px] font-medium text-ink last:border-0"
               >
                 {link.label}
+                <span className="text-muted-2" aria-hidden="true">
+                  →
+                </span>
               </Link>
             ))}
+            <div className="grid grid-cols-2 gap-2 pb-2 pt-4">
+              <ButtonLink href="/contact" variant="secondary">
+                Book a demo
+              </ButtonLink>
+              <ButtonLink href={SHOPIFY_URL} external>
+                Install
+              </ButtonLink>
+            </div>
           </div>
-
-          {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center gap-4">
-            <Link
-              href="/contact"
-              className="btn btn-primary btn-md text-[14px] font-medium"
-            >
-              Book Demo
-            </Link>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden p-2 -mr-2 text-gray-600 hover:text-gray-900"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
-          </button>
-        </nav>
-
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.2 }}
-              className="lg:hidden bg-white border-t border-gray-100"
-            >
-              <div className="container py-4 space-y-4">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="block text-gray-600 hover:text-gray-900 font-medium py-2"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-                <div className="pt-4 border-t border-gray-100">
-                  <Link
-                    href="/contact"
-                    className="btn btn-primary btn-md w-full"
-                  >
-                    Book Demo
-                  </Link>
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </header>
-    </>
+        </div>
+      )}
+    </header>
   );
 }

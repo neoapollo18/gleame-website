@@ -9,6 +9,13 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      // Case studies are offline for now; keep old links landing somewhere useful.
+      { source: "/case-studies", destination: "/#reviews", permanent: false },
+      { source: "/case-studies/:slug*", destination: "/#reviews", permanent: false },
+    ];
+  },
 };
 
 export default nextConfig;

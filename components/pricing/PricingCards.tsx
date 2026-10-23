@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
-import Link from "next/link";
+import { cn } from "@/lib/utils";
+import { ButtonLink } from "@/components/ui/Button";
+import { SHOPIFY_URL } from "@/lib/site";
 
 const plans = [
   { name: "Free", minSessions: 0, maxSessions: 2500, price: 0 },
@@ -12,199 +13,146 @@ const plans = [
 ];
 
 function formatSessions(num: number): string {
-  if (num === Infinity) return "∞";
-  if (num >= 25000 && num % 25000 === 0) return `${num / 1000}k`;
-  if (num >= 1000) return `${num / 1000}k`;
+  if (num >= 1000) return `${(num / 1000).toFixed(num % 1000 === 0 ? 0 : 1)}k`;
   return num.toString();
 }
 
-function getPlanForSessions(sessions: number) {
-  for (const plan of plans) {
-    if (sessions >= plan.minSessions && sessions < plan.maxSessions) {
-      return plan;
-    }
-  }
-  return plans[plans.length - 1];
+function rangeLabel(plan: (typeof plans)[number]) {
+  if (plan.minSessions === 0) return "Under 2.5k sessions";
+  if (plan.maxSessions === Infinity) return "25k+ sessions";
+  return `${formatSessions(plan.minSessions)} to ${formatSessions(plan.maxSessions)} sessions`;
 }
+
+function getPlanForSessions(sessions: number) {
+  return plans.find((p) => sessions >= p.minSessions && sessions < p.maxSessions) ?? plans[plans.length - 1];
+}
+
+// Non-linear slider: 0, 2.5k, 5k, 25k and 50k+ sit at even quarters.
+const toPct = (v: number) => {
+  if (v <= 2500) return (v / 2500) * 25;
+  if (v <= 5000) return 25 + ((v - 2500) / 2500) * 25;
+  if (v <= 25000) return 50 + ((v - 5000) / 20000) * 25;
+  return 75 + (Math.min(v - 25000, 25000) / 25000) * 25;
+};
+const fromPct = (p: number) => {
+  if (p <= 25) return (p / 25) * 2500;
+  if (p <= 50) return 2500 + ((p - 25) / 25) * 2500;
+  if (p <= 75) return 5000 + ((p - 50) / 25) * 20000;
+  return 25000 + ((p - 75) / 25) * 25000;
+};
 
 export function PricingCards() {
   const [sessions, setSessions] = useState(10000);
-  const currentPlan = getPlanForSessions(sessions);
-
-  // Non-linear slider: markers 0 (0%), 2.5k (25%), 5k (50%), 25k (75%), 50k+ (100%)
-  const getSliderPercentage = (value: number): number => {
-    if (value <= 2500) return (value / 2500) * 25;
-    if (value <= 5000) return 25 + ((value - 2500) / 2500) * 25;
-    if (value <= 25000) return 50 + ((value - 5000) / 20000) * 25;
-    return 75 + (Math.min(value - 25000, 25000) / 25000) * 25;
-  };
-  const sliderPercentage = getSliderPercentage(sessions);
+  const current = getPlanForSessions(sessions);
+  const pct = toPct(sessions);
 
   return (
-    <div className="max-w-3xl mx-auto">
-      {/* Interactive Slider Card */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="bg-white rounded-2xl border border-gray-200 p-8 shadow-sm mb-8"
-      >
-        <div className="text-center mb-8">
-          <h3 className="text-lg font-medium text-gray-600 mb-2">
-            Monthly Store Sessions
-          </h3>
-          <p className="text-5xl font-bold text-gray-900">
+    <div>
+      <div className="grid overflow-hidden rounded-[8px] border border-line-strong bg-white lg:grid-cols-[1.4fr_1fr]">
+        <div className="p-6 sm:p-8 lg:p-10">
+          <label htmlFor="sessions" className="text-[14px] font-medium text-ink-3">
+            Monthly store sessions
+          </label>
+          <p className="mt-2 font-mono text-[3rem] font-medium leading-none tracking-[-0.04em] tabular sm:text-[3.5rem]">
             {sessions >= 50000 ? "50k+" : formatSessions(sessions)}
           </p>
-        </div>
 
-        {/* Slider */}
-        <div className="relative mb-8">
-          <input
-            type="range"
-            min="0"
-            max="100"
-            step="1"
-            value={sliderPercentage}
-            onChange={(e) => {
-              const pct = parseFloat(e.target.value);
-              let newSessions: number;
-              if (pct <= 25) newSessions = (pct / 25) * 2500;
-              else if (pct <= 50) newSessions = 2500 + ((pct - 25) / 25) * 2500;
-              else if (pct <= 75) newSessions = 5000 + ((pct - 50) / 25) * 20000;
-              else newSessions = 25000 + ((pct - 75) / 25) * 25000;
-              setSessions(Math.round(newSessions / 100) * 100);
-            }}
-            className="w-full h-3 bg-gray-200 rounded-full appearance-none cursor-pointer slider-thumb"
-            style={{
-              background: `linear-gradient(to right, #7c3aed 0%, #7c3aed ${sliderPercentage}%, #e5e7eb ${sliderPercentage}%, #e5e7eb 100%)`,
-            }}
-          />
-          <div className="flex justify-between mt-3 text-xs text-gray-400">
+          <div className="relative mt-10">
+            <div className="absolute inset-x-0 top-1/2 h-[3px] -translate-y-1/2 rounded-full bg-wash-2" />
+            <div className="absolute left-0 top-1/2 h-[3px] -translate-y-1/2 rounded-full bg-ink" style={{ width: `${pct}%` }} />
+            <input
+              id="sessions"
+              type="range"
+              min="0"
+              max="100"
+              step="0.5"
+              value={pct}
+              onChange={(e) => setSessions(Math.round(fromPct(parseFloat(e.target.value)) / 100) * 100)}
+              className="pricing-range relative z-[1] h-6 w-full cursor-pointer appearance-none bg-transparent"
+              aria-valuetext={`${formatSessions(sessions)} sessions per month`}
+            />
+          </div>
+          <div className="mt-3 grid grid-cols-4 font-mono text-[11px] text-muted">
             <span>0</span>
             <span>2.5k</span>
             <span>5k</span>
-            <span>25k</span>
-            <span>50k+</span>
+            <span className="flex justify-between">
+              25k<span>50k+</span>
+            </span>
           </div>
         </div>
 
-        {/* Current Plan Display */}
-        <motion.div
-          key={currentPlan.name}
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.2 }}
-          className="bg-gradient-to-br from-primary-50 to-white rounded-xl border border-primary-200 p-6 text-center"
-        >
-          <span className="inline-block px-3 py-1 bg-primary text-white text-sm font-medium rounded-full mb-4">
-            {currentPlan.name}
-          </span>
-          <div className="mb-2">
-            <div className="flex items-baseline justify-center gap-1">
-              <span className="text-2xl text-gray-500">$</span>
-              <span className="text-6xl font-bold text-gray-900">
-                {currentPlan.price}
-              </span>
-              <span className="text-xl text-gray-500">/mo</span>
-            </div>
+        <div className="flex flex-col justify-between gap-8 border-t border-line bg-wash p-6 sm:p-8 lg:border-l lg:border-t-0 lg:p-10">
+          <div>
+            <p className="text-[14px] font-medium text-ink-3">{current.name}</p>
+            <p className="mt-2 flex items-baseline gap-1">
+              <span className="text-[3.5rem] font-medium leading-none tracking-[-0.045em] tabular">${current.price}</span>
+              <span className="text-[15px] text-muted">/ month</span>
+            </p>
+            <p className="mt-3 text-[14px] text-muted">
+              {rangeLabel(current)}
+              {current.maxSessions === Infinity && ". Never more than $399."}
+            </p>
           </div>
-          <p className="text-gray-500 text-sm">
-            {currentPlan.maxSessions === Infinity
-              ? "25k+ sessions/month — never more than $399"
-              : `${
-                  currentPlan.minSessions === 0
-                    ? "Under 2.5k"
-                    : `${formatSessions(currentPlan.minSessions)}–${formatSessions(currentPlan.maxSessions)}`
-                } sessions/month`}
-          </p>
-        </motion.div>
-      </motion.div>
+          <ButtonLink href={SHOPIFY_URL} external size="lg" arrow className="w-full sm:w-auto">
+            {current.price === 0 ? "Install free" : "Start free trial"}
+          </ButtonLink>
+        </div>
+      </div>
 
-      {/* All Tiers Reference */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.1 }}
-        className="bg-gray-50 rounded-xl p-6 mb-8"
-      >
-        <h4 className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-4">
-          One approval, four tiers
-        </h4>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          {plans.map((plan) => (
-            <div
+      <div className="mt-4 grid grid-cols-2 gap-px overflow-hidden rounded-[8px] border border-line bg-line lg:grid-cols-4">
+        {plans.map((plan) => {
+          const on = plan.name === current.name;
+          return (
+            <button
               key={plan.name}
-              className={`text-center p-3 rounded-lg transition-colors ${
-                currentPlan.name === plan.name
-                  ? "bg-primary-100 border border-primary-200"
-                  : "bg-white border border-gray-200"
-              }`}
+              type="button"
+              onClick={() => setSessions(plan.maxSessions === Infinity ? 30000 : Math.round((plan.minSessions + plan.maxSessions) / 2 / 100) * 100)}
+              className={cn(
+                "relative bg-white px-5 py-5 text-left transition-colors hover:bg-wash",
+                on && "bg-wash"
+              )}
+              aria-pressed={on}
             >
-              <p
-                className={`font-semibold text-sm ${
-                  currentPlan.name === plan.name ? "text-primary" : "text-gray-900"
-                }`}
-              >
-                {plan.name}
-              </p>
-              <p className="text-xs text-gray-500 mt-1">
-                {plan.price === 0 ? "Free" : `$${plan.price}/mo`}
-              </p>
-              <p className="text-[11px] text-gray-400 mt-0.5">
-                {plan.minSessions === 0
-                  ? "< 2.5k sessions"
-                  : plan.maxSessions === Infinity
-                    ? "25k+ sessions"
-                    : `${formatSessions(plan.minSessions)}–${formatSessions(plan.maxSessions)}`}
-              </p>
-            </div>
-          ))}
-        </div>
-        <p className="text-sm text-gray-500 mt-5 text-center">
-          Your charge follows your store&apos;s traffic automatically — up when
-          you grow, down when you slow. Billed through Shopify.
-        </p>
-      </motion.div>
+              {on && <span className="absolute inset-x-0 top-0 h-[2px] bg-ink" />}
+              <span className="block text-[14px] font-medium">{plan.name}</span>
+              <span className="mt-1 block text-[22px] font-medium tracking-[-0.03em] tabular">
+                {plan.price === 0 ? "$0" : `$${plan.price}`}
+                <span className="text-[13px] font-normal text-muted"> / mo</span>
+              </span>
+              <span className="mt-1 block text-[12.5px] text-muted">{rangeLabel(plan)}</span>
+            </button>
+          );
+        })}
+      </div>
 
-      {/* CTA */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.2 }}
-        className="text-center"
-      >
-        <Link href="https://apps.shopify.com/gleame" className="btn btn-primary btn-lg">
-          Start free trial
-        </Link>
-        <p className="text-sm text-gray-500 mt-4">
-          14-day free trial • Free under 2,500 sessions • Never more than $399/mo
-        </p>
-      </motion.div>
+      <p className="mt-4 text-[13.5px] text-muted">
+        One approval in Shopify. Your plan follows your store&apos;s traffic: up when you grow, down when you slow.
+      </p>
 
-      {/* Custom slider styles */}
       <style jsx>{`
-        input[type="range"]::-webkit-slider-thumb {
+        .pricing-range::-webkit-slider-thumb {
           -webkit-appearance: none;
           appearance: none;
-          width: 24px;
-          height: 24px;
-          border-radius: 50%;
-          background: white;
-          border: 3px solid #7c3aed;
-          cursor: pointer;
-          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+          width: 22px;
+          height: 22px;
+          border-radius: 6px;
+          background: #fff;
+          border: 1.5px solid #0b0a0e;
+          box-shadow: 0 2px 6px rgba(11, 10, 14, 0.18);
+          cursor: grab;
         }
-        input[type="range"]::-moz-range-thumb {
-          width: 24px;
-          height: 24px;
-          border-radius: 50%;
-          background: white;
-          border: 3px solid #7c3aed;
-          cursor: pointer;
-          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        .pricing-range::-moz-range-thumb {
+          width: 22px;
+          height: 22px;
+          border-radius: 6px;
+          background: #fff;
+          border: 1.5px solid #0b0a0e;
+          box-shadow: 0 2px 6px rgba(11, 10, 14, 0.18);
+          cursor: grab;
+        }
+        .pricing-range::-webkit-slider-runnable-track {
+          background: transparent;
         }
       `}</style>
     </div>

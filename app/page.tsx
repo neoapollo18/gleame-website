@@ -1,23 +1,27 @@
 import { Hero } from "@/components/home/Hero";
-import { LogoCloud } from "@/components/home/LogoCloud";
+import { LogoStrip } from "@/components/home/LogoStrip";
+import { StudioSection } from "@/components/home/StudioSection";
+import { Goals } from "@/components/home/Goals";
 import { HowItWorks } from "@/components/home/HowItWorks";
-import { Features } from "@/components/home/Features";
-import { TryOn } from "@/components/home/TryOn";
-import { Testimonials } from "@/components/home/Testimonials";
-import { UseCases } from "@/components/home/UseCases";
-import { CTA } from "@/components/home/CTA";
+import { AnalyticsBand } from "@/components/home/AnalyticsBand";
+import { QuizTypes } from "@/components/home/QuizTypes";
+import { StartPaths } from "@/components/home/StartPaths";
+import { Reviews } from "@/components/home/Reviews";
+import { FinalCTA } from "@/components/home/FinalCTA";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <LogoCloud />
+      <LogoStrip />
+      <StudioSection />
+      <Goals />
       <HowItWorks />
-      <Features />
-      <TryOn />
-      <UseCases />
-      <Testimonials />
-      <CTA />
+      <AnalyticsBand />
+      <QuizTypes />
+      <StartPaths />
+      <Reviews />
+      <FinalCTA />
     </>
   );
 }

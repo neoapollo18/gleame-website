@@ -1,53 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-interface AccordionItemProps {
-  title: string;
-  children: React.ReactNode;
-  isOpen: boolean;
-  onToggle: () => void;
-}
-
-function AccordionItem({
-  title,
-  children,
-  isOpen,
-  onToggle,
-}: AccordionItemProps) {
-  return (
-    <div className="border-b border-gray-200 last:border-0">
-      <button
-        onClick={onToggle}
-        className="w-full flex items-center justify-between py-5 text-left"
-      >
-        <span className="text-lg font-medium text-gray-900">{title}</span>
-        <ChevronDown
-          className={cn(
-            "w-5 h-5 text-gray-500 transition-transform duration-200",
-            isOpen && "rotate-180"
-          )}
-        />
-      </button>
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="overflow-hidden"
-          >
-            <div className="pb-5 text-gray-600">{children}</div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-}
 
 interface AccordionProps {
   items: { title: string; content: string }[];
@@ -57,17 +11,46 @@ export function Accordion({ items }: AccordionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <div className="divide-y divide-gray-200 border-t border-gray-200">
-      {items.map((item, index) => (
-        <AccordionItem
-          key={index}
-          title={item.title}
-          isOpen={openIndex === index}
-          onToggle={() => setOpenIndex(openIndex === index ? null : index)}
-        >
-          {item.content}
-        </AccordionItem>
-      ))}
+    <div className="border-t border-line">
+      {items.map((item, index) => {
+        const open = openIndex === index;
+        const id = `faq-${index}`;
+        return (
+          <div key={item.title} className="border-b border-line">
+            <h3>
+              <button
+                type="button"
+                onClick={() => setOpenIndex(open ? null : index)}
+                aria-expanded={open}
+                aria-controls={id}
+                className="flex w-full items-center justify-between gap-6 py-5 text-left"
+              >
+                <span className="text-[16px] font-medium tracking-[-0.01em] sm:text-[17px]">{item.title}</span>
+                <span className="relative flex h-7 w-7 shrink-0 items-center justify-center rounded-box border border-line-strong">
+                  <span className="absolute h-[1.5px] w-3 bg-ink" />
+                  <span
+                    className={cn(
+                      "absolute h-3 w-[1.5px] bg-ink transition-transform duration-200",
+                      open && "scale-y-0"
+                    )}
+                  />
+                </span>
+              </button>
+            </h3>
+            <div
+              id={id}
+              className={cn(
+                "grid transition-[grid-template-rows] duration-200 ease-out",
+                open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+              )}
+            >
+              <div className="overflow-hidden">
+                <p className="max-w-[720px] pb-6 text-[15px] leading-relaxed text-muted">{item.content}</p>
+              </div>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }

@@ -7,9 +7,9 @@ export const metadata: Metadata = {
 
 export default function SecurityPage() {
   return (
-    <div className="py-16 lg:py-24">
-      <div className="container">
-        <div className="max-w-4xl mx-auto text-gray-600 [&_h1]:text-4xl [&_h1]:font-semibold [&_h1]:text-gray-900 [&_h1]:mb-8 [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:text-gray-900 [&_h2]:mt-12 [&_h2]:mb-4 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-gray-900 [&_h3]:mt-8 [&_h3]:mb-3 [&_p]:mb-4 [&_p]:leading-relaxed [&_ul]:mb-4 [&_ul]:pl-6 [&_ul]:list-disc [&_ol]:mb-4 [&_ol]:pl-6 [&_ol]:list-decimal [&_li]:mb-2 [&_a]:text-primary [&_a:hover]:underline [&_hr]:my-8 [&_hr]:border-gray-200 [&_code]:bg-gray-100 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-sm [&_strong]:text-gray-900 [&_table]:w-full [&_table]:text-sm [&_table]:border-collapse [&_th]:text-left [&_th]:py-2 [&_th]:px-4 [&_th]:border-b [&_td]:py-2 [&_td]:px-4 [&_td]:border-b [&_tbody_tr:last-child_td]:border-b-0">
+    <div className="border-b border-line">
+      <div className="frame frame-pad py-16 lg:py-24">
+        <div className="max-w-[760px] text-[15.5px] text-ink-3 [&_h1]:text-[2.5rem] [&_h1]:font-medium [&_h1]:tracking-[-0.035em] [&_h1]:text-ink [&_h1]:mb-8 [&_h2]:text-[1.5rem] [&_h2]:font-medium [&_h2]:tracking-[-0.02em] [&_h2]:text-ink [&_h2]:mt-12 [&_h2]:mb-4 [&_h3]:text-[1.125rem] [&_h3]:font-medium [&_h3]:text-ink [&_h3]:mt-8 [&_h3]:mb-3 [&_p]:mb-4 [&_p]:leading-relaxed [&_ul]:mb-4 [&_ul]:pl-6 [&_ul]:list-disc [&_ol]:mb-4 [&_ol]:pl-6 [&_ol]:list-decimal [&_li]:mb-2 [&_a]:text-primary [&_a:hover]:underline [&_hr]:my-8 [&_hr]:border-line [&_code]:bg-wash-2 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-sm [&_strong]:text-ink [&_table]:w-full [&_table]:text-sm [&_table]:border-collapse [&_th]:text-left [&_th]:py-2 [&_th]:px-4 [&_th]:border-b [&_td]:py-2 [&_td]:px-4 [&_td]:border-b [&_tbody_tr:last-child_td]:border-b-0">
           <h1>Security Policy</h1>
 
           <h2>Reporting a Vulnerability</h2>

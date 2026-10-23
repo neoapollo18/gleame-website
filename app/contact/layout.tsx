@@ -3,11 +3,11 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with the Gleame team. Book a demo of the Find My Fit quiz, ask about pricing, or get technical support.",
+    "Talk to the Gleame team. Book a demo of the AI quiz maker, get free expert setup, or get help switching from another quiz app.",
   openGraph: {
     title: "Contact | Gleame",
     description:
-      "Get in touch with the Gleame team. Book a demo or ask about enterprise pricing.",
+      "Book a demo, get free expert setup, or get help switching quiz apps.",
   },
 };
 

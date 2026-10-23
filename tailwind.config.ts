@@ -1,5 +1,21 @@
 import type { Config } from "tailwindcss";
 
+const brand = {
+  DEFAULT: "#5B0E86",
+  deep: "#3A0656",
+  50: "#F8F3FB",
+  100: "#EFE5F6",
+  200: "#DCC4EC",
+  300: "#C29BDD",
+  400: "#9B5CC4",
+  500: "#7A2DAB",
+  600: "#5B0E86",
+  700: "#4A0B6E",
+  800: "#3A0656",
+  900: "#25033A",
+  pop: "#8A2BC2",
+};
+
 const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -9,72 +25,86 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: {
-          DEFAULT: "#7C3AED",
-          hover: "#6D28D9",
-          light: "#8B5CF6",
-          50: "#FAF5FF",
-          100: "#F3E8FF",
-          200: "#E9D5FF",
-          300: "#D8B4FE",
-          400: "#C084FC",
-          500: "#A855F7",
-          600: "#7C3AED",
-          700: "#6D28D9",
-          800: "#5B21B6",
-          900: "#4C1D95",
+        ink: {
+          DEFAULT: "#0B0A0E",
+          2: "#24212A",
+          3: "#3D3946",
         },
-        coral: {
-          DEFAULT: "#F97316",
-          light: "#FB923C",
-          dark: "#EA580C",
+        muted: {
+          DEFAULT: "#6B6676",
+          2: "#8F8A99",
+        },
+        line: {
+          DEFAULT: "#E7E4EB",
+          strong: "#D5D1DB",
+        },
+        wash: {
+          DEFAULT: "#F8F4FC",
+          2: "#F0E9F7",
+        },
+        blush: {
+          DEFAULT: "#FFF5F1",
+          2: "#FDE9E2",
+        },
+        accent: {
+          DEFAULT: "#E0509F",
+          coral: "#FF8A73",
+        },
+        brand,
+        // Legal pages and older markup reference `primary`.
+        primary: { ...brand, hover: brand.deep, light: brand[400] },
+        signal: {
+          green: "#1F8A4C",
+          greenbg: "#E3F5EA",
+          amber: "#9A5B00",
+          amberbg: "#FFF4D6",
+          red: "#B42318",
+          redbg: "#FDE7E4",
         },
       },
       fontFamily: {
-        sans: ["var(--font-plus-jakarta)", "system-ui", "sans-serif"],
+        sans: ["var(--font-geist)", "ui-sans-serif", "system-ui", "sans-serif"],
+        mono: ["var(--font-geist-mono)", "ui-monospace", "SFMono-Regular", "monospace"],
       },
       fontSize: {
-        "display-xl": ["4.5rem", { lineHeight: "1.05", letterSpacing: "-0.03em", fontWeight: "600" }],
-        "display-lg": ["3.5rem", { lineHeight: "1.08", letterSpacing: "-0.025em", fontWeight: "600" }],
-        "display-md": ["2.75rem", { lineHeight: "1.15", letterSpacing: "-0.02em", fontWeight: "600" }],
-        "display-sm": ["2rem", { lineHeight: "1.2", letterSpacing: "-0.015em", fontWeight: "600" }],
+        "display-xl": ["4.25rem", { lineHeight: "1.02", letterSpacing: "-0.04em" }],
+        "display-lg": ["3.5rem", { lineHeight: "1.04", letterSpacing: "-0.035em" }],
+        "display-md": ["2.75rem", { lineHeight: "1.08", letterSpacing: "-0.03em" }],
+        "display-sm": ["2.125rem", { lineHeight: "1.12", letterSpacing: "-0.025em" }],
       },
-      fontWeight: {
-        light: "300",
-        normal: "400",
-        medium: "500",
-        semibold: "600",
-        bold: "700",
+      maxWidth: {
+        frame: "1232px",
       },
-      animation: {
-        "float": "float 6s ease-in-out infinite",
-        "float-delayed": "float 6s ease-in-out 2s infinite",
-        "float-slow": "float 8s ease-in-out infinite",
-        "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-        "gradient": "gradient 8s ease infinite",
-        "scroll": "scroll 30s linear infinite",
-      },
-      keyframes: {
-        float: {
-          "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-20px)" },
-        },
-        gradient: {
-          "0%, 100%": { backgroundPosition: "0% 50%" },
-          "50%": { backgroundPosition: "100% 50%" },
-        },
-        scroll: {
-          "0%": { transform: "translateX(0)" },
-          "100%": { transform: "translateX(-50%)" },
-        },
-      },
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "hero-gradient": "linear-gradient(135deg, #7C3AED 0%, #A855F7 50%, #C084FC 100%)",
+      borderRadius: {
+        box: "6px",
       },
       boxShadow: {
-        "glow": "0 0 40px -10px rgba(124, 58, 237, 0.3)",
-        "glow-lg": "0 0 60px -15px rgba(124, 58, 237, 0.4)",
+        card: "0 1px 2px rgba(11,10,14,0.04), 0 8px 24px -12px rgba(11,10,14,0.12)",
+        float: "0 2px 4px rgba(11,10,14,0.04), 0 24px 48px -16px rgba(11,10,14,0.22)",
+        inset: "inset 0 0 0 1px rgba(11,10,14,0.06)",
+      },
+      keyframes: {
+        drift: {
+          "0%": { transform: "translate3d(0,0,0) rotate(0deg)" },
+          "100%": { transform: "translate3d(-18px,14px,0) rotate(-1.2deg)" },
+        },
+        scan: {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(100%)" },
+        },
+        fill: {
+          "0%": { width: "0%" },
+          "100%": { width: "100%" },
+        },
+        echo: {
+          "0%, 100%": { opacity: "var(--o)" },
+          "50%": { opacity: "calc(var(--o) * 0.35)" },
+        },
+      },
+      animation: {
+        drift: "drift 14s ease-in-out infinite alternate",
+        scan: "scan 2.4s cubic-bezier(.4,0,.2,1) infinite",
+        echo: "echo 5s ease-in-out infinite",
       },
     },
   },

@@ -1,74 +1,72 @@
-import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { RATING } from "@/lib/site";
 
-const plusJakarta = Plus_Jakarta_Sans({
+const geist = Geist({
   subsets: ["latin"],
-  variable: "--font-plus-jakarta",
-  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-geist",
+  display: "swap",
 });
+
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-geist-mono",
+  display: "swap",
+});
+
+const title = "Gleame: AI Product Quiz Maker for Shopify";
+const description =
+  "Gleame turns your Shopify catalog into a product recommendation quiz. AI writes the questions, maps every answer to products you sell, and you launch in minutes. Product finders, skincare quizzes, shade and size matching, gift finders and routine builders.";
 
 export const metadata: Metadata = {
   title: {
-    default: "Gleame - AI Find My Fit Quiz for Shopify Beauty Brands",
+    default: title,
     template: "%s | Gleame",
   },
-  description:
-    "Gleame builds your product-matching quiz from your real catalog in about a minute — and it only ever recommends products you actually sell. Turn browsers into confident buyers, lift conversion, and cut returns.",
+  description,
   keywords: [
+    "AI quiz maker",
     "product quiz",
-    "shopify quiz app",
     "product recommendation quiz",
-    "guided selling",
-    "find my fit quiz",
-    "shade finder quiz",
-    "quiz builder shopify",
-    "beauty quiz",
+    "shopify quiz app",
+    "product finder quiz",
     "skincare quiz",
-    "nail care quiz",
-    "hair extensions quiz",
-    "AI product recommendations",
-    "shopify conversion rate optimization",
-    "reduce returns ecommerce",
-    "DTC beauty tools",
-    "increase shopify conversions",
-    "beauty brand CRO",
+    "gift finder quiz",
+    "sizing quiz",
+    "shade finder quiz",
+    "routine builder",
+    "quiz funnel",
+    "virtual try-on",
+    "Octane AI alternative",
+    "RevenueHunt alternative",
   ],
   authors: [{ name: "Gleame" }],
   creator: "Gleame",
   publisher: "Gleame",
   metadataBase: new URL("https://gleame.ai"),
-  alternates: {
-    canonical: "https://gleame.ai",
-  },
+  alternates: { canonical: "https://gleame.ai" },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://gleame.ai",
     siteName: "Gleame",
-    title: "Gleame - AI Find My Fit Quiz for Shopify Beauty Brands",
+    title,
     description:
-      "Your product-matching quiz, built from your real catalog in about a minute. Turn browsers into confident buyers and cut returns.",
-    images: [
-      {
-        url: "/Gleame.jpg",
-        alt: "Gleame - AI Find My Fit Quiz for Shopify Beauty Brands",
-      },
-    ],
+      "Help every shopper find their match. Gleame turns your catalog into a product quiz, written by AI and matched to products you sell.",
+    images: [{ url: "/Gleame.jpg", alt: "Gleame" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gleame - AI Find My Fit Quiz for Shopify Beauty Brands",
+    title,
     description:
-      "Your product-matching quiz, built from your real catalog in about a minute. Turn browsers into confident buyers and cut returns.",
-    images: ["/gleamegradient.jpg"],
+      "Help every shopper find their match. Gleame turns your catalog into a product quiz, written by AI and matched to products you sell.",
+    images: ["/Gleame.jpg"],
   },
-  icons: {
-    icon: "/favicon.ico",
-  },
+  icons: { icon: "/favicon.ico" },
   robots: {
     index: true,
     follow: true,
@@ -82,6 +80,10 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: "#ffffff",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -90,35 +92,33 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    name: "Gleame",
+    name: "Gleame AI: Product Quiz Maker",
     applicationCategory: "BusinessApplication",
-    operatingSystem: "Web",
-    description:
-      "AI-built Find My Fit quiz for Shopify beauty and wellness brands. Matches shoppers to the right products from the store's real catalog to lift conversion and cut returns.",
+    operatingSystem: "Web, Shopify",
+    description,
     url: "https://gleame.ai",
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "5.0",
-      ratingCount: "7",
+      ratingValue: RATING.score,
+      ratingCount: String(RATING.count),
       bestRating: "5",
     },
     offers: {
-      "@type": "AggregateOffer",
+      "@type": "Offer",
+      price: "0",
       priceCurrency: "USD",
-      lowPrice: "0",
-      offerCount: "3",
     },
   };
 
   return (
-    <html lang="en" className={plusJakarta.variable}>
+    <html lang="en" className={`${geist.variable} ${geistMono.variable}`}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="font-sans antialiased">
+      <body className="font-sans">
         <Navbar />
         <main>{children}</main>
         <Footer />

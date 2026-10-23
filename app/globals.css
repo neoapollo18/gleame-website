@@ -3,59 +3,93 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-  }
-
   html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
-    @apply bg-white text-gray-900 antialiased;
+    @apply bg-white text-ink antialiased;
+    font-feature-settings: "ss01", "cv11";
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    @apply bg-brand-200 text-ink;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-400 ring-offset-2 ring-offset-white;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
   }
 }
 
 @layer components {
+  /* The page column. Its side borders are the vertical guide lines that run
+     the full height of every page. */
+  .frame {
+    @apply relative mx-auto w-full max-w-frame sm:border-x sm:border-dashed sm:border-line-strong;
+  }
+
+  .frame-pad {
+    @apply px-5 sm:px-8 lg:px-14;
+  }
+
+  /* Kept for the long-form legal pages. */
   .container {
-    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-frame px-5 sm:px-8 lg:px-14;
   }
 
-  .section-padding {
-    @apply py-20 lg:py-32;
+  .h-display {
+    @apply text-[2.5rem] font-medium leading-[1.04] tracking-[-0.035em] sm:text-[3.25rem] lg:text-display-xl;
   }
 
-  .gradient-text {
-    @apply bg-gradient-to-r from-primary-600 via-primary-500 to-primary-400 bg-clip-text text-transparent;
+  .h-section {
+    @apply text-[1.75rem] font-medium leading-[1.12] tracking-[-0.028em] sm:text-[2.125rem] lg:text-[2.5rem];
   }
 
-  .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  .h-card {
+    @apply text-[1.25rem] font-medium leading-[1.2] tracking-[-0.02em] sm:text-[1.375rem];
   }
 
-  .btn-primary {
-    @apply bg-primary text-white hover:bg-primary-hover shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/25;
+  .tone-2 {
+    @apply text-muted;
   }
 
-  .btn-secondary {
-    @apply bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 hover:border-gray-300;
+  .body-lg {
+    @apply text-[1.0625rem] leading-[1.6] text-muted;
   }
 
-  .btn-ghost {
-    @apply text-gray-500 hover:text-gray-900 hover:bg-gray-50;
+  /* Dotted canvas used behind quiz previews, like the Studio. */
+  .dots {
+    background-image: radial-gradient(rgba(11, 10, 14, 0.09) 1px, transparent 1px);
+    background-size: 14px 14px;
   }
 
-  .btn-lg {
-    @apply px-7 py-3.5 text-[15px];
+  .dots-dark {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+    background-size: 16px 16px;
   }
 
-  .btn-md {
-    @apply px-5 py-2.5 text-sm;
-  }
-
-  .btn-sm {
-    @apply px-4 py-2 text-sm;
+  /* Fine diagonal hatching for empty grid cells. */
+  .hatch {
+    background-image: repeating-linear-gradient(
+      135deg,
+      transparent 0 7px,
+      rgba(11, 10, 14, 0.045) 7px 8px
+    );
   }
 }
 
@@ -64,35 +98,18 @@
     text-wrap: balance;
   }
 
-  .animate-in {
-    animation: animateIn 0.5s ease-out forwards;
+  .text-pretty {
+    text-wrap: pretty;
   }
 
-  @keyframes animateIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .tabular {
+    font-variant-numeric: tabular-nums;
   }
 
-  /* Gradient blob styles */
-  .blob {
-    @apply absolute rounded-full blur-3xl opacity-70;
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
   }
-
-  .blob-primary {
-    @apply bg-gradient-to-br from-primary-400 to-primary-600;
-  }
-
-  .blob-secondary {
-    @apply bg-gradient-to-br from-primary-300 to-primary-500;
-  }
-
-  .blob-accent {
-    @apply bg-gradient-to-br from-coral to-coral-light;
+  .no-scrollbar {
+    scrollbar-width: none;
   }
 }
