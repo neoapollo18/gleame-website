@@ -27,7 +27,8 @@ const rings = Array.from({ length: RINGS }, (_, i) => {
     rotate: -t * 18,
     color: colorAt(t),
     opacity: 0.08 + 0.82 * Math.pow(1 - t, 1.3),
-    delay: `${(i * 0.16).toFixed(2)}s`,
+    enter: `${i * 45}ms`,
+    pulse: `${(1.4 + i * 0.16).toFixed(2)}s`,
   };
 });
 
@@ -54,12 +55,13 @@ export function Echo({ className, id = "echo" }: { className?: string; id?: stri
 
         <circle cx={CX} cy={CY} r="430" fill={`url(#${id}-glow)`} />
 
+        <g className="echo-rings">
         {rings.map((r, i) => (
           <g
             key={i}
             transform={`translate(${CX} ${CY}) rotate(${r.rotate}) scale(${r.scale}) translate(${-CX} ${-CY})`}
-            className="motion-safe:animate-echo"
-            style={{ ["--o" as string]: r.opacity, opacity: r.opacity, animationDelay: r.delay }}
+            className="echo-ring"
+            style={{ ["--o" as string]: r.opacity, ["--in" as string]: r.enter, ["--pulse" as string]: r.pulse, opacity: r.opacity }}
             fill="none"
             stroke={r.color}
             strokeWidth="1.3"
@@ -68,10 +70,13 @@ export function Echo({ className, id = "echo" }: { className?: string; id?: stri
             <path d={G_BOTTOM} vectorEffect="non-scaling-stroke" />
           </g>
         ))}
+        </g>
 
-        <g transform={`translate(${CX} ${CY}) scale(0.46) translate(${-CX} ${-CY})`}>
-          <path d={G_TOP} fill={`url(#${id}-fill)`} />
-          <path d={G_BOTTOM} fill={`url(#${id}-fill)`} />
+        <g className="echo-core">
+          <g transform={`translate(${CX} ${CY}) scale(0.46) translate(${-CX} ${-CY})`}>
+            <path d={G_TOP} fill={`url(#${id}-fill)`} />
+            <path d={G_BOTTOM} fill={`url(#${id}-fill)`} />
+          </g>
         </g>
       </svg>
     </div>

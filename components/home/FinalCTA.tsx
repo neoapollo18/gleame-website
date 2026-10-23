@@ -3,6 +3,7 @@ import { SplitHeading } from "@/components/ui/Section";
 import { ButtonLink } from "@/components/ui/Button";
 import { CheckIcon } from "@/components/mocks/primitives";
 import { SHOPIFY_URL } from "@/lib/site";
+import { Reveal } from "@/components/motion/Reveal";
 
 const notes = ["Free to install", "Nothing goes live until you publish", "Free expert setup"];
 
@@ -15,7 +16,9 @@ export function FinalCTA({
 }) {
   return (
     <section className="relative overflow-hidden">
-      <Echo id="echo-cta" className="absolute -right-[34%] -top-[80px] z-[1] h-[420px] w-[420px] sm:-right-[10%] sm:h-[500px] sm:w-[500px] lg:-right-[2%] lg:top-1/2 lg:h-[820px] lg:w-[820px] lg:-translate-y-1/2" />
+      <Reveal variant="fade" className="absolute -right-[34%] -top-[80px] z-[1] h-[420px] w-[420px] sm:-right-[10%] sm:h-[500px] sm:w-[500px] lg:-right-[2%] lg:top-[-100px] lg:h-[820px] lg:w-[820px]">
+        <Echo id="echo-cta" className="h-full w-full" />
+      </Reveal>
       <div className="frame frame-pad">
         <div className="relative z-[2] max-w-[680px] pb-20 pt-[260px] sm:pt-[340px] lg:pb-32 lg:pt-36">
           <SplitHeading
@@ -23,14 +26,14 @@ export function FinalCTA({
             lead={lead}
             rest={rest}
           />
-          <div className="mt-10 flex flex-wrap gap-3">
+          <Reveal delay={150} className="mt-10 flex flex-wrap gap-3">
             <ButtonLink href={SHOPIFY_URL} external size="lg" arrow>
               Install on Shopify
             </ButtonLink>
             <ButtonLink href="/contact" variant="secondary" size="lg" className="bg-white/80 backdrop-blur">
               Book a demo
             </ButtonLink>
-          </div>
+          </Reveal>
           <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[13.5px] text-ink-3">
             {notes.map((n) => (
               <li key={n} className="inline-flex items-center gap-1.5">

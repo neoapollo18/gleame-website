@@ -10,6 +10,7 @@ import {
   ResultsVignette,
 } from "@/components/mocks/Vignettes";
 import { TryOnVignette } from "@/components/mocks/TryOnVignette";
+import { Reveal } from "@/components/motion/Reveal";
 
 function CornerLink({ href, label }: { href: string; label: string }) {
   return (
@@ -32,6 +33,7 @@ function Card({
   children,
   className,
   stage = "h-[300px]",
+  delay = 0,
 }: {
   title: string;
   body: string;
@@ -39,9 +41,10 @@ function Card({
   children: React.ReactNode;
   className?: string;
   stage?: string;
+  delay?: number;
 }) {
   return (
-    <article className={cn("flex flex-col overflow-hidden rounded-[8px] border border-line bg-white", className)}>
+    <Reveal as="article" delay={delay} className={cn("flex flex-col overflow-hidden rounded-[8px] border border-line bg-white", className)}>
       <div className="flex items-start justify-between gap-4 p-6 lg:p-7">
         <div>
           <h3 className="h-card">{title}</h3>
@@ -50,9 +53,9 @@ function Card({
         <CornerLink href={href} label={`More about ${title.toLowerCase()}`} />
       </div>
       <div className={cn("dots relative mt-auto flex items-center justify-center overflow-hidden border-t border-line bg-wash px-6", stage)}>
-        {children}
+        <div className="rv-child flex w-full justify-center">{children}</div>
       </div>
-    </article>
+    </Reveal>
   );
 }
 
@@ -85,6 +88,7 @@ export function Goals() {
             body="An email step that shoppers want to fill in. You choose where it goes."
             href="/features#leads"
             stage="h-[260px] lg:h-[380px]"
+            delay={100}
           >
             <EmailVignette />
           </Card>
@@ -102,6 +106,7 @@ export function Goals() {
             title="Know your shoppers"
             body="Every answer shows up in Analytics, from the first shopper."
             href="/features#analytics"
+            delay={100}
           >
             <InsightVignette />
           </Card>
@@ -110,11 +115,12 @@ export function Goals() {
             title="Sell more per order"
             body="Turn one match into a set with upsells and cross-sells."
             href="/features#upsell"
+            delay={200}
           >
             <BundleVignette className="translate-y-4" />
           </Card>
 
-          <article className="grid overflow-hidden rounded-[8px] border border-line bg-white md:col-span-2 lg:col-span-6 lg:grid-cols-2">
+          <Reveal as="article" className="grid overflow-hidden rounded-[8px] border border-line bg-white md:col-span-2 lg:col-span-6 lg:grid-cols-2">
             <div className="flex flex-col justify-between gap-6 p-6 lg:p-10">
               <div className="flex items-start justify-between gap-4">
                 <div>
@@ -135,9 +141,11 @@ export function Goals() {
               </ul>
             </div>
             <div className="dots flex min-h-[320px] items-center justify-center border-t border-line bg-wash p-6 lg:border-l lg:border-t-0">
-              <TryOnVignette />
+              <div className="rv-child flex w-full justify-center">
+                <TryOnVignette />
+              </div>
             </div>
-          </article>
+          </Reveal>
         </div>
       </div>
     </Section>

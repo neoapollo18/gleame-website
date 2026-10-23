@@ -2,6 +2,7 @@ import { PricingCards } from "@/components/pricing/PricingCards";
 import { Accordion } from "@/components/ui/Accordion";
 import { Section, SplitHeading } from "@/components/ui/Section";
 import { FinalCTA } from "@/components/home/FinalCTA";
+import { Reveal } from "@/components/motion/Reveal";
 
 const included = [
   ["AI quiz builder", "The whole quiz written from your catalog"],
@@ -82,11 +83,11 @@ export default function PricingPage() {
             rest="Plans differ by traffic, never by feature."
           />
           <ul className="grid gap-px overflow-hidden rounded-[8px] border border-line bg-line sm:grid-cols-2">
-            {included.map(([t, d]) => (
-              <li key={t} className="bg-white px-5 py-4">
+            {included.map(([t, d], i) => (
+              <Reveal as="li" variant="fade" delay={(i % 2) * 70 + Math.floor(i / 2) * 60} key={t} className="bg-white px-5 py-4">
                 <p className="text-[15px] font-medium">{t}</p>
                 <p className="mt-0.5 text-[13.5px] text-muted">{d}</p>
-              </li>
+              </Reveal>
             ))}
           </ul>
         </div>
@@ -99,7 +100,9 @@ export default function PricingPage() {
             lead="Questions, answered."
             rest="Anything else, we're one email away."
           />
-          <Accordion items={faqs} />
+          <Reveal>
+            <Accordion items={faqs} />
+          </Reveal>
         </div>
       </Section>
 

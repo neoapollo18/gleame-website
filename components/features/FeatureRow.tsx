@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { Section, SplitHeading } from "@/components/ui/Section";
+import { Reveal } from "@/components/motion/Reveal";
 
 export function FeatureRow({
   id,
@@ -24,11 +25,11 @@ export function FeatureRow({
         <div className="frame-pad flex flex-col justify-center py-16 sm:py-20 lg:py-24">
           <SplitHeading as="h2" className="text-[1.625rem] font-medium leading-[1.14] tracking-[-0.026em] sm:text-[2rem]" lead={lead} rest={rest} />
           <ul className="mt-9 border-t border-line">
-            {points.map((p) => (
-              <li key={p} className="flex items-start gap-3 border-b border-line py-3.5 text-[15px] leading-snug text-ink-2">
+            {points.map((p, i) => (
+              <Reveal as="li" variant="left" delay={80 + i * 70} key={p} className="flex items-start gap-3 border-b border-line py-3.5 text-[15px] leading-snug text-ink-2">
                 <span className="mt-[7px] h-[5px] w-[5px] shrink-0 bg-brand-pop" aria-hidden="true" />
                 {p}
-              </li>
+              </Reveal>
             ))}
           </ul>
         </div>
@@ -39,7 +40,9 @@ export function FeatureRow({
             flip ? "lg:border-r" : "lg:border-l"
           )}
         >
-          {visual}
+          <Reveal variant="rise" className="flex w-full justify-center">
+            {visual}
+          </Reveal>
         </div>
       </div>
     </Section>

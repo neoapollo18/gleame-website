@@ -111,8 +111,15 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${geist.variable} ${geistMono.variable}`}>
+    <html lang="en" className={`${geist.variable} ${geistMono.variable}`} suppressHydrationWarning>
       <head>
+        {/* Opt in to scroll animations before first paint, only when motion is welcome. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{if('IntersectionObserver'in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('rv')}catch(e){}",
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

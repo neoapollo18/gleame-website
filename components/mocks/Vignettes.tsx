@@ -161,7 +161,7 @@ export function InsightVignette({ className }: { className?: string }) {
           <div key={r.l} className="grid grid-cols-[52px_1fr_34px] items-center gap-2 text-[11.5px]">
             <span className="text-ink-3">{r.l}</span>
             <span className="h-1.5 overflow-hidden rounded-full bg-wash-2">
-              <span className="block h-full rounded-full bg-ink" style={{ width: `${r.p * 1.6}%`, opacity: 1 - i * 0.25 }} />
+              <span className="rv-grow block h-full rounded-full bg-ink" style={{ width: `${r.p * 1.6}%`, opacity: 1 - i * 0.25 }} />
             </span>
             <span className="text-right font-mono text-[11px] tabular">{r.p}%</span>
           </div>
@@ -274,7 +274,7 @@ export function BuildingVignette({ className }: { className?: string }) {
         <span className="ml-auto font-mono text-[10.5px] text-muted">01:12</span>
       </div>
       <div className="relative mt-3 h-[3px] overflow-hidden rounded-full bg-wash-2">
-        <div className="h-full w-[78%] rounded-full bg-brand" />
+        <div className="rv-grow h-full w-[78%] rounded-full bg-brand" />
         <div className="absolute inset-y-0 left-0 w-[78%] overflow-hidden">
           <div className="h-full w-1/3 animate-scan bg-gradient-to-r from-transparent via-white/70 to-transparent" />
         </div>

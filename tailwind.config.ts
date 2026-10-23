@@ -84,10 +84,6 @@ const config: Config = {
         inset: "inset 0 0 0 1px rgba(11,10,14,0.06)",
       },
       keyframes: {
-        drift: {
-          "0%": { transform: "translate3d(0,0,0) rotate(0deg)" },
-          "100%": { transform: "translate3d(-18px,14px,0) rotate(-1.2deg)" },
-        },
         scan: {
           "0%": { transform: "translateX(-100%)" },
           "100%": { transform: "translateX(100%)" },
@@ -96,15 +92,9 @@ const config: Config = {
           "0%": { width: "0%" },
           "100%": { width: "100%" },
         },
-        echo: {
-          "0%, 100%": { opacity: "var(--o)" },
-          "50%": { opacity: "calc(var(--o) * 0.35)" },
-        },
       },
       animation: {
-        drift: "drift 14s ease-in-out infinite alternate",
         scan: "scan 2.4s cubic-bezier(.4,0,.2,1) infinite",
-        echo: "echo 5s ease-in-out infinite",
       },
     },
   },

@@ -1,11 +1,13 @@
 import { SplitHeading } from "@/components/ui/Section";
 import { AnalyticsMock } from "@/components/mocks/AnalyticsMock";
+import { Reveal } from "@/components/motion/Reveal";
+import { CountUp } from "@/components/motion/CountUp";
 
 const facts = [
-  { value: "2 min", label: "for AI to write the whole quiz from your catalog" },
-  { value: "100%", label: "of recommendations are products you stock" },
-  { value: "5", label: "templates, each restyled to match your theme" },
-  { value: "0", label: "lines of code to install, edit or launch" },
+  { to: 2, suffix: " min", label: "for AI to write the whole quiz from your catalog" },
+  { to: 100, suffix: "%", label: "of recommendations are products you stock" },
+  { to: 5, label: "templates, each restyled to match your theme" },
+  { to: 0, from: 240, label: "lines of code to install, edit or launch" },
 ];
 
 export function AnalyticsBand() {
@@ -29,13 +31,16 @@ export function AnalyticsBand() {
             lead="Know what your quiz sells."
             rest="Every start, answer, match, cart and order, from the first shopper. See which answers buy and which products the quiz moves."
           />
-          <AnalyticsMock className="mt-12 lg:mt-14" />
+          <Reveal variant="rise" className="mt-12 lg:mt-14">
+            <AnalyticsMock />
+          </Reveal>
         </div>
 
         <div className="grid grid-cols-2 border-t border-white/10 lg:grid-cols-4">
           {facts.map((f, i) => (
-            <div
-              key={f.value}
+            <Reveal
+              delay={i * 90}
+              key={f.label}
               className={[
                 "px-5 py-9 sm:px-8 lg:px-10 lg:py-12",
                 i % 2 === 0 ? "border-r border-white/10" : "",
@@ -45,10 +50,10 @@ export function AnalyticsBand() {
               ].join(" ")}
             >
               <p className="text-[2.5rem] font-medium leading-none tracking-[-0.04em] tabular sm:text-[3.25rem]">
-                {f.value}
+                <CountUp to={f.to} from={f.from} suffix={f.suffix} duration={f.from ? 1300 : 1000} />
               </p>
               <p className="mt-3 max-w-[220px] text-[14px] leading-snug text-white/55">{f.label}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

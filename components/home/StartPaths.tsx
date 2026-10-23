@@ -2,6 +2,7 @@ import { Section, SplitHeading } from "@/components/ui/Section";
 import { ButtonLink } from "@/components/ui/Button";
 import { CheckIcon } from "@/components/mocks/primitives";
 import { SHOPIFY_URL } from "@/lib/site";
+import { Reveal } from "@/components/motion/Reveal";
 
 function Check({ children }: { children: React.ReactNode }) {
   return (
@@ -23,7 +24,7 @@ export function StartPaths() {
         />
 
         <div className="mt-12 grid gap-4 lg:mt-16 lg:grid-cols-2">
-          <div className="flex flex-col overflow-hidden rounded-[8px] border border-line-strong bg-white">
+          <Reveal variant="left" className="flex flex-col overflow-hidden rounded-[8px] border border-line-strong bg-white">
             <div className="border-b border-line bg-blush px-7 py-2.5 text-[13px] font-medium text-ink-3 lg:px-10">
               Free to install · self-serve
             </div>
@@ -41,9 +42,9 @@ export function StartPaths() {
               </ButtonLink>
             </div>
             </div>
-          </div>
+          </Reveal>
 
-          <div className="flex flex-col overflow-hidden rounded-[8px] border-[1.5px] border-brand bg-white shadow-[0_24px_48px_-24px_rgba(91,14,134,0.45)]">
+          <Reveal variant="right" delay={120} className="flex flex-col overflow-hidden rounded-[8px] border-[1.5px] border-brand bg-white shadow-[0_24px_48px_-24px_rgba(91,14,134,0.45)]">
             <div className="bg-brand px-7 py-2.5 text-[13px] font-medium text-white lg:px-10">
               Free · done for you
             </div>
@@ -64,7 +65,7 @@ export function StartPaths() {
                 </p>
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </Section>

@@ -19,6 +19,7 @@ import {
 } from "@/components/mocks/Vignettes";
 import { FinalCTA } from "@/components/home/FinalCTA";
 import { SHOPIFY_URL } from "@/lib/site";
+import { Reveal } from "@/components/motion/Reveal";
 
 export const metadata: Metadata = {
   title: "Product",
@@ -99,17 +100,17 @@ export default function FeaturesPage() {
               ["Text & labels", "Every word on every screen"],
               ["Flow map", "Questions and branches at a glance"],
               ["Build with AI", "Describe it, and undo it"],
-            ].map(([t, d]) => (
-              <li key={t} className="bg-white px-4 py-3">
+            ].map(([t, d], i) => (
+              <Reveal as="li" variant="fade" delay={i * 80} key={t} className="bg-white px-4 py-3">
                 <p className="font-medium">{t}</p>
                 <p className="mt-0.5 text-[13px] text-muted">{d}</p>
-              </li>
+              </Reveal>
             ))}
           </ul>
         </div>
-        <div className="pb-16 pt-10 sm:pb-20 lg:pb-24 lg:pt-12">
+        <Reveal variant="rise" className="pb-16 pt-10 sm:pb-20 lg:pb-24 lg:pt-12">
           <StudioMock />
-        </div>
+        </Reveal>
       </Section>
 
       <FeatureRow
@@ -191,7 +192,9 @@ export default function FeaturesPage() {
             lead="Analytics that tie answers to orders."
             rest="Overview, funnel, answers, products and leads. See where shoppers drop off, which answers buy, and the revenue the quiz brings in."
           />
-          <AnalyticsMock className="mt-10 lg:mt-12" />
+          <Reveal variant="rise" className="mt-10 lg:mt-12">
+            <AnalyticsMock />
+          </Reveal>
         </div>
       </section>
 
@@ -225,13 +228,13 @@ export default function FeaturesPage() {
             </div>
           </div>
           <ul className="grid grid-cols-2 gap-px overflow-hidden rounded-[6px] border border-line bg-line">
-            {competitors.map((c) => (
-              <li key={c} className="flex h-20 items-center justify-between bg-white px-5 text-[15px] font-medium">
+            {competitors.map((c, i) => (
+              <Reveal as="li" variant="fade" delay={i * 90} key={c} className="flex h-20 items-center justify-between bg-white px-5 text-[15px] font-medium">
                 <span>{c}</span>
                 <span className="font-mono text-[12px] text-muted" aria-hidden="true">
                   →
                 </span>
-              </li>
+              </Reveal>
             ))}
           </ul>
         </div>

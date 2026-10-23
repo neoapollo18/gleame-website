@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Reveal } from "@/components/motion/Reveal";
 
 const brands = [
   { name: "BioTech Beauty", logo: "/logo-biotechbeauty.svg", w: 168, h: 14 },
@@ -15,8 +16,8 @@ export function LogoStrip() {
       <div className="frame">
         <h2 className="sr-only">Brands using Gleame</h2>
         <ul className="grid grid-cols-2 gap-px bg-line sm:grid-cols-3 lg:grid-cols-6">
-          {brands.map((b) => (
-            <li key={b.name} className="flex h-24 items-center justify-center bg-white px-6 lg:h-28">
+          {brands.map((b, i) => (
+            <Reveal as="li" variant="fade" delay={i * 70} key={b.name} className="flex h-24 items-center justify-center bg-white px-6 lg:h-28">
               <Image
                 src={b.logo}
                 alt={b.name}
@@ -25,7 +26,7 @@ export function LogoStrip() {
                 className="h-auto max-h-12 w-auto object-contain opacity-80 [filter:brightness(0)]"
                 style={{ maxWidth: b.w }}
               />
-            </li>
+            </Reveal>
           ))}
         </ul>
       </div>

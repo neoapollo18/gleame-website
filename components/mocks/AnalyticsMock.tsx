@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Badge, CATALOG, ProductArt } from "./primitives";
+import { CountUp } from "@/components/motion/CountUp";
 
 const STARTED = [22, 30, 26, 34, 41, 38, 29, 33, 45, 52, 48, 44, 39, 47, 58, 63, 55, 49, 61, 70, 66, 58, 64, 77, 83, 74, 69, 80, 88, 84];
 const REACHED = STARTED.map((v, i) => Math.round(v * (0.74 + ((i * 37) % 11) / 100)));
@@ -44,10 +45,10 @@ const TABS = ["Overview", "Funnel", "Answers", "Products", "Leads"] as const;
 type Tab = (typeof TABS)[number];
 
 const KPIS = [
-  { label: "Shoppers who started", value: "1,284", delta: "+18%", sub: "from 3,910 page views" },
-  { label: "Reached their matches", value: "81%", delta: "+4 pts", sub: "1,040 shoppers" },
-  { label: "Added to cart", value: "27%", delta: "+6 pts", sub: "281 of 1,040 who saw matches" },
-  { label: "Quiz revenue", value: "$9,412", delta: "", sub: "312 orders" },
+  { label: "Shoppers who started", to: 1284, prefix: "", suffix: "", delta: "+18%", sub: "from 3,910 page views" },
+  { label: "Reached their matches", to: 81, prefix: "", suffix: "%", delta: "+4 pts", sub: "1,040 shoppers" },
+  { label: "Added to cart", to: 27, prefix: "", suffix: "%", delta: "+6 pts", sub: "281 of 1,040 who saw matches" },
+  { label: "Quiz revenue", to: 9412, prefix: "$", suffix: "", delta: "", sub: "312 orders" },
 ];
 
 export function AnalyticsMock({ className }: { className?: string }) {
@@ -98,7 +99,9 @@ function Overview() {
           <Card key={k.label}>
             <p className="truncate text-[11.5px] text-ink-3">{k.label}</p>
             <div className="mt-1 flex items-center gap-1.5">
-              <span className="text-[22px] font-semibold tracking-[-0.025em] tabular sm:text-[26px]">{k.value}</span>
+              <span className="text-[22px] font-semibold tracking-[-0.025em] tabular sm:text-[26px]">
+                <CountUp to={k.to} prefix={k.prefix} suffix={k.suffix} />
+              </span>
               {k.delta && <Badge tone="green">{k.delta}</Badge>}
             </div>
             <p className="mt-0.5 truncate text-[11px] text-muted">{k.sub}</p>
@@ -108,7 +111,7 @@ function Overview() {
       <div className="grid gap-2 sm:gap-3 lg:grid-cols-[1.6fr_1fr]">
         <Card>
           <p className="text-[12.5px] font-semibold">Shoppers per day</p>
-          <MiniLineChart className="mt-3 h-[150px]" />
+          <MiniLineChart className="rv-draw mt-3 h-[150px]" />
           <div className="mt-2 flex justify-between font-mono text-[10px] text-muted">
             <span>Sep 23</span>
             <span>Oct 8</span>
@@ -156,7 +159,7 @@ function Funnel() {
           <div key={s.label} className="grid grid-cols-[minmax(0,140px)_1fr_auto] items-center gap-3 text-[12px] sm:grid-cols-[180px_1fr_auto]">
             <span className="truncate text-ink-3">{s.label}</span>
             <div className="h-6 overflow-hidden rounded-[4px] bg-wash-2">
-              <div className="h-full rounded-[4px] bg-brand" style={{ width: `${Math.max(s.pct, 3)}%`, opacity: 0.35 + s.pct / 160 }} />
+              <div className="rv-grow h-full rounded-[4px] bg-brand" style={{ width: `${Math.max(s.pct, 3)}%`, opacity: 0.35 + s.pct / 160 }} />
             </div>
             <span className="w-14 text-right font-mono text-[11px] tabular text-ink">{s.n.toLocaleString()}</span>
           </div>
@@ -200,7 +203,7 @@ function Answers() {
                 <span className="text-ink-3">{a.l}</span>
                 <span className="font-mono text-[11px] tabular">{a.p}%</span>
                 <div className="col-span-2 h-1.5 overflow-hidden rounded-full bg-wash-2">
-                  <div className="h-full rounded-full bg-ink" style={{ width: `${a.p}%` }} />
+                  <div className="rv-grow h-full rounded-full bg-ink" style={{ width: `${a.p}%` }} />
                 </div>
               </div>
             ))}

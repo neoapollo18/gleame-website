@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { Reveal } from "@/components/motion/Reveal";
 
 /**
  * A full-bleed band with a rule underneath and the framed page column inside.
@@ -58,15 +59,34 @@ export function SplitHeading({
   className?: string;
   dark?: boolean;
 }) {
+  const restTone = dark ? "text-[#D9B3F2]" : "text-brand-pop";
+
+  // Page titles sit above the fold, so they animate on load rather than on scroll.
+  if (Tag === "h1") {
+    return (
+      <h1 className={cn("load-rise text-balance", className)}>
+        <span className={dark ? "text-white" : "text-ink"}>{lead}</span>
+        {rest && (
+          <>
+            {" "}
+            <span className={cn("load-fade", restTone)} style={{ ["--d" as string]: "160ms" }}>
+              {rest}
+            </span>
+          </>
+        )}
+      </h1>
+    );
+  }
+
   return (
-    <Tag className={cn("text-balance", className)}>
+    <Reveal as={Tag} className={cn("text-balance", className)}>
       <span className={dark ? "text-white" : "text-ink"}>{lead}</span>
       {rest && (
         <>
           {" "}
-          <span className={dark ? "text-[#D9B3F2]" : "text-brand-pop"}>{rest}</span>
+          <span className={cn("rv-rest", restTone)}>{rest}</span>
         </>
       )}
-    </Tag>
+    </Reveal>
   );
 }

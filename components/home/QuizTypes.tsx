@@ -1,4 +1,5 @@
 import { Section, SplitHeading } from "@/components/ui/Section";
+import { Reveal } from "@/components/motion/Reveal";
 
 const types = [
   {
@@ -51,8 +52,8 @@ export function QuizTypes() {
       </div>
 
       <ul className="-mx-5 mt-14 grid gap-px border-t border-line bg-line sm:-mx-8 sm:grid-cols-2 lg:-mx-14 lg:mt-16 lg:grid-cols-3">
-        {types.map((t) => (
-          <li key={t.name} className="group flex flex-col bg-white px-5 py-8 sm:px-8 lg:px-10 lg:py-10">
+        {types.map((t, i) => (
+          <Reveal as="li" delay={(i % 3) * 90} key={t.name} className="group flex flex-col bg-white px-5 py-8 sm:px-8 lg:px-10 lg:py-10">
             <h3 className="text-[17px] font-medium tracking-[-0.015em]">{t.name}</h3>
             <p className="mb-6 mt-1.5 text-[14.5px] leading-relaxed text-muted">{t.body}</p>
             <div className="mt-auto rounded-[8px] border border-line bg-wash p-4 transition-colors group-hover:border-line-strong">
@@ -72,7 +73,7 @@ export function QuizTypes() {
                 ))}
               </div>
             </div>
-          </li>
+          </Reveal>
         ))}
       </ul>
     </Section>

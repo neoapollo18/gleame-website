@@ -1,6 +1,7 @@
 import { Section, SplitHeading } from "@/components/ui/Section";
 import { TextLink } from "@/components/ui/Button";
 import { StudioMock } from "@/components/mocks/StudioMock";
+import { Reveal } from "@/components/motion/Reveal";
 
 const modes = [
   {
@@ -35,7 +36,9 @@ export function StudioSection() {
       </div>
 
       <div className="relative mt-8 sm:mt-12">
-        <StudioMock />
+        <Reveal variant="rise">
+          <StudioMock />
+        </Reveal>
         <p className="mt-3 hidden text-right text-[12.5px] text-muted lg:block">
           Try it: switch modes, open Build with AI, or fix the flagged answer.
         </p>
@@ -43,14 +46,15 @@ export function StudioSection() {
 
       <div className="-mx-5 mt-14 grid border-t border-line sm:-mx-8 md:grid-cols-3 lg:-mx-14">
         {modes.map((m, i) => (
-          <div
+          <Reveal
+            delay={i * 90}
             key={m.title}
             className="border-b border-line px-5 py-8 last:border-b-0 sm:px-8 md:border-b-0 md:border-r md:last:border-r-0 lg:px-10 lg:py-10"
           >
             <p className="font-mono text-[12px] text-brand-pop">0{i + 1}</p>
             <h3 className="mt-3 text-[17px] font-medium tracking-[-0.015em]">{m.title}</h3>
             <p className="mt-2 text-[14.5px] leading-relaxed text-muted">{m.body}</p>
-          </div>
+          </Reveal>
         ))}
       </div>
     </Section>

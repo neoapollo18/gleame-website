@@ -47,15 +47,15 @@ export function Hero() {
       <div className="frame frame-pad">
         <div className="relative z-[2] grid items-center gap-8 pb-20 pt-[360px] sm:pt-[460px] lg:grid-cols-[1.08fr_1fr] lg:pb-24 lg:pt-[150px]">
           <div>
-            <h1 className="text-balance text-[2.375rem] font-medium leading-[1.06] tracking-[-0.038em] sm:text-[3.125rem] lg:text-[3.375rem] lg:leading-[1.04]">
+            <h1 className="load-rise text-balance text-[2.375rem] font-medium leading-[1.06] tracking-[-0.038em] sm:text-[3.125rem] lg:text-[3.375rem] lg:leading-[1.04]">
               <span className="text-ink">Help every shopper find their match.</span>{" "}
-              <span className="text-brand-pop">
+              <span className="load-fade text-brand-pop" style={{ ["--d" as string]: "160ms" }}>
                 Gleame turns your catalog into a product quiz, written by AI and
                 matched to what you sell.
               </span>
             </h1>
 
-            <div className="mt-10 flex flex-wrap items-center gap-3">
+            <div className="load-rise mt-10 flex flex-wrap items-center gap-3" style={{ ["--d" as string]: "220ms" }}>
               <ButtonLink href={SHOPIFY_URL} external size="lg" arrow>
                 Install on Shopify
               </ButtonLink>
@@ -68,7 +68,8 @@ export function Hero() {
               href={REVIEWS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 inline-flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[13.5px] text-ink-3 transition-colors hover:text-ink"
+              className="load-rise mt-8 inline-flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[13.5px] text-ink-3 transition-colors hover:text-ink"
+              style={{ ["--d" as string]: "320ms" }}
             >
               <Stars />
               <span>
@@ -79,8 +80,16 @@ export function Hero() {
 
           <div className="relative hidden h-[600px] lg:block">
             <Echo id="echo-hero" className="absolute left-1/2 top-1/2 h-[980px] w-[980px] -translate-x-[44%] -translate-y-1/2" />
-            <QuestionVignette className="absolute left-[2%] top-[70px] z-[2] w-[236px] -rotate-[2deg]" />
-            <MatchCard className="absolute bottom-[64px] right-[0%] z-[2] rotate-[1.5deg]" />
+            <div className="load-float-l absolute left-[2%] top-[70px] z-[2]" style={{ ["--d" as string]: "450ms" }}>
+              <div className="bob">
+                <QuestionVignette className="w-[236px] -rotate-[2deg]" />
+              </div>
+            </div>
+            <div className="load-float-u absolute bottom-[64px] right-0 z-[2]" style={{ ["--d" as string]: "650ms" }}>
+              <div className="bob" style={{ ["--b" as string]: "-3.5s" }}>
+                <MatchCard className="rotate-[1.5deg]" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
