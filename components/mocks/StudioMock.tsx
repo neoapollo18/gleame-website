@@ -685,7 +685,9 @@ function LiveCanvas() {
         <Dot tone="green" />
         <span className="font-medium">Live on your store</span>
         <span className="truncate font-mono text-[11px] text-muted">ostra.co/pages/find-your-shade</span>
-        <span className="ml-auto hidden text-[11.5px] font-medium text-brand sm:inline">Open</span>
+        <span className="ml-auto">
+          <Badge>Sample data</Badge>
+        </span>
       </div>
       <div className="mt-3 grid grid-cols-2 gap-2">
         {LIVE_KPIS.map((k) => (

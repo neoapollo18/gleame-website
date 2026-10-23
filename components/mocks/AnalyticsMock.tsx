@@ -83,6 +83,10 @@ export function AnalyticsMock({ className }: { className?: string }) {
         {tab === "Products" && <Products />}
         {tab === "Leads" && <Leads />}
       </div>
+      <p className="mt-2 flex items-center justify-end gap-1.5 px-1 text-[11px] text-muted sm:mt-2.5">
+        <span className="h-1.5 w-1.5 rounded-full bg-line-strong" aria-hidden="true" />
+        Sample data from a demo store
+      </p>
     </div>
   );
 }
