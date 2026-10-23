@@ -7,7 +7,7 @@ const brands = [
   { name: "Holicow", logo: "/holicow.png", w: 120, h: 24 },
   { name: "The Men Pen", logo: "/menpen.png", w: 110, h: 55 },
   { name: "Wett", logo: "/wett.png", w: 82, h: 26 },
-  { name: "Glossed by Nae", logo: "/glossedbynae.png", w: 104, h: 49 },
+  { name: "ORLY", logo: "/orly.svg", w: 96, h: 27 },
 ];
 
 export function LogoStrip() {
