@@ -46,8 +46,8 @@ export function QuizTypes() {
       <div className="pt-20 sm:pt-24 lg:pt-28">
         <SplitHeading
           className="h-section max-w-[800px]"
-          lead="Any quiz your store needs."
-          rest="Gleame reads what you sell and picks the format that fits, mapped to your entire catalog, not a preset few."
+          lead="Any quiz, any store."
+          rest="Gleame picks the right format for what you sell and matches it to your whole catalog."
         />
       </div>
 

@@ -28,8 +28,8 @@ export function AnalyticsBand() {
           <SplitHeading
             dark
             className="h-section max-w-[820px]"
-            lead="Know what your quiz sells."
-            rest="Every start, answer, match, cart and order, from the first shopper. See which answers buy and which products the quiz moves."
+            lead="See what your quiz sells."
+            rest="Follow every shopper from first answer to final order."
           />
           <Reveal variant="rise" className="mt-12 lg:mt-14">
             <AnalyticsMock />

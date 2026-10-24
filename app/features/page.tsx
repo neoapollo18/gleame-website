@@ -71,8 +71,8 @@ export default function FeaturesPage() {
 
       <FeatureRow
         id="build"
-        lead="A whole quiz from one click."
-        rest="Gleame reads your products, collections and theme, then writes the questions, the answers and which products each answer leads to."
+        lead="One click. Whole quiz."
+        rest="Gleame reads your store and writes the questions, answers and product matches for you."
         points={[
           "Pick goals first: grow your list, cut returns, learn about shoppers",
           "Choose exactly which products and collections the quiz covers",
@@ -91,8 +91,8 @@ export default function FeaturesPage() {
         <div className="grid gap-10 pt-16 sm:pt-20 lg:grid-cols-[1.1fr_1fr] lg:items-end lg:pt-24">
           <SplitHeading
             className="text-[1.625rem] font-medium leading-[1.14] tracking-[-0.026em] sm:text-[2rem]"
-            lead="Every detail, editable."
-            rest="Screens, text and labels, images, style and the flow between questions, with a live preview on desktop and mobile."
+            lead="Make it yours."
+            rest="Edit every word, image, color and step, with a live preview on desktop and mobile."
           />
           <ul className="grid grid-cols-2 gap-px overflow-hidden rounded-[6px] border border-line bg-line text-[14px]">
             {[
@@ -117,8 +117,8 @@ export default function FeaturesPage() {
         id="matching"
         tone="wash"
         flip
-        lead="Recommendations you can check."
-        rest="Every answer leads to products from your catalog, through a rule written in plain words. Anything Gleame can't match is flagged before you publish."
+        lead="No black-box matches."
+        rest="Each answer maps to your products with a rule in plain English. Gaps get flagged before you publish."
         points={[
           "Mapped to your entire catalog, not a preset few",
           "Rules for every result, like “never show gift cards”",
@@ -130,8 +130,8 @@ export default function FeaturesPage() {
 
       <FeatureRow
         id="templates"
-        lead="Five starting points, restyled to your brand."
-        rest="Gleame picks the template that fits what you sell and sets aside the ones that don't. Change it any time from the Studio."
+        lead="On brand from the start."
+        rest="Gleame picks the best of five templates for what you sell and styles it to your theme."
         points={[
           "Match, Routine, Discover, Consult and Clean",
           "Takes your theme's fonts and colors by default",
@@ -145,8 +145,8 @@ export default function FeaturesPage() {
         id="leads"
         tone="wash"
         flip
-        lead="Capture email and SMS inside the quiz."
-        rest="Shoppers trade an email for their matches. Their answers travel with the lead, so you can segment and follow up with what they told you."
+        lead="Turn quiz takers into subscribers."
+        rest="Collect email and SMS in the quiz. Every lead arrives with their answers, ready to segment."
         points={[
           "Email and SMS steps you can place anywhere in the flow",
           "Answers saved with every lead",
@@ -164,7 +164,7 @@ export default function FeaturesPage() {
       <FeatureRow
         id="upsell"
         lead="Sell the set, not just the match."
-        rest="Pair each match with what goes with it. Shoppers add everything in one tap, so the quiz lifts order value as well as conversion."
+        rest="Show what goes with each match. One tap adds it all to cart, so orders get bigger."
         points={[
           "Upsells and cross-sells on the results screen",
           "Routines and bundles built from your catalog",
@@ -189,8 +189,8 @@ export default function FeaturesPage() {
           <SplitHeading
             dark
             className="max-w-[820px] text-[1.625rem] font-medium leading-[1.14] tracking-[-0.026em] sm:text-[2rem]"
-            lead="Analytics that tie answers to orders."
-            rest="Overview, funnel, answers, products and leads. See where shoppers drop off, which answers buy, and the revenue the quiz brings in."
+            lead="Know which answers buy."
+            rest="See where shoppers drop off, what they pick and how much the quiz earns."
           />
           <Reveal variant="rise" className="mt-10 lg:mt-12">
             <AnalyticsMock />
@@ -202,8 +202,8 @@ export default function FeaturesPage() {
         id="try-on"
         tone="wash"
         flip
-        lead="Let shoppers see it on themselves."
-        rest="For beauty stores, add AI virtual try-on to the quiz. Shoppers see their match on their own photo, right next to Add to cart."
+        lead="Let them try it on."
+        rest="For beauty stores: shoppers see their match on their own photo, right next to Add to cart."
         points={[
           "An optional photo step that shoppers can always skip",
           "Try-on shown with their matches",
@@ -218,8 +218,8 @@ export default function FeaturesPage() {
           <div>
             <SplitHeading
               className="text-[1.625rem] font-medium leading-[1.14] tracking-[-0.026em] sm:text-[2rem]"
-              lead="Switching is part of setup."
-              rest="Moving from another quiz app? Book a free expert setup and we'll rebuild your quiz on Gleame, mapped to your current catalog."
+              lead="Switching is on us."
+              rest="Coming from another quiz app? We'll rebuild your quiz on Gleame for free."
             />
             <div className="mt-8">
               <ButtonLink href="/contact" arrow>

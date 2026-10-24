@@ -33,8 +33,8 @@ export function Reviews() {
       <div className="flex flex-col gap-6 pt-20 sm:pt-24 lg:flex-row lg:items-end lg:justify-between lg:pt-28">
         <SplitHeading
           className="h-section max-w-[760px]"
-          lead={`Rated ${RATING.score} by the brands using it.`}
-          rest={`${RATING.count} reviews on the Shopify App Store, from nail color to hair extensions.`}
+          lead={`Rated ${RATING.score} on Shopify.`}
+          rest={`${RATING.count} reviews from brands selling everything from nail polish to hair extensions.`}
         />
         <TextLink href={REVIEWS_URL} external className="shrink-0 text-[15px]">
           Read every review
